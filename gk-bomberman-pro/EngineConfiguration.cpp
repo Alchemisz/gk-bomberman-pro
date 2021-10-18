@@ -6,7 +6,7 @@ EngineConfiguration EngineConfiguration::getDefault()
 	config.setFPS(60);
 	config.setWidth(1280);
 	config.setHeight(720);
-	return EngineConfiguration();
+	return config;
 }
 
 void EngineConfiguration::setHeight(int value)
