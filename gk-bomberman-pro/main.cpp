@@ -4,7 +4,7 @@
 
 int main()
 {
-	Engine engine(EngineConfiguration::getDefault());
-	engine.init();
-	engine.loop();
+	Engine* engine = Engine::getInstance();
+	engine->init();
+	engine->loop();
 }
