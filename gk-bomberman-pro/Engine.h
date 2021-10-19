@@ -9,12 +9,15 @@
 class Engine
 {
 public:
-	Engine(EngineConfiguration config);
 	void clearScreen(ALLEGRO_COLOR color);
 	void errorMessage(std::string title, std::string heading, std::string errorMsg);
 	void init();
 	void loop();
 	void close();
+	static Engine* getInstance();
+	static Engine* engine;
+	Engine(EngineConfiguration config);
+protected:
 private:
 	EngineConfiguration config;
 	ALLEGRO_DISPLAY* display;
@@ -22,3 +25,11 @@ private:
 	ALLEGRO_EVENT_QUEUE* eventQueue;
 	ALLEGRO_EVENT_QUEUE* loopQueue;
 };
+
+
+
+
+
+
+
+

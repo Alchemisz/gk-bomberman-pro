@@ -1,5 +1,7 @@
 #include "Engine.h"
 
+Engine *Engine::engine = nullptr;
+
 Engine::Engine(EngineConfiguration config)
 {
     this->config = config;
@@ -63,4 +65,12 @@ void Engine::close()
     al_destroy_event_queue(this->loopQueue);
     al_destroy_event_queue(this->eventQueue);
     al_destroy_display(this->display);
+}
+
+Engine* Engine::getInstance()
+{
+    if (engine == nullptr) {
+        engine = new Engine(EngineConfiguration::getDefault());
+    }
+    return engine;
 }
