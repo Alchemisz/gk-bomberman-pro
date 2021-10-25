@@ -1,4 +1,6 @@
 #include "Engine.h"
+#include "PrimitiveRenderer.h"
+
 
 Engine *Engine::engine = nullptr;
 
@@ -49,10 +51,16 @@ void Engine::loop()
             if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
                 running = false;
             }
-            clearScreen(al_map_rgb(255, 0, 0));
+            clearScreen(al_map_rgb(255, 255, 255));
             al_draw_line(0, 0, 1280, 720, al_map_rgb(0, 0, 0), 10);
 
         } while (al_get_next_event(eventQueue, &ev) != NULL);
+
+        //Test lini
+        PrimitiveRenderer renderer = PrimitiveRenderer();
+        renderer.line(Point2D(10, 100), Point2D(50, 500), al_map_rgb(0, 0, 255));
+
+
         al_flip_display();
         ev.type = NULL;
     }
