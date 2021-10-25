@@ -59,8 +59,19 @@ void Engine::loop()
         //Test lini
         PrimitiveRenderer renderer = PrimitiveRenderer();
         renderer.line(Point2D(10, 100), Point2D(50, 500), al_map_rgb(0, 0, 255));
+        renderer.rectangle(Point2D(200, 200), Point2D(400, 400), al_map_rgb_f(0.0, 1.0, 0.0), false);
+        renderer.rectangle(Point2D(250, 250), Point2D(350, 350), al_map_rgb_f(0.0, 1.0, 1.0), true);
+        renderer.circle(Point2D(600, 600), 40, al_map_rgb(255, 0, 0), false);
+        renderer.circle(Point2D(600, 600), 20, al_map_rgb(255, 0, 0), true);
+       
+        std::vector<Point2D> tempChain;
+        tempChain.push_back(Point2D(100, 100));
+        tempChain.push_back(Point2D(200, 500));
+        tempChain.push_back(Point2D(300, 50));
+        tempChain.push_back(Point2D(400, 600));
 
-
+        renderer.polygonalChain(tempChain, al_map_rgb(255, 0, 0),true); // ZAMKNIETA LINIA LAMANA
+        
         al_flip_display();
         ev.type = NULL;
     }
