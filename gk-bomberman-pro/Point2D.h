@@ -6,6 +6,7 @@ private:
 
 public:
 	Point2D(int x, int y);
+	Point2D();
 	int getX();
 	int getY();
 	void setX(int x);
