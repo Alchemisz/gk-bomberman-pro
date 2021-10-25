@@ -59,7 +59,10 @@ void Engine::loop()
         //Test lini
         PrimitiveRenderer renderer = PrimitiveRenderer();
         renderer.line(Point2D(10, 100), Point2D(50, 500), al_map_rgb(0, 0, 255));
-
+        renderer.rectangle(Point2D(200, 200), Point2D(400, 400), al_map_rgb_f(0.0, 1.0, 0.0), false);
+        renderer.rectangle(Point2D(250, 250), Point2D(350, 350), al_map_rgb_f(0.0, 1.0, 1.0), true);
+        renderer.circle(Point2D(600, 600), 40, al_map_rgb(255, 0, 0), false);
+        renderer.circle(Point2D(600, 600), 20, al_map_rgb(255, 0, 0), true);
 
         al_flip_display();
         ev.type = NULL;
