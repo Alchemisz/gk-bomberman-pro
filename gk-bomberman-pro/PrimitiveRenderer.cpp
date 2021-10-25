@@ -1,22 +1,5 @@
 #include "PrimitiveRenderer.h"
 
-//void PrimitiveRenderer::line(Point2D p0, Point2D p1, ALLEGRO_COLOR colour)
-//{
-//	int x;
-//	float y, m;
-//
-//	int dy = p1.getY() - p0.getY();
-//	int dx = p1.getX() - p0.getX();
-//	m = (float) dy / dx;
-//	y = p0.getY();
-//	
-//	for (x = p0.getX(); x <= p1.getX(); x++)
-//	{
-//		al_put_pixel(x, (int)(y + 0.5), colour);
-//		y += m;
-//	}
-//}
-
 void PrimitiveRenderer::rectangle(Point2D p0, Point2D p1, ALLEGRO_COLOR colour, bool filled)
 {
 	if (filled)
