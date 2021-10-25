@@ -38,7 +38,18 @@ void PrimitiveRenderer::polygonalChain(std::vector<Point2D> chain, ALLEGRO_COLOR
 	if (closed)line(chain[chain.size() - 1 ], chain[0],colour);
 }
 
-
+void PrimitiveRenderer::polygonalChain(std::vector<LineSegment> chain, ALLEGRO_COLOR colour, bool closed)
+{
+	for (int i = 0; i < chain.size(); i++)
+	{
+		line(chain[i].getBeggining(), chain[i].getEnd(), colour);
+		if (i != chain.size() - 1) {
+			line(chain[i].getEnd(), chain[i+1].getBeggining(), colour);
+		}
+	}
+	if (closed)
+		line(chain[chain.size() - 1].getEnd(), chain[0].getBeggining(), colour);
+}
 
 
 
