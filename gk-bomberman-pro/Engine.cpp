@@ -71,6 +71,14 @@ void Engine::loop()
         tempChain.push_back(Point2D(400, 600));
 
         renderer.polygonalChain(tempChain, al_map_rgb(255, 0, 0),true); // ZAMKNIETA LINIA LAMANA
+
+        std::vector<LineSegment> tempChain2;
+        tempChain2.push_back(LineSegment(Point2D(10, 100), Point2D(30, 100)));
+        tempChain2.push_back(LineSegment(Point2D(10, 200), Point2D(30, 200)));
+        tempChain2.push_back(LineSegment(Point2D(10, 300), Point2D(30, 300)));
+        tempChain2.push_back(LineSegment(Point2D(10, 400), Point2D(30, 400)));
+
+        renderer.polygonalChain(tempChain2, al_map_rgb(255, 0, 0), true);
         
         al_flip_display();
         ev.type = NULL;
