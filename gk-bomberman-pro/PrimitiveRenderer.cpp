@@ -46,6 +46,15 @@ void PrimitiveRenderer::singlePoint(Point2D p, ALLEGRO_COLOR colour)
 	al_draw_pixel(p.getX(), p.getY(), colour);
 }
 
+void PrimitiveRenderer::polygonalChain(std::vector<Point2D> chain, ALLEGRO_COLOR colour, bool closed)
+{
+	for (int i = 0; i < chain.size() - 1; i++)
+	{
+		line(chain[i], chain[i + 1], colour);
+	}
+	if (closed)line(chain[chain.size() - 1 ], chain[0],colour);
+}
+
 
 
 
