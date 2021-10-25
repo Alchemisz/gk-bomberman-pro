@@ -6,6 +6,12 @@ Point2D::Point2D(int x, int y)
 	this->y = y;
 }
 
+Point2D::Point2D()
+{
+	this->x = 0;
+	this->y = 0;
+}
+
 int Point2D::getX()
 {
 	return this->x;
