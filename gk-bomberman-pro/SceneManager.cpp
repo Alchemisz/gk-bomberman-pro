@@ -1,19 +1,24 @@
 #include "SceneManager.h"
-
-void SceneManager::setScene(Scene scene)
-{
-	
-}
-
-SceneManager::SceneManager()
-{
-	this->currentScene = nullptr;
-}
+Scene* SceneManager::scene = nullptr;
+Engine* SceneManager::engine = nullptr;
 
 void SceneManager::setScene(Scene* scene)
 {
-	if (currentScene != nullptr) {
-		delete currentScene;
+	if (SceneManager::engine != nullptr) {
+		if (SceneManager::scene != nullptr) {
+			SceneManager::engine->setScene(scene); 
+			SceneManager::scene->dispose();
+			delete SceneManager::scene;
+			SceneManager::scene = scene;
+		} else {
+			SceneManager::engine->setScene(scene);
+			SceneManager::scene = scene;
+		}
+		SceneManager::scene->show();
 	}
-	this->currentScene = scene;
+}
+
+void SceneManager::initialize(Engine* engine)
+{
+	SceneManager::engine = engine;
 }

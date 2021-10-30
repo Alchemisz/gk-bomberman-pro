@@ -5,6 +5,7 @@
 #include <allegro5/allegro_native_dialog.h>
 #include <allegro5/allegro_primitives.h>
 #include <string>
+#include "Scene.h"
 
 class Engine
 {
@@ -14,11 +15,13 @@ public:
 	void init();
 	void loop();
 	void close();
+	void setScene(Scene* scene);
 	static Engine* getInstance();
 	static Engine* engine;
 	Engine(EngineConfiguration config);
 protected:
 private:
+	Scene* scene;
 	EngineConfiguration config;
 	ALLEGRO_DISPLAY* display;
 	ALLEGRO_TIMER* loopTimer;

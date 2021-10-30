@@ -147,6 +147,7 @@
     <ClCompile Include="EngineConfiguration.cpp" />
     <ClCompile Include="LineSegment.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="PrimitiveRenderer.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EngineConfiguration.h" />
     <ClInclude Include="LineSegment.h" />
+    <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="PrimitiveRenderer.h" />
     <ClInclude Include="Scene.h" />

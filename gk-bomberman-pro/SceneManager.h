@@ -1,12 +1,14 @@
 #pragma once
 #include <list>
 #include "Scene.h"
+#include "Engine.h"
 
 class SceneManager
 {
 	private:
-		Scene* currentScene;
+		static Engine* engine;
+		static Scene* scene;
 	public: 
-		SceneManager();
-		void setScene(Scene* scene);
+		static void setScene(Scene* scene);
+		static void initialize(Engine* engine);
 };
