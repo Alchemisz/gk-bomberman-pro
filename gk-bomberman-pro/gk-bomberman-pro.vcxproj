@@ -149,6 +149,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="PrimitiveRenderer.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -159,6 +161,8 @@
     <ClInclude Include="LineSegment.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="PrimitiveRenderer.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
