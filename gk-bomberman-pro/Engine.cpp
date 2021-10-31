@@ -23,6 +23,7 @@ void Engine::init()
     al_install_mouse();
     al_install_keyboard();
     al_init_primitives_addon();
+    al_init_image_addon();
     display = al_create_display(config.getWidth(), config.getHeight());
     loopQueue = al_create_event_queue();
     float fps = 1.0 / (float)config.getFPS();

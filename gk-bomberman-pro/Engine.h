@@ -9,6 +9,7 @@
 #include "PrimitiveRenderer.h"
 #include "MainMenuScene.h"
 #include "SceneManager.h"
+#include <allegro5/allegro_image.h>
 
 class Engine
 {

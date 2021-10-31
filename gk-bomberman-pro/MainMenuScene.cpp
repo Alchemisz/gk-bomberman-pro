@@ -1,12 +1,12 @@
 #include "MainMenuScene.h"
-
+#include "GameScene.h"
 void MainMenuScene::render() {
 	ALLEGRO_EVENT ev;
     ev.type = NULL;
 	
     do {
 		if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
-			SceneManager::setScene(new DebugScene());
+			SceneManager::setScene(new GameScene());
 		}
     } while (al_get_next_event(this->eventQueue, &ev) != NULL);
 	al_draw_line(0, 0, 1280, 720, al_map_rgb(0, 0, 0), 10);
