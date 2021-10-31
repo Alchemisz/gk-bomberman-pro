@@ -6,6 +6,8 @@
 #include "Scene.h"
 #include "Block.h"
 #include <iostream>
+#include "MapGenerator.h"
+
 class GameScene : public Scene
 {
 private:
@@ -14,8 +16,11 @@ private:
 	ALLEGRO_BITMAP* block_floor;
 	ALLEGRO_BITMAP* block_wall;
 	ALLEGRO_BITMAP* block_stone;
+	ALLEGRO_BITMAP* block_wall_border[4];
 
 	ALLEGRO_BITMAP* main_world;
+
+	MapGenerator MapGen;
 
 public:
 	virtual void render();
