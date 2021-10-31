@@ -1,6 +1,4 @@
 #include "Engine.h"
-#include "PrimitiveRenderer.h"
-
 
 Engine *Engine::engine = nullptr;
 
@@ -27,9 +25,11 @@ void Engine::init()
     al_init_primitives_addon();
     display = al_create_display(config.getWidth(), config.getHeight());
     loopQueue = al_create_event_queue();
-    loopTimer = al_create_timer(1.0 / config.getFPS());
+    float fps = 1.0 / (float)config.getFPS();
+    loopTimer = al_create_timer(1.0 / (float)config.getFPS());
     al_register_event_source(loopQueue, al_get_timer_event_source(loopTimer));
     al_start_timer(loopTimer);
+    SceneManager::setScene(new MainMenuScene());
 }
 
 void Engine::loop()
@@ -39,10 +39,11 @@ void Engine::loop()
     bool running = true;
     while (running)
     {
-        al_wait_for_event(loopQueue, &ev);
+        al_wait_for_event(loopQueue, &ev);  
         clearScreen(white);
 
-        this->scene->render();
+        SceneManager::update();
+        SceneManager::scene->render();
 
         al_flip_display();
         ev.type = NULL;
@@ -54,11 +55,6 @@ void Engine::close()
 {
     al_destroy_event_queue(this->loopQueue);
     al_destroy_display(this->display);
-}
-
-void Engine::setScene(Scene* scene)
-{
-    this->scene = scene;
 }
 
 Engine* Engine::getInstance()

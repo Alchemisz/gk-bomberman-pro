@@ -1,18 +1,15 @@
-#include "MainMenuScene.h"
+#include "DebugScene.h"
+#include <iostream>
 
-void MainMenuScene::render() {
+void DebugScene::render() {
 	ALLEGRO_EVENT ev;
-    ev.type = NULL;
-	
-    do {
-		if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
-			SceneManager::setScene(new DebugScene());
-		}
-    } while (al_get_next_event(this->eventQueue, &ev) != NULL);
-	al_draw_line(0, 0, 1280, 720, al_map_rgb(0, 0, 0), 10);
+	ev.type = NULL;
+
+	i = (i + 10) % 700;
+	al_draw_line(0, 0, 1280, i, al_map_rgb(0, 0, 0), 10);
 }
 
-void MainMenuScene::show()
+void DebugScene::show()
 {
 	this->eventQueue = al_create_event_queue();
 	al_register_event_source(this->eventQueue, al_get_mouse_event_source());
@@ -20,7 +17,7 @@ void MainMenuScene::show()
 	al_register_event_source(this->eventQueue, al_get_display_event_source(al_get_current_display()));
 }
 
-void MainMenuScene::dispose()
+void DebugScene::dispose()
 {
 	al_destroy_event_queue(this->eventQueue);
 }

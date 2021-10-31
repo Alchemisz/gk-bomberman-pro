@@ -7,8 +7,6 @@
 int main()
 {
 	Engine* engine = Engine::getInstance();
-	SceneManager::initialize(engine);
 	engine->init();
-	SceneManager::setScene(new MainMenuScene());
 	engine->loop();
 }

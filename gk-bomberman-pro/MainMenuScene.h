@@ -1,6 +1,8 @@
 #pragma once
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
+#include "SceneManager.h"
+#include "DebugScene.h"
 #include "Scene.h"
 class MainMenuScene : public Scene
 {
