@@ -1,5 +1,42 @@
 #include "GameScene.h"
 
+void GameScene::playerUpdate(Player& player)
+{
+	player.setIsMoving(false);
+	float deltaX = player.getX(), deltaY = player.getY();
+
+	if (Keyboard::isKeyDown(ALLEGRO_KEY_W)) {
+		deltaY = deltaY - player.getVelocity();
+		player.setIsMoving(true);
+		player.setPositionState(UP);
+	}
+	if (Keyboard::isKeyDown(ALLEGRO_KEY_S)) {
+		deltaY = deltaY + player.getVelocity();
+		player.setIsMoving(true);
+		player.setPositionState(DOWN);
+	}
+	if (Keyboard::isKeyDown(ALLEGRO_KEY_A)) {
+		deltaX = deltaX - player.getVelocity();
+		player.setIsMoving(true);
+		player.setPositionState(LEFT);
+	}
+	if (Keyboard::isKeyDown(ALLEGRO_KEY_D)) {
+		deltaX = deltaX + player.getVelocity();
+		player.setIsMoving(true);
+		player.setPositionState(RIGHT);
+	}
+	if ((deltaX < 0 || deltaX + 14 > MAP_WIDTH) || (deltaY < 0 || deltaY + 14 > MAP_HEIGHT)) {
+		return;
+	}
+	Block b1 = blocks[(int)((deltaX + 13 + 0.5) / Block::WIDTH)][(int)((deltaY + 13 + 0.5) / Block::WIDTH)];
+	Block b2 = blocks[(int)((deltaX - 0 + 0.5) / Block::WIDTH)][(int)((deltaY - 0 + 0.5) / Block::WIDTH)];
+	if (b1.getBlockType() == AIR && b2.getBlockType() == AIR) {
+		
+		player.setX(deltaX);
+		player.setY(deltaY);
+	}
+}
+
 void GameScene::render()
 {
 	ALLEGRO_BITMAP* backup_world = al_get_target_bitmap();
@@ -53,12 +90,27 @@ void GameScene::render()
 
 	//player.drawPlayer();
 
-	player.move();
-	if (player.getIsMoving())
-		PlayerAnim->drawAnimation(player.getX(), player.getY(), (int)player.getPositionState());
-	else PlayerAnim->drawDefaultPosition(player.getX(), player.getY(), (int)player.getPositionState());
+	//player.move();
+	//playerUpdate(player);
 
-	std::pair<int, int> block_pos = player.getBlockIndex();
+	for (Player* player : playerList) {
+		playerUpdate(*player);
+		if (player->getX() < 50) {
+			if (player->getIsMoving())
+				PlayerAnim->drawAnimation(player->getX(), player->getY(), (int)player->getPositionState());
+			else PlayerAnim->drawDefaultPosition(player->getX(), player->getY(), (int)player->getPositionState());
+		}
+		else {
+				if (player->getIsMoving())
+					PlayerAnim2->drawAnimation(player->getX(), player->getY(), (int)player->getPositionState());
+				else PlayerAnim2->drawDefaultPosition(player->getX(), player->getY(), (int)player->getPositionState());
+		}
+		
+	}
+
+	/*if (player.getIsMoving())
+		PlayerAnim->drawAnimation(player.getX(), player.getY(), (int)player.getPositionState());
+	else PlayerAnim->drawDefaultPosition(player.getX(), player.getY(), (int)player.getPositionState());*/
 
 
 
@@ -92,6 +144,7 @@ void GameScene::show()
 	this->block_wall_border[3] = al_load_bitmap("gfx/g_down.png");
 
 	this->PlayerAnim = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
+	this->PlayerAnim2 = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
 
 	for (int i = 0; i < 12; i++)
@@ -107,6 +160,17 @@ void GameScene::show()
 	}
 
 	MapGen.generateMap(this->blocks);
+
+	Player* pl1 = new Player();
+	Player* pl2 = new Player();
+	pl1->setX(0);
+	pl1->setY(0);
+
+	pl2->setX(220);
+	pl2->setY(220);
+
+	this->playerList.push_back(pl1);
+	this->playerList.push_back(pl2);
 }
 
 void GameScene::dispose()

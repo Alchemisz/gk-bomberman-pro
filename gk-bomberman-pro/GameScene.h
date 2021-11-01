@@ -24,14 +24,16 @@ private:
 	ALLEGRO_BITMAP* block_wall;
 	ALLEGRO_BITMAP* block_stone;
 	ALLEGRO_BITMAP* block_wall_border[4];
-
+	std::list<Player*> playerList;
 	ALLEGRO_BITMAP* main_world;
 
 	MapGenerator MapGen;
 	PrimitiveAnimation *PlayerAnim;
+	PrimitiveAnimation* PlayerAnim2;
 
 	Player player;
 
+	void playerUpdate(Player& player);
 public:
 	virtual void render();
 	virtual void show();

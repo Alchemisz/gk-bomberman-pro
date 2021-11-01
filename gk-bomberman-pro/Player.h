@@ -28,7 +28,9 @@ public:
 	float getX();
 	float getY();
 	bool getIsMoving();
+	void setIsMoving(bool moving);
 	direction getPositionState();
+	void setPositionState(direction state);
 	std::pair<int, int> getBlockIndex();
 };
 

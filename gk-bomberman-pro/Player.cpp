@@ -32,9 +32,19 @@ bool Player::getIsMoving()
 	return this->isMoving;
 }
 
+void Player::setIsMoving(bool moving)
+{
+	this->isMoving = moving;
+}
+
 direction Player::getPositionState()
 {
 	return this->state;
+}
+
+void Player::setPositionState(direction state)
+{
+	this->state = state;
 }
 
 std::pair<int, int> Player::getBlockIndex()
