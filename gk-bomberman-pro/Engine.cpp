@@ -31,6 +31,11 @@ void Engine::init()
     al_register_event_source(loopQueue, al_get_timer_event_source(loopTimer));
     al_start_timer(loopTimer);
     SceneManager::setScene(new MainMenuScene());
+
+    this->eventQueue = al_create_event_queue();
+    al_register_event_source(this->eventQueue, al_get_mouse_event_source());
+    al_register_event_source(this->eventQueue, al_get_keyboard_event_source());
+    al_register_event_source(this->eventQueue, al_get_display_event_source(al_get_current_display()));
 }
 
 void Engine::loop()
@@ -42,6 +47,20 @@ void Engine::loop()
     {
         al_wait_for_event(loopQueue, &ev);  
         clearScreen(white);
+
+        ALLEGRO_EVENT ev;
+        ev.type = NULL;
+
+        do {
+            if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
+                Keyboard::setDown(ev.keyboard.keycode, true);
+            } else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
+                Keyboard::setDown(ev.keyboard.keycode, false);
+            }
+            if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+                running = false;
+            }
+        } while (al_get_next_event(this->eventQueue, &ev) != NULL);
 
         SceneManager::update();
         SceneManager::scene->render();
@@ -55,6 +74,7 @@ void Engine::loop()
 void Engine::close()
 {
     al_destroy_event_queue(this->loopQueue);
+    al_destroy_event_queue(this->eventQueue);
     al_destroy_display(this->display);
 }
 

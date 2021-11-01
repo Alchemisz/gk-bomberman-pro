@@ -10,6 +10,7 @@
 #include "MainMenuScene.h"
 #include "SceneManager.h"
 #include <allegro5/allegro_image.h>
+#include "Keyboard.h"
 
 class Engine
 {
