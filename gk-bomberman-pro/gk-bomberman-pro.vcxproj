@@ -155,6 +155,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="PrimitiveAnimation.cpp" />
     <ClCompile Include="PrimitiveRenderer.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="LineSegment.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="MapGenerator.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="PrimitiveAnimation.h" />
     <ClInclude Include="PrimitiveRenderer.h" />
