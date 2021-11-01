@@ -13,6 +13,11 @@
 class GameScene : public Scene
 {
 private:
+
+	static const int SCALLING_LEVEL = 3;
+	const int MAP_WIDTH = 240;
+	const int MAP_HEIGHT = 240;
+
 	Block blocks[12][12];
 	ALLEGRO_BITMAP* block_floor;
 	ALLEGRO_BITMAP* block_wall;

@@ -56,7 +56,8 @@ void GameScene::render()
 
 	al_set_target_bitmap(al_get_backbuffer(al_get_current_display()));
 	al_clear_to_color(al_map_rgb(30, 30, 30));
-	al_draw_scaled_bitmap(this->main_world, 0, 0, 240, 240, (1280/2) - (720/2), 0, 720, 720, 0);
+	al_draw_scaled_bitmap(this->main_world, 0, 0, MAP_WIDTH, MAP_HEIGHT, (1280/2) - (720/2), 0,
+							MAP_WIDTH * SCALLING_LEVEL, MAP_HEIGHT * SCALLING_LEVEL, 0);
 
 }
 
