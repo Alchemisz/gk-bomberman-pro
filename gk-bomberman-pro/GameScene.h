@@ -9,6 +9,7 @@
 #include "MapGenerator.h"
 #include "PrimitiveAnimation.h"
 #include "Keyboard.h"
+#include "Player.h"
 
 class GameScene : public Scene
 {
@@ -28,6 +29,8 @@ private:
 
 	MapGenerator MapGen;
 	PrimitiveAnimation *PlayerTest;
+
+	Player player;
 
 public:
 	virtual void render();

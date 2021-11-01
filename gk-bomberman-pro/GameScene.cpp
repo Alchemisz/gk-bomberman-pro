@@ -50,7 +50,13 @@ void GameScene::render()
 			}
 		}
 	}
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_W)) {
+
+	player.drawPlayer();
+	player.move();
+	std::pair<int, int> block_pos = player.getBlockIndex();
+	std::cout << block_pos.first << " " << block_pos.second << std::endl;
+
+	if (Keyboard::isKeyDown(ALLEGRO_KEY_Q)) {
 		PlayerTest->drawAnimation(0, 0, 0);
 	}
 
