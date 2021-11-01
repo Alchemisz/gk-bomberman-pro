@@ -7,6 +7,7 @@
 #include "Block.h"
 #include <iostream>
 #include "MapGenerator.h"
+#include "PrimitiveAnimation.h"
 
 class GameScene : public Scene
 {
@@ -21,6 +22,7 @@ private:
 	ALLEGRO_BITMAP* main_world;
 
 	MapGenerator MapGen;
+	PrimitiveAnimation *PlayerTest;
 
 public:
 	virtual void render();

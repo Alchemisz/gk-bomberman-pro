@@ -50,10 +50,12 @@ void GameScene::render()
 			}
 		}
 	}
+	PlayerTest->drawAnimation(0, 0, 0);
 
 	al_set_target_bitmap(al_get_backbuffer(al_get_current_display()));
 	al_clear_to_color(al_map_rgb(30, 30, 30));
 	al_draw_scaled_bitmap(this->main_world, 0, 0, 240, 240, (1280/2) - (720/2), 0, 720, 720, 0);
+
 
 
 
@@ -92,6 +94,8 @@ void GameScene::show()
 	this->block_wall_border[1] = al_load_bitmap("gfx/g_up.png");
 	this->block_wall_border[2] = al_load_bitmap("gfx/g_right.png");
 	this->block_wall_border[3] = al_load_bitmap("gfx/g_down.png");
+
+	this->PlayerTest = new PrimitiveAnimation("gfx/ric.png", 44, 1 ,5, 124, 6644);
 
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
 
