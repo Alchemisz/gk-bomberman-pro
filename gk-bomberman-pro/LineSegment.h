@@ -9,4 +9,6 @@ class LineSegment {
 		LineSegment(Point2D beggining, Point2D end);
 		void setBeggining(Point2D point);
 		void setEnd(Point2D point);
+		Point2D getBeggining();
+		Point2D getEnd();
 };

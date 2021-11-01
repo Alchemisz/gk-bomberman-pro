@@ -17,3 +17,12 @@ void LineSegment::setBeggining(Point2D point) {
 void LineSegment::setEnd(Point2D point) {
 	this->beggining = end;
 }
+
+Point2D LineSegment::getBeggining() {
+	return this->beggining;
+}
+
+Point2D LineSegment::getEnd()
+{
+	return this->end;
+}
