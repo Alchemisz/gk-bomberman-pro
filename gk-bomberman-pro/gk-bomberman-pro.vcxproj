@@ -74,6 +74,7 @@
     <LinkIncremental>true</LinkIncremental>
     <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
     <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -82,6 +83,7 @@
     <LinkIncremental>true</LinkIncremental>
     <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
     <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -143,22 +145,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Block.cpp" />
+    <ClCompile Include="DebugScene.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineConfiguration.cpp" />
+    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="LineSegment.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Point2D.cpp" />
+    <ClCompile Include="PrimitiveAnimation.cpp" />
     <ClCompile Include="PrimitiveRenderer.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Block.h" />
+    <ClInclude Include="DebugScene.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EngineConfiguration.h" />
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="LineSegment.h" />
+    <ClInclude Include="MainMenuScene.h" />
+    <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Point2D.h" />
+    <ClInclude Include="PrimitiveAnimation.h" />
     <ClInclude Include="PrimitiveRenderer.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

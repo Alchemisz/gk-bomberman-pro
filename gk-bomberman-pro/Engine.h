@@ -5,6 +5,11 @@
 #include <allegro5/allegro_native_dialog.h>
 #include <allegro5/allegro_primitives.h>
 #include <string>
+#include "Scene.h"
+#include "PrimitiveRenderer.h"
+#include "MainMenuScene.h"
+#include "SceneManager.h"
+#include <allegro5/allegro_image.h>
 
 class Engine
 {
