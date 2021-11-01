@@ -3,12 +3,19 @@
 #include <allegro5/allegro_primitives.h>
 #include <iostream>
 #include "Block.h"
+
+enum direction {
+	LEFT = 0,UP,RIGHT,DOWN
+};
+
+
 class Player
 {
 private:
 	float x, y;
 	float velocity = 1;
-
+	bool isMoving;
+	direction state;
 public:
 	static const int PLAYER_WIDTH = 14;
 	void move();
@@ -20,6 +27,8 @@ public:
 	float getVelocity();
 	float getX();
 	float getY();
+	bool getIsMoving();
+	direction getPositionState();
 	std::pair<int, int> getBlockIndex();
 };
 

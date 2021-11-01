@@ -28,7 +28,7 @@ private:
 	ALLEGRO_BITMAP* main_world;
 
 	MapGenerator MapGen;
-	PrimitiveAnimation *PlayerTest;
+	PrimitiveAnimation *PlayerAnim;
 
 	Player player;
 

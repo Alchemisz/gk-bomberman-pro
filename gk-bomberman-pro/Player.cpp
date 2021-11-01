@@ -27,24 +27,45 @@ float Player::getY() {
 	return this->y;
 }
 
+bool Player::getIsMoving()
+{
+	return this->isMoving;
+}
+
+direction Player::getPositionState()
+{
+	return this->state;
+}
+
 std::pair<int, int> Player::getBlockIndex()
 {
 	return std::pair<int, int>(this->x / Block::WIDTH, this->y / Block::WIDTH);
 }
 
 void Player::move()
-{
+{	
+
+	this->isMoving = false;
+
 	if (Keyboard::isKeyDown(ALLEGRO_KEY_W)) {
 		this->y -= this->velocity;
+		this->isMoving = true;
+		this->state = UP;
 	}
 	if (Keyboard::isKeyDown(ALLEGRO_KEY_A)) {
 		this->x -= this->velocity;
+		this->isMoving = true;
+		this->state = LEFT;
 	}
 	if (Keyboard::isKeyDown(ALLEGRO_KEY_S)) {
 		this->y += this->velocity;
+		this->isMoving = true;
+		this->state = DOWN;
 	}
 	if (Keyboard::isKeyDown(ALLEGRO_KEY_D)) {
 		this->x += this->velocity;
+		this->isMoving = true;
+		this->state = RIGHT;
 	}
 }
 

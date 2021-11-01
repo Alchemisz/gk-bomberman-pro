@@ -51,14 +51,16 @@ void GameScene::render()
 		}
 	}
 
-	player.drawPlayer();
-	player.move();
-	std::pair<int, int> block_pos = player.getBlockIndex();
-	std::cout << block_pos.first << " " << block_pos.second << std::endl;
+	//player.drawPlayer();
 
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_Q)) {
-		PlayerTest->drawAnimation(0, 0, 0);
-	}
+	player.move();
+	if (player.getIsMoving())
+		PlayerAnim->drawAnimation(player.getX(), player.getY(), (int)player.getPositionState());
+	else PlayerAnim->drawDefaultPosition(player.getX(), player.getY(), (int)player.getPositionState());
+
+	std::pair<int, int> block_pos = player.getBlockIndex();
+
+
 
 	al_set_target_bitmap(al_get_backbuffer(al_get_current_display()));
 	al_clear_to_color(al_map_rgb(30, 30, 30));
@@ -89,8 +91,7 @@ void GameScene::show()
 	this->block_wall_border[2] = al_load_bitmap("gfx/g_right.png");
 	this->block_wall_border[3] = al_load_bitmap("gfx/g_down.png");
 
-	this->PlayerTest = new PrimitiveAnimation("gfx/ric.png", 44, 1 ,5, 124, 6644);
-
+	this->PlayerAnim = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
 
 	for (int i = 0; i < 12; i++)
