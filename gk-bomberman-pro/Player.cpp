@@ -52,15 +52,15 @@ void Player::move()
 		this->isMoving = true;
 		this->state = UP;
 	}
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_A)) {
-		this->x -= this->velocity;
-		this->isMoving = true;
-		this->state = LEFT;
-	}
 	if (Keyboard::isKeyDown(ALLEGRO_KEY_S)) {
 		this->y += this->velocity;
 		this->isMoving = true;
 		this->state = DOWN;
+	}
+	if (Keyboard::isKeyDown(ALLEGRO_KEY_A)) {
+		this->x -= this->velocity;
+		this->isMoving = true;
+		this->state = LEFT;
 	}
 	if (Keyboard::isKeyDown(ALLEGRO_KEY_D)) {
 		this->x += this->velocity;
