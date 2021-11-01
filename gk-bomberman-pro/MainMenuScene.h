@@ -4,10 +4,11 @@
 #include "SceneManager.h"
 #include "DebugScene.h"
 #include "Scene.h"
+#include "Keyboard.h"
+#include "GameScene.h"
 class MainMenuScene : public Scene
 {
 	private:
-		ALLEGRO_EVENT_QUEUE* eventQueue;
 	public: 
 		virtual void render();
 		virtual void show();

@@ -8,11 +8,11 @@
 #include <iostream>
 #include "MapGenerator.h"
 #include "PrimitiveAnimation.h"
+#include "Keyboard.h"
 
 class GameScene : public Scene
 {
 private:
-	ALLEGRO_EVENT_QUEUE* eventQueue;
 	Block blocks[12][12];
 	ALLEGRO_BITMAP* block_floor;
 	ALLEGRO_BITMAP* block_wall;

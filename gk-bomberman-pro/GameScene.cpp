@@ -50,31 +50,18 @@ void GameScene::render()
 			}
 		}
 	}
-	PlayerTest->drawAnimation(0, 0, 0);
+	if (Keyboard::isKeyDown(ALLEGRO_KEY_W)) {
+		PlayerTest->drawAnimation(0, 0, 0);
+	}
 
 	al_set_target_bitmap(al_get_backbuffer(al_get_current_display()));
 	al_clear_to_color(al_map_rgb(30, 30, 30));
 	al_draw_scaled_bitmap(this->main_world, 0, 0, 240, 240, (1280/2) - (720/2), 0, 720, 720, 0);
 
-
-
-
-	ALLEGRO_EVENT ev;
-	ev.type = NULL;
-
-	do {
-		if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
-			MapGen.generateMap(this->blocks);
-		}
-	} while (al_get_next_event(this->eventQueue, &ev) != NULL);
 }
 
 void GameScene::show()
 {	
-	this->eventQueue = al_create_event_queue();
-	al_register_event_source(this->eventQueue, al_get_mouse_event_source());
-	al_register_event_source(this->eventQueue, al_get_keyboard_event_source());
-	al_register_event_source(this->eventQueue, al_get_display_event_source(al_get_current_display()));
 
 
 	this->main_world = al_create_bitmap(240, 240);
@@ -116,6 +103,5 @@ void GameScene::show()
 
 void GameScene::dispose()
 {
-	al_destroy_event_queue(this->eventQueue);
 
 }
