@@ -22,6 +22,8 @@ void GameScene::render()
 			}
 			case BLOCK_TYPE::STONE:
 				al_draw_bitmap(this->block_stone, blocks[i][j].getX(), blocks[i][j].getY(), 0);
+				PlayerTest->drawAnimation(blocks[i][j].getX(), blocks[i][j].getY(), 0);
+				//Do testu animacji 
 				break;
 			default:
 				break;
@@ -54,7 +56,6 @@ void GameScene::render()
 	al_set_target_bitmap(al_get_backbuffer(al_get_current_display()));
 	al_clear_to_color(al_map_rgb(30, 30, 30));
 	al_draw_scaled_bitmap(this->main_world, 0, 0, 240, 240, (1280/2) - (720/2), 0, 720, 720, 0);
-
 
 
 	ALLEGRO_EVENT ev;
@@ -92,6 +93,8 @@ void GameScene::show()
 	this->block_wall_border[1] = al_load_bitmap("gfx/g_up.png");
 	this->block_wall_border[2] = al_load_bitmap("gfx/g_right.png");
 	this->block_wall_border[3] = al_load_bitmap("gfx/g_down.png");
+
+	this->PlayerTest = new PrimitiveAnimation("gfx/wallanim.png", 7, 1 , 60, 20, 140);
 
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
 
