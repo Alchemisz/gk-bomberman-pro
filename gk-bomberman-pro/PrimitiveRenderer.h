@@ -1,9 +1,10 @@
+#pragma once
 #include "Point2D.h"
 #include "LineSegment.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 #include <vector>
-#pragma once
+
 class PrimitiveRenderer
 {
 public:
