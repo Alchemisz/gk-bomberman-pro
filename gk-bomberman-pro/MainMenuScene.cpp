@@ -21,7 +21,10 @@ void MainMenuScene::show()
 		posY += 100;
 	}
 
-
+	buttons[SINGLEPLAYER]->setText("Singleplayer");
+	buttons[MULTIPLAYER]->setText("Multiplayer");
+	buttons[HELP]->setText("Help");
+	buttons[EXIT]->setText("Exit");
 }
 
 void MainMenuScene::dispose()
