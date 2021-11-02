@@ -47,10 +47,52 @@ void GameScene::playerUpdate(Player& player)
 
 	Block b1 = blocks[(int)((deltaX + 13 + 0.5) / Block::WIDTH)][(int)((deltaY + 13 + 0.5) / Block::WIDTH)];
 	Block b2 = blocks[(int)((deltaX + 0.5) / Block::WIDTH)][(int)((deltaY + 0.5) / Block::WIDTH)];
+
+	Block b3,b4;
+
+
+	
+
+	switch (player.getPositionState())
+	{
+	case UP:
+		{
+		if ((int)((player.getY() + 0.5) / Block::WIDTH - 1) < 0)break;
+		b3 = blocks[(int)((player.getX() + 0.5) / Block::WIDTH)][(int)((player.getY() + 0.5) / Block::WIDTH - 1)];
+		b4 = blocks[(int)((player.getX() + 13 + 0.5) / Block::WIDTH)][(int)((player.getY() + 13 + 0.5) / Block::WIDTH - 1)];
+		break;
+	}
+	case LEFT:
+	{
+		if ((int)((player.getX() + 0.5) / Block::WIDTH - 1) < 0)break;
+		b3 = blocks[(int)((player.getX() + 0.5) / Block::WIDTH - 1)][(int)((player.getY() + 0.5) / Block::WIDTH)];
+		b4 = blocks[(int)((player.getX() + 13 + 0.5) / Block::WIDTH - 1)][(int)((player.getY() + 13 + 0.5) / Block::WIDTH)];
+		break;
+	}
+	case RIGHT:
+	{
+		if ((int)((player.getX() + 0.5) / Block::WIDTH + 1) > 11)break;
+		b3 = blocks[(int)((player.getX() + 0.5) / Block::WIDTH + 1)][(int)((player.getY() + 0.5) / Block::WIDTH )];
+		b4 = blocks[(int)((player.getX() + 13 + 0.5) / Block::WIDTH + 1)][(int)((player.getY() + 13 + 0.5) / Block::WIDTH)];
+		break;
+	}
+	case DOWN:
+	{
+		if ((int)((player.getY() + 0.5) / Block::WIDTH - 1) > 11)break;
+		b3 = blocks[(int)((player.getX() + 0.5) / Block::WIDTH)][(int)((player.getY() + 0.5) / Block::WIDTH + 1)];
+		b4 = blocks[(int)((player.getX() + 13 + 0.5) / Block::WIDTH)][(int)((player.getY() + 13 + 0.5) / Block::WIDTH + 1)];
+		break;
+	}
+
+	}
+
 	std::pair<int, int> standingBlock = player.getBlockIndex();
 
 	if ((b1.getBlockType() == AIR && (!b1.getHasBomb() || (b1.getX() == standingBlock.first && b1.getY() == standingBlock.second))) 
-		&& (b2.getBlockType() == AIR && (!b2.getHasBomb() || (b2.getX() == standingBlock.first && b2.getY() == standingBlock.second)))) {
+		&& (b2.getBlockType() == AIR && (!b2.getHasBomb() || (b2.getX() == standingBlock.first && b2.getY() == standingBlock.second)))
+		|| ((b1.getBlockType() == AIR && (!b3.getHasBomb() || (b1.getX() == standingBlock.first && b1.getY() == standingBlock.second)))
+		&& (b2.getBlockType() == AIR && (!b4.getHasBomb() || (b2.getX() == standingBlock.first && b2.getY() == standingBlock.second)))
+			&& (deltaX - player.getX())*(deltaY - player.getY()) == 0)) {
 		
 		player.setX(deltaX);
 		player.setY(deltaY);
