@@ -1,14 +1,22 @@
 #pragma once
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
+#include <allegro5/allegro_font.h>
 #include "SceneManager.h"
 #include "DebugScene.h"
 #include "Scene.h"
 #include "Keyboard.h"
 #include "GameScene.h"
+#include "Button.h"
+#include "Color.h"
+
+enum MENU_BUTTONS {SINGLEPLAYER, MULTIPLAYER, HELP, EXIT};
+
 class MainMenuScene : public Scene
 {
 	private:
+		Button* buttons[4];
+		void drawButtons();
 	public: 
 		virtual void render();
 		virtual void show();
