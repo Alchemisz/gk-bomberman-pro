@@ -5,6 +5,22 @@ void GameScene::playerUpdate(Player& player)
 	player.setIsMoving(false);
 	float deltaX = player.getX(), deltaY = player.getY();
 
+
+	//Postawienie bomby
+	if (Keyboard::isKeyDown(ALLEGRO_KEY_SPACE)) {
+		Block* block = &blocks[player.getBlockIndex().first][player.getBlockIndex().second];
+		//Jesli na bloku nie ma bomby
+		if (!block->getHasBomb()) {
+			Bomb* bomb = new Bomb();
+			block->setHasBomb(true);
+			bomb->setX(block->getX());
+			bomb->setY(block->getY());
+			bombList.push_back(bomb);
+		}
+	}
+
+	
+
 	if (Keyboard::isKeyDown(ALLEGRO_KEY_W)) {
 		deltaY = deltaY - player.getVelocity();
 		player.setIsMoving(true);
@@ -28,12 +44,27 @@ void GameScene::playerUpdate(Player& player)
 	if ((deltaX < 0 || deltaX + 14 > MAP_WIDTH) || (deltaY < 0 || deltaY + 14 > MAP_HEIGHT)) {
 		return;
 	}
+
 	Block b1 = blocks[(int)((deltaX + 13 + 0.5) / Block::WIDTH)][(int)((deltaY + 13 + 0.5) / Block::WIDTH)];
-	Block b2 = blocks[(int)((deltaX - 0 + 0.5) / Block::WIDTH)][(int)((deltaY - 0 + 0.5) / Block::WIDTH)];
-	if (b1.getBlockType() == AIR && b2.getBlockType() == AIR) {
+	Block b2 = blocks[(int)((deltaX + 0.5) / Block::WIDTH)][(int)((deltaY + 0.5) / Block::WIDTH)];
+	std::pair<int, int> standingBlock = player.getBlockIndex();
+
+	if ((b1.getBlockType() == AIR && (!b1.getHasBomb() || (b1.getX() == standingBlock.first && b1.getY() == standingBlock.second))) 
+		&& (b2.getBlockType() == AIR && (!b2.getHasBomb() || (b2.getX() == standingBlock.first && b2.getY() == standingBlock.second)))) {
 		
 		player.setX(deltaX);
 		player.setY(deltaY);
+	}
+
+
+}
+
+void GameScene::bombRender(Player& player)
+{
+	//Rysowanie bomb
+	for (Bomb* bomb : bombList) {
+		al_draw_filled_rectangle(bomb->getX() + 3, bomb->getY() + 3,
+			bomb->getX() + 3 + Bomb::BOMB_WIDTH, bomb->getY() + Bomb::BOMB_WIDTH, al_map_rgb(30, 30, 30));
 	}
 }
 
@@ -112,7 +143,7 @@ void GameScene::render()
 		PlayerAnim->drawAnimation(player.getX(), player.getY(), (int)player.getPositionState());
 	else PlayerAnim->drawDefaultPosition(player.getX(), player.getY(), (int)player.getPositionState());*/
 
-
+	bombRender(*playerList.front());
 
 	al_set_target_bitmap(al_get_backbuffer(al_get_current_display()));
 	al_clear_to_color(al_map_rgb(30, 30, 30));
@@ -162,15 +193,15 @@ void GameScene::show()
 	MapGen.generateMap(this->blocks);
 
 	Player* pl1 = new Player();
-	Player* pl2 = new Player();
+	//Player* pl2 = new Player();
 	pl1->setX(0);
 	pl1->setY(0);
 
-	pl2->setX(220);
-	pl2->setY(220);
+	//pl2->setX(220);
+	//pl2->setY(220);
 
 	this->playerList.push_back(pl1);
-	this->playerList.push_back(pl2);
+	//this->playerList.push_back(pl2);
 }
 
 void GameScene::dispose()

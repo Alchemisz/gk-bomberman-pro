@@ -10,7 +10,7 @@
 #include "PrimitiveAnimation.h"
 #include "Keyboard.h"
 #include "Player.h"
-
+#include "Bomb.h"
 class GameScene : public Scene
 {
 private:
@@ -33,7 +33,10 @@ private:
 
 	Player player;
 
+	std::list<Bomb*> bombList;
+
 	void playerUpdate(Player& player);
+	void bombRender(Player& player);
 public:
 	virtual void render();
 	virtual void show();

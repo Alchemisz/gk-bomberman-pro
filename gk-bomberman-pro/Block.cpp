@@ -16,6 +16,16 @@ int Block::getY() {
 	return this->y;
 }
 
+void Block::setHasBomb(bool hasBomb)
+{
+	this->hasBomb = hasBomb;
+}
+
+bool Block::getHasBomb()
+{
+	return this->hasBomb;
+}
+
 
 void Block::setBlockType(BLOCK_TYPE block_type) {
 	this->block_type = block_type;
