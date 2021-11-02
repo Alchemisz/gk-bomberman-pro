@@ -9,6 +9,7 @@
 class MainMenuScene : public Scene
 {
 	private:
+
 	public: 
 		virtual void render();
 		virtual void show();

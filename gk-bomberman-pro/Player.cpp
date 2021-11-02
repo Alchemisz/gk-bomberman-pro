@@ -37,6 +37,15 @@ void Player::setIsMoving(bool moving)
 	this->isMoving = moving;
 }
 
+int Player::getPower()
+{
+	return this->power;
+}
+
+void Player::setPower(int power) {
+	this->power = power;
+}
+
 direction Player::getPositionState()
 {
 	return this->state;
@@ -49,7 +58,7 @@ void Player::setPositionState(direction state)
 
 std::pair<int, int> Player::getBlockIndex()
 {
-	return std::pair<int, int>(this->x / Block::WIDTH, this->y / Block::WIDTH);
+	return std::pair<int, int>((this->x + 7.0) / Block::WIDTH, (this->y + 7.0) / Block::WIDTH);
 }
 
 void Player::move()

@@ -14,6 +14,7 @@ class Player
 private:
 	float x, y;
 	float velocity = 1;
+	int power = 3;
 	bool isMoving;
 	direction state;
 public:
@@ -27,6 +28,8 @@ public:
 	float getVelocity();
 	float getX();
 	float getY();
+	int getPower();
+	void setPower(int power);
 	bool getIsMoving();
 	void setIsMoving(bool moving);
 	direction getPositionState();
