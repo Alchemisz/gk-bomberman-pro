@@ -63,8 +63,8 @@ void GameScene::bombRender(Player& player)
 {
 	//Rysowanie bomb
 	for (Bomb* bomb : bombList) {
-		al_draw_filled_rectangle(bomb->getX() + 3, bomb->getY() + 3,
-			bomb->getX() + 3 + Bomb::BOMB_WIDTH, bomb->getY() + Bomb::BOMB_WIDTH, al_map_rgb(30, 30, 30));
+		BombAnim->drawAnimation(bomb->getX() + 3, bomb->getY() + 3, 0);
+			//bomb->getX() + 3 + Bomb::BOMB_WIDTH, bomb->getY() + Bomb::BOMB_WIDTH, al_map_rgb(30, 30, 30));
 	}
 }
 
@@ -176,6 +176,9 @@ void GameScene::show()
 
 	this->PlayerAnim = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
 	this->PlayerAnim2 = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
+	this->BombAnim = new PrimitiveAnimation("gfx/bomb.png", 5, 1, 2, 14, 70);
+
+
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
 
 	for (int i = 0; i < 12; i++)

@@ -29,7 +29,8 @@ private:
 
 	MapGenerator MapGen;
 	PrimitiveAnimation *PlayerAnim;
-	PrimitiveAnimation* PlayerAnim2;
+	PrimitiveAnimation *PlayerAnim2;
+	PrimitiveAnimation *BombAnim;
 
 	Player player;
 
