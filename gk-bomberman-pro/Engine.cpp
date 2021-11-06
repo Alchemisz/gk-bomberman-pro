@@ -5,6 +5,7 @@ Engine *Engine::engine = nullptr;
 Engine::Engine(EngineConfiguration config)
 {
     this->config = config;
+    this->font = nullptr;
 }
 
 void Engine::clearScreen(ALLEGRO_COLOR color)
@@ -24,6 +25,11 @@ void Engine::init()
     al_install_keyboard();
     al_init_primitives_addon();
     al_init_image_addon();
+    al_init_font_addon();
+    al_init_ttf_addon();
+
+    this->font = al_load_font("fonts/JosefinSans-Bold.ttf", 24, 0);
+
     display = al_create_display(config.getWidth(), config.getHeight());
     loopQueue = al_create_event_queue();
     float fps = 1.0 / (float)config.getFPS();
@@ -76,6 +82,11 @@ void Engine::close()
     al_destroy_event_queue(this->loopQueue);
     al_destroy_event_queue(this->eventQueue);
     al_destroy_display(this->display);
+}
+
+ALLEGRO_FONT* Engine::getFont()
+{
+    return this->font;
 }
 
 Engine* Engine::getInstance()

@@ -5,6 +5,8 @@
 #include <allegro5/allegro_ttf.h>
 void Button::draw()
 {
+	ALLEGRO_FONT* font = Engine::getInstance()->getFont();
+
 
 	al_draw_filled_rectangle(this->x, this->y, this->x + Button::BUTTON_WIDTH,  this->y + Button::BUTTON_HEIGHT, this->frameColor);
 	al_draw_filled_rectangle(this->x + FRAME_MARGIN,
@@ -13,8 +15,8 @@ void Button::draw()
 							this->y + Button::BUTTON_HEIGHT - FRAME_MARGIN,
 							this->buttonColor);
 
-	//al_draw_text(font, Color::Black, this->x + (Button::BUTTON_WIDTH / 2),
-	//	(this->y + Button::BUTTON_HEIGHT / 2), ALLEGRO_ALIGN_CENTRE, this->text.c_str());
+	al_draw_text(font, Color::Black, this->x + (Button::BUTTON_WIDTH / 2),
+		(this->y + Button::BUTTON_HEIGHT / 3), ALLEGRO_ALIGN_CENTRE, this->text.c_str());
 
 }
 
