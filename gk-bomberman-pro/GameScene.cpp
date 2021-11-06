@@ -5,22 +5,38 @@ void GameScene::playerUpdate(Player& player)
 	player.setIsMoving(false);
 	float deltaX = player.getX(), deltaY = player.getY();
 
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_W)) {
+	//Konfiguracja gracza
+	PlayerConfiguration* playerConfiguration = player.getPlayerConfiguration();
+
+	//Postawienie bomby
+	if (Keyboard::isKeyDown(playerConfiguration->getPutBomb())) {
+		Block* block = &blocks[player.getBlockIndex().first][player.getBlockIndex().second];
+		//Jesli na bloku nie ma bomby
+		if (!block->getHasBomb()) {
+			Bomb* bomb = new Bomb();
+			block->setHasBomb(true);
+			bomb->setX(block->getX());
+			bomb->setY(block->getY());
+			bombList.push_back(bomb);
+		}
+	}
+
+	if (Keyboard::isKeyDown(playerConfiguration->getMoveUP())) {
 		deltaY = deltaY - player.getVelocity();
 		player.setIsMoving(true);
 		player.setPositionState(UP);
 	}
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_S)) {
+	if (Keyboard::isKeyDown(playerConfiguration->getMoveDOWN())) {
 		deltaY = deltaY + player.getVelocity();
 		player.setIsMoving(true);
 		player.setPositionState(DOWN);
 	}
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_A)) {
+	if (Keyboard::isKeyDown(playerConfiguration->getMoveLEFT())) {
 		deltaX = deltaX - player.getVelocity();
 		player.setIsMoving(true);
 		player.setPositionState(LEFT);
 	}
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_D)) {
+	if (Keyboard::isKeyDown(playerConfiguration->getMoveRIGHT())) {
 		deltaX = deltaX + player.getVelocity();
 		player.setIsMoving(true);
 		player.setPositionState(RIGHT);
@@ -28,12 +44,69 @@ void GameScene::playerUpdate(Player& player)
 	if ((deltaX < 0 || deltaX + 14 > MAP_WIDTH) || (deltaY < 0 || deltaY + 14 > MAP_HEIGHT)) {
 		return;
 	}
+
 	Block b1 = blocks[(int)((deltaX + 13 + 0.5) / Block::WIDTH)][(int)((deltaY + 13 + 0.5) / Block::WIDTH)];
-	Block b2 = blocks[(int)((deltaX - 0 + 0.5) / Block::WIDTH)][(int)((deltaY - 0 + 0.5) / Block::WIDTH)];
-	if (b1.getBlockType() == AIR && b2.getBlockType() == AIR) {
+	Block b2 = blocks[(int)((deltaX + 0.5) / Block::WIDTH)][(int)((deltaY + 0.5) / Block::WIDTH)];
+
+	Block b3,b4;
+
+
+	
+
+	switch (player.getPositionState())
+	{
+	case UP:
+		{
+		if ((int)((player.getY() + 0.5) / Block::WIDTH - 1) < 0)break;
+		b3 = blocks[(int)((player.getX() + 0.5) / Block::WIDTH)][(int)((player.getY() + 0.5) / Block::WIDTH - 1)];
+		b4 = blocks[(int)((player.getX() + 13 + 0.5) / Block::WIDTH)][(int)((player.getY() + 13 + 0.5) / Block::WIDTH - 1)];
+		break;
+	}
+	case LEFT:
+	{
+		if ((int)((player.getX() + 0.5) / Block::WIDTH - 1) < 0)break;
+		b3 = blocks[(int)((player.getX() + 0.5) / Block::WIDTH - 1)][(int)((player.getY() + 0.5) / Block::WIDTH)];
+		b4 = blocks[(int)((player.getX() + 13 + 0.5) / Block::WIDTH - 1)][(int)((player.getY() + 13 + 0.5) / Block::WIDTH)];
+		break;
+	}
+	case RIGHT:
+	{
+		if ((int)((player.getX() + 0.5) / Block::WIDTH + 1) > 11)break;
+		b3 = blocks[(int)((player.getX() + 0.5) / Block::WIDTH + 1)][(int)((player.getY() + 0.5) / Block::WIDTH )];
+		b4 = blocks[(int)((player.getX() + 13 + 0.5) / Block::WIDTH + 1)][(int)((player.getY() + 13 + 0.5) / Block::WIDTH)];
+		break;
+	}
+	case DOWN:
+	{
+		if ((int)((player.getY() + 0.5) / Block::WIDTH - 1) > 11)break;
+		b3 = blocks[(int)((player.getX() + 0.5) / Block::WIDTH)][(int)((player.getY() + 0.5) / Block::WIDTH + 1)];
+		b4 = blocks[(int)((player.getX() + 13 + 0.5) / Block::WIDTH)][(int)((player.getY() + 13 + 0.5) / Block::WIDTH + 1)];
+		break;
+	}
+
+	}
+
+	std::pair<int, int> standingBlock = player.getBlockIndex();
+
+	if ((b1.getBlockType() == AIR && (!b1.getHasBomb() || (b1.getX() == standingBlock.first && b1.getY() == standingBlock.second))) 
+		&& (b2.getBlockType() == AIR && (!b2.getHasBomb() || (b2.getX() == standingBlock.first && b2.getY() == standingBlock.second)))
+		|| ((b1.getBlockType() == AIR && (!b3.getHasBomb() || (b1.getX() == standingBlock.first && b1.getY() == standingBlock.second)))
+		&& (b2.getBlockType() == AIR && (!b4.getHasBomb() || (b2.getX() == standingBlock.first && b2.getY() == standingBlock.second)))
+			&& (deltaX - player.getX())*(deltaY - player.getY()) == 0)) {
 		
 		player.setX(deltaX);
 		player.setY(deltaY);
+	}
+
+
+}
+
+void GameScene::bombRender(Player& player)
+{
+	//Rysowanie bomb
+	for (Bomb* bomb : bombList) {
+		BombAnim->drawAnimation(bomb->getX() + 3, bomb->getY() + 3, 0);
+			//bomb->getX() + 3 + Bomb::BOMB_WIDTH, bomb->getY() + Bomb::BOMB_WIDTH, al_map_rgb(30, 30, 30));
 	}
 }
 
@@ -112,7 +185,7 @@ void GameScene::render()
 		PlayerAnim->drawAnimation(player.getX(), player.getY(), (int)player.getPositionState());
 	else PlayerAnim->drawDefaultPosition(player.getX(), player.getY(), (int)player.getPositionState());*/
 
-
+	bombRender(*playerList.front());
 
 	al_set_target_bitmap(al_get_backbuffer(al_get_current_display()));
 	al_clear_to_color(al_map_rgb(30, 30, 30));
@@ -145,6 +218,9 @@ void GameScene::show()
 
 	this->PlayerAnim = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
 	this->PlayerAnim2 = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
+	this->BombAnim = new PrimitiveAnimation("gfx/bomb.png", 5, 1, 2, 14, 70);
+
+
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
 
 	for (int i = 0; i < 12; i++)
@@ -168,6 +244,9 @@ void GameScene::show()
 
 	pl2->setX(220);
 	pl2->setY(220);
+
+	pl1->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_W, ALLEGRO_KEY_S, ALLEGRO_KEY_A, ALLEGRO_KEY_D, ALLEGRO_KEY_Q));
+	pl2->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_UP, ALLEGRO_KEY_DOWN, ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT, ALLEGRO_KEY_SPACE));
 
 	this->playerList.push_back(pl1);
 	this->playerList.push_back(pl2);

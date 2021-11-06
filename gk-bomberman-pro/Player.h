@@ -3,6 +3,7 @@
 #include <allegro5/allegro_primitives.h>
 #include <iostream>
 #include "Block.h"
+#include "PlayerConfiguration.h"
 
 enum direction {
 	LEFT = 0,UP,RIGHT,DOWN
@@ -16,6 +17,7 @@ private:
 	float velocity = 1;
 	bool isMoving;
 	direction state;
+	PlayerConfiguration* playerConfiguration;
 public:
 	static const int PLAYER_WIDTH = 14;
 	void move();
@@ -32,5 +34,7 @@ public:
 	direction getPositionState();
 	void setPositionState(direction state);
 	std::pair<int, int> getBlockIndex();
+	PlayerConfiguration* getPlayerConfiguration();
+	void setPlayerConfiguration(PlayerConfiguration* playerConfiguration);
 };
 

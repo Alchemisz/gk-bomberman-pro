@@ -150,6 +150,7 @@
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="DebugScene.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineConfiguration.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerConfiguration.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="PrimitiveAnimation.cpp" />
     <ClCompile Include="PrimitiveRenderer.cpp" />
@@ -173,6 +175,7 @@
     <ClInclude Include="Block.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Bomb.h" />
     <ClInclude Include="DebugScene.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EngineConfiguration.h" />
@@ -182,6 +185,7 @@
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerConfiguration.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="PrimitiveAnimation.h" />
     <ClInclude Include="PrimitiveRenderer.h" />
