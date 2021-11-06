@@ -12,6 +12,7 @@
 #include "Player.h"
 #include "Bomb.h"
 #include "Explosion.h"
+#include "Engine.h"
 
 const int BLOCKS_WIDTH = 12;
 const int BLOCKS_HEIGHT = 12;

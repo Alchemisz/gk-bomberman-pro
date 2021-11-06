@@ -400,8 +400,12 @@ void GameScene::render()
 	al_draw_scaled_bitmap(this->main_world, 0, 0, MAP_WIDTH, MAP_HEIGHT, (1280/2) - (720/2), 0,
 							MAP_WIDTH * SCALLING_LEVEL, MAP_HEIGHT * SCALLING_LEVEL, 0);
 
+	//Ohydnie recznie robione, potem trzeba bedzie dorobic to do postaci i dac automatycznie
 	al_draw_bitmap(Player1Icon, 20, 20, 0);
-	al_draw_bitmap(Player2Icon, 1279 - 20 - 70, 720 - 20 - 70, 0);
+	al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 255, 255), 100, 50, ALLEGRO_ALIGN_LEFT, "Player 1");
+	al_draw_bitmap(Player2Icon, 1280 - 20 - 70, 720 - 20 - 70, 0);
+	al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 255, 255), 1280 -20 - 10 - 70, 720 - 55 , ALLEGRO_ALIGN_RIGHT, "Player 2");
+
 
 }
 
