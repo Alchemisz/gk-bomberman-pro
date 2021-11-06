@@ -29,3 +29,9 @@ float Explosion::getY()
 {
 	return this->y;
 }
+
+bool Explosion::decreaseLife()
+{
+	--(this->lifetime);
+	return this->lifetime < 0;
+}

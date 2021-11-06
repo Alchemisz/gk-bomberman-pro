@@ -54,6 +54,7 @@ private:
 	void playerUpdate(Player& player);
 	void bombRender();
 	void renderExplosions();
+	void updateExplosions();
 public:
 	virtual void render();
 	virtual void show();

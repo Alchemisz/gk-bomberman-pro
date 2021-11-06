@@ -5,6 +5,7 @@ class Explosion
 	private:
 		float x, y;
 		direction dir;
+		int lifetime = 60;
 	public:
 		int _x, _y;
 		void setX(float x);
@@ -13,6 +14,7 @@ class Explosion
 		direction getDir();
 		float getX();
 		float getY();
+		bool decreaseLife();
 		void drawExplosion();
 };
 
