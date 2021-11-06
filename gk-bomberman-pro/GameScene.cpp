@@ -400,6 +400,9 @@ void GameScene::render()
 	al_draw_scaled_bitmap(this->main_world, 0, 0, MAP_WIDTH, MAP_HEIGHT, (1280/2) - (720/2), 0,
 							MAP_WIDTH * SCALLING_LEVEL, MAP_HEIGHT * SCALLING_LEVEL, 0);
 
+	al_draw_bitmap(Player1Icon, 20, 20, 0);
+	al_draw_bitmap(Player2Icon, 1279 - 20 - 70, 720 - 20 - 70, 0);
+
 }
 
 void GameScene::show()
@@ -436,6 +439,12 @@ void GameScene::show()
 	this->explosionAnimation_right = new PrimitiveAnimation("gfx/exp_right.png", 5, 1, 3, 20, 100);
 	this->explosionAnimation_center = new PrimitiveAnimation("gfx/exp_center.png", 5, 1, 3, 20, 100);
 
+
+	this->Player1Icon = al_create_bitmap(70, 70);
+	this->Player1Icon = al_load_bitmap("gfx/plr1face.png");
+
+	this->Player2Icon = al_create_bitmap(70, 70);
+	this->Player2Icon = al_load_bitmap("gfx/plr2face.png");
 
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
 

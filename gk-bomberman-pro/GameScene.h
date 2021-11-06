@@ -44,8 +44,8 @@ private:
 	PrimitiveAnimation* explosionAnimation_right;
 	PrimitiveAnimation* explosionAnimation_center;
 
-
-
+	ALLEGRO_BITMAP* Player1Icon;
+	ALLEGRO_BITMAP* Player2Icon;
 	Player player;
 
 	std::list<Bomb*> bombList;
