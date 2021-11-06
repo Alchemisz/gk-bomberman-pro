@@ -11,6 +11,8 @@
 #include "SceneManager.h"
 #include <allegro5/allegro_image.h>
 #include "Keyboard.h"
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
 
 class Engine
 {
@@ -20,6 +22,7 @@ public:
 	void init();
 	void loop();
 	void close();
+	ALLEGRO_FONT* getFont();
 	static Engine* getInstance();
 	static Engine* engine;
 	Engine(EngineConfiguration config);
@@ -30,6 +33,7 @@ private:
 	ALLEGRO_TIMER* loopTimer;
 	ALLEGRO_EVENT_QUEUE* eventQueue;
 	ALLEGRO_EVENT_QUEUE* loopQueue;
+	ALLEGRO_FONT* font;
 };
 
 
