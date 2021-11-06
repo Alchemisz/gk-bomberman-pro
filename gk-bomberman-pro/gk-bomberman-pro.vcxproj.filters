@@ -70,6 +70,7 @@
     <ClCompile Include="Bomb.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="Explosion.cpp">
     <ClCompile Include="PlayerConfiguration.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
@@ -130,6 +131,7 @@
     <ClInclude Include="Bomb.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="Explosion.h">
     <ClInclude Include="PlayerConfiguration.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>

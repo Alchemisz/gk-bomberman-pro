@@ -11,15 +11,22 @@
 #include "Keyboard.h"
 #include "Player.h"
 #include "Bomb.h"
+#include "Explosion.h"
+
+const int BLOCKS_WIDTH = 12;
+const int BLOCKS_HEIGHT = 12;
+
 class GameScene : public Scene
 {
 private:
+	ALLEGRO_TIMER* bombTimer;
+	ALLEGRO_EVENT_QUEUE* bombTimerQueue;
 
 	static const int SCALLING_LEVEL = 3;
 	const int MAP_WIDTH = 240;
 	const int MAP_HEIGHT = 240;
 
-	Block blocks[12][12];
+	Block blocks[BLOCKS_WIDTH][BLOCKS_HEIGHT];
 	ALLEGRO_BITMAP* block_floor;
 	ALLEGRO_BITMAP* block_wall;
 	ALLEGRO_BITMAP* block_stone;
@@ -31,13 +38,22 @@ private:
 	PrimitiveAnimation *PlayerAnim;
 	PrimitiveAnimation *PlayerAnim2;
 	PrimitiveAnimation *BombAnim;
+	PrimitiveAnimation* explosionAnimation_up;
+	PrimitiveAnimation* explosionAnimation_down;
+	PrimitiveAnimation* explosionAnimation_left;
+	PrimitiveAnimation* explosionAnimation_right;
+	PrimitiveAnimation* explosionAnimation_center;
+
+
 
 	Player player;
 
 	std::list<Bomb*> bombList;
+	std::list<Explosion*> explosionList;
 
 	void playerUpdate(Player& player);
-	void bombRender(Player& player);
+	void bombRender();
+	void renderExplosions();
 public:
 	virtual void render();
 	virtual void show();

@@ -6,7 +6,7 @@
 #include "PlayerConfiguration.h"
 
 enum direction {
-	LEFT = 0,UP,RIGHT,DOWN
+	LEFT = 0,UP,RIGHT,DOWN,CENTER
 };
 
 
@@ -15,6 +15,7 @@ class Player
 private:
 	float x, y;
 	float velocity = 1;
+	int power = 3;
 	bool isMoving;
 	direction state;
 	PlayerConfiguration* playerConfiguration;
@@ -29,6 +30,8 @@ public:
 	float getVelocity();
 	float getX();
 	float getY();
+	int getPower();
+	void setPower(int power);
 	bool getIsMoving();
 	void setIsMoving(bool moving);
 	direction getPositionState();

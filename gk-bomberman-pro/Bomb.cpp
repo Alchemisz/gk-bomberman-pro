@@ -1,5 +1,15 @@
 #include "Bomb.h"
 
+Bomb::Bomb(int power)
+{
+	this->power = power;
+}
+
+int Bomb::getPower()
+{
+	return this->power;
+}
+
 float Bomb::getX() {
 	return this->x;
 }
@@ -14,4 +24,10 @@ void Bomb::setX(float x) {
 
 void Bomb::setY(float y) {
 	this->y = y;
+}
+
+bool Bomb::decrementLife()
+{
+	this->life = this->life - 1;
+	return life < 0;
 }
