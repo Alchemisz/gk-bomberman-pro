@@ -141,6 +141,44 @@ void GameScene::renderExplosions()
 	}
 }
 
+void GameScene::updateExplosions()
+{
+	for (auto it = explosionList.begin(); it != explosionList.end();) {
+		Explosion* expl = *it;
+		if (expl->decreaseLife()) {
+			it = explosionList.erase(it);
+			delete expl;
+		}
+		if (it != explosionList.end()) {
+			++it;
+		}
+	}
+}
+
+void GameScene::checkCollisions()
+{
+	for (Explosion* explo : explosionList) {
+		for (Player* player : playerList) {
+			std::pair<int, int> standingBlock = player->getBlockIndex();
+			if (explo->_x == standingBlock.first && explo->_y == standingBlock.second) {
+				resetGame();
+				return;
+			}
+		}
+	}
+}
+
+void GameScene::resetGame()
+{
+	int positions[8] = { 20,20,220, 220, 20, 220, 220, 20 };
+	int idx = 0;
+	for (Player* player : playerList) {
+		player->setX(positions[idx]);
+		player->setY(positions[idx + 1]);
+		idx += 2;
+	}
+}
+
 
 void GameScene::render()
 {
@@ -209,7 +247,7 @@ void GameScene::render()
 				Bomb* bomb = *it;
 				if (bomb->decrementLife()) {
 					std::pair<int, int> bombPos = std::pair<int, int>((int)(bomb->getX()+7) / Block::WIDTH, (int)(bomb->getY()+7) / Block::WIDTH);
-					std::cout << "center x:" << bombPos.first << " y: " << bombPos.second << std::endl;
+		
 					//dodaje centrum wybuchu jak cos
 					Explosion* exp_center = new Explosion();
 					exp_center->setDir(CENTER);
@@ -218,51 +256,110 @@ void GameScene::render()
 					explosionList.push_back(exp_center);
 
 					for (direction dir : {LEFT, UP, RIGHT, DOWN}) {
+						bool broke = false;
 						for (int i = 1; i < bomb->getPower(); i++) {
 							int deltaX = 0, deltaY = 0;
 							switch (dir) {
 							case LEFT:
 								deltaX = bombPos.first - i;
 								if (deltaX >= 0 && deltaX < BLOCKS_WIDTH) {
-									Explosion* exp = new Explosion();
-									exp->setDir(dir);
-									exp->_x = deltaX;
-									exp->_y = bombPos.second;
-									explosionList.push_back(exp);
+									if (blocks[deltaX][bombPos.second].getBlockType() == AIR) {
+										Explosion* exp = new Explosion();
+										exp->setDir(dir);
+										exp->_x = deltaX;
+										exp->_y = bombPos.second;
+										explosionList.push_back(exp);
+										
+									} else if (blocks[deltaX][bombPos.second].getBlockType() == WALL) {
+										Explosion* exp = new Explosion();
+										exp->setDir(dir);
+										exp->_x = deltaX;
+										exp->_y = bombPos.second;
+										explosionList.push_back(exp);
+										broke = true;
+										blocks[deltaX][bombPos.second].setBlockType(AIR);
+									}
+									else if (blocks[deltaX][bombPos.second].getBlockType() == STONE) {
+										broke = true;
+									}
 								}
 								break;
 							case UP:
 								deltaY = bombPos.second - i;
-								if (deltaY >= 0 && deltaX < BLOCKS_HEIGHT) {
-									Explosion* exp = new Explosion();
-									exp->setDir(dir);
-									exp->_y = deltaY;
-									exp->_x = bombPos.first;
-									explosionList.push_back(exp);
+								if (deltaY >= 0 && deltaY < BLOCKS_HEIGHT) {
+									if (blocks[bombPos.first][deltaY].getBlockType() == AIR) {
+										Explosion* exp = new Explosion();
+										exp->setDir(dir);
+										exp->_y = deltaY;
+										exp->_x = bombPos.first;
+										explosionList.push_back(exp);
+									}
+								else if (blocks[bombPos.first][deltaY].getBlockType() == WALL) {
+										Explosion* exp = new Explosion();
+										exp->setDir(dir);
+										exp->_y = deltaY;
+										exp->_x = bombPos.first;
+										explosionList.push_back(exp);
+										broke = true;
+										blocks[bombPos.first][deltaY].setBlockType(AIR);
+									}
+									else if (blocks[bombPos.first][deltaY].getBlockType() == STONE) {
+										broke = true;
+									}
 								}
 								break;
 							case RIGHT:
 								deltaX = bombPos.first + i;
 								if (deltaX >= 0 && deltaX < BLOCKS_WIDTH) {
-									Explosion* exp = new Explosion();
-									exp->setDir(dir);
-									exp->_x = deltaX;
-									exp->_y = bombPos.second;
-									explosionList.push_back(exp);
+									if (blocks[deltaX][bombPos.second].getBlockType() == AIR) {
+										Explosion* exp = new Explosion();
+										exp->setDir(dir);
+										exp->_x = deltaX;
+										exp->_y = bombPos.second;
+										explosionList.push_back(exp);
+									}
+									else if (blocks[deltaX][bombPos.second].getBlockType() == WALL) {
+										Explosion* exp = new Explosion();
+										exp->setDir(dir);
+										exp->_x = deltaX;
+										exp->_y = bombPos.second;
+										explosionList.push_back(exp);
+										broke = true;
+										blocks[deltaX][bombPos.second].setBlockType(AIR);
+									}
+									else if (blocks[deltaX][bombPos.second].getBlockType() == STONE) {
+										broke = true;
+									}
 								}
 								break;
 							case DOWN:
 								deltaY = bombPos.second + i;
-								if (deltaY >= 0 && deltaX < BLOCKS_HEIGHT) {
-									Explosion* exp = new Explosion();
-									exp->setDir(dir);
-									exp->_y = deltaY;
-									exp->_x = bombPos.first;
-									explosionList.push_back(exp);
+								if (deltaY >= 0 && deltaY < BLOCKS_HEIGHT) {
+									if (blocks[bombPos.first][deltaY].getBlockType() == AIR) {
+										Explosion* exp = new Explosion();
+										exp->setDir(dir);
+										exp->_y = deltaY;
+										exp->_x = bombPos.first;
+										explosionList.push_back(exp);
+									}
+									else if (blocks[bombPos.first][deltaY].getBlockType() == WALL) {
+										Explosion* exp = new Explosion();
+										exp->setDir(dir);
+										exp->_y = deltaY;
+										exp->_x = bombPos.first;
+										explosionList.push_back(exp);
+										broke = true;
+										blocks[bombPos.first][deltaY].setBlockType(AIR);
+									}
+									else if (blocks[bombPos.first][deltaY].getBlockType() == STONE) {
+										broke = true;
+									}
 								}
 								break;
 							}
-
+							if (broke) {
+								break;
+							}
 						}
 					}
 					blocks[bombPos.first][bombPos.second].setHasBomb(false);
@@ -278,20 +375,17 @@ void GameScene::render()
 		ev.type = NULL;
 	} while (al_get_next_event(this->bombTimerQueue, &ev) != NULL);
 
+	updateExplosions();
+
+	checkCollisions();
+
 	renderExplosions();
 
 	for (Player* player : playerList) {
-		if (player->getX() < 50) {
 			if (player->getIsMoving())
-				PlayerAnim->drawAnimation(player->getX(), player->getY(), (int)player->getPositionState());
-			else PlayerAnim->drawDefaultPosition(player->getX(), player->getY(), (int)player->getPositionState());
-		}
-		else {
-				if (player->getIsMoving())
-					PlayerAnim2->drawAnimation(player->getX(), player->getY(), (int)player->getPositionState());
-				else PlayerAnim2->drawDefaultPosition(player->getX(), player->getY(), (int)player->getPositionState());
-		}
-		
+				player->getPlayerConfiguration()->getAnimation()->drawAnimation(player->getX(), player->getY(), (int)player->getPositionState());
+			else 
+				player->getPlayerConfiguration()->getAnimation()->drawDefaultPosition(player->getX(), player->getY(), (int)player->getPositionState());
 	}
 
 	/*if (player.getIsMoving())
@@ -310,7 +404,7 @@ void GameScene::render()
 void GameScene::show()
 {	
 	bombTimerQueue = al_create_event_queue();
-	bombTimer = al_create_timer(1.0);
+	bombTimer = al_create_timer(1.0/4);
 	al_register_event_source(bombTimerQueue, al_get_timer_event_source(bombTimer));
 	al_start_timer(bombTimer);
 
@@ -333,7 +427,7 @@ void GameScene::show()
 	this->block_wall_border[3] = al_load_bitmap("gfx/g_down.png");
 
 	this->PlayerAnim = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
-	this->PlayerAnim2 = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
+	this->PlayerAnim2 = new PrimitiveAnimation("gfx/plr2anim.png", 6, 1, 3, 14, 84);
 	this->BombAnim = new PrimitiveAnimation("gfx/bomb.png", 5, 1, 2, 14, 70);
 	this->explosionAnimation_up = new PrimitiveAnimation("gfx/exp_up.png", 5, 1, 3, 20, 100);
 	this->explosionAnimation_down = new PrimitiveAnimation("gfx/exp_down.png", 5, 1, 3, 20, 100);
@@ -366,8 +460,8 @@ void GameScene::show()
 	pl2->setX(220);
 	pl2->setY(220);
 
-	pl1->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_W, ALLEGRO_KEY_S, ALLEGRO_KEY_A, ALLEGRO_KEY_D, ALLEGRO_KEY_Q));
-	pl2->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_UP, ALLEGRO_KEY_DOWN, ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT, ALLEGRO_KEY_SPACE));
+	pl1->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_W, ALLEGRO_KEY_S, ALLEGRO_KEY_A, ALLEGRO_KEY_D, ALLEGRO_KEY_Q, this->PlayerAnim));
+	pl2->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_UP, ALLEGRO_KEY_DOWN, ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT, ALLEGRO_KEY_SPACE, this->PlayerAnim2));
 
 	this->playerList.push_back(pl1);
 	this->playerList.push_back(pl2);

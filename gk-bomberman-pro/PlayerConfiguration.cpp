@@ -1,7 +1,8 @@
 #include "PlayerConfiguration.h"
 
-PlayerConfiguration::PlayerConfiguration(int moveUP, int moveDOWN, int moveLEFT, int moveRIGHT, int putBomb)
+PlayerConfiguration::PlayerConfiguration(int moveUP, int moveDOWN, int moveLEFT, int moveRIGHT, int putBomb, PrimitiveAnimation* anim)
 {
+	this->animation = anim;
 	this->moveUP = moveUP;
 	this->moveDOWN = moveDOWN;
 	this->moveLEFT = moveLEFT;
@@ -57,4 +58,9 @@ int PlayerConfiguration::getMoveRIGHT()
 int PlayerConfiguration::getPutBomb()
 {
 	return this->putBomb;
+}
+
+PrimitiveAnimation* PlayerConfiguration::getAnimation()
+{
+	return this->animation;
 }

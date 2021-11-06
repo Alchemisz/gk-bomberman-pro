@@ -54,6 +54,9 @@ private:
 	void playerUpdate(Player& player);
 	void bombRender();
 	void renderExplosions();
+	void updateExplosions();
+	void checkCollisions();
+	void resetGame();
 public:
 	virtual void render();
 	virtual void show();
