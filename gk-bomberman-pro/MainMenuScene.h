@@ -18,6 +18,7 @@ class MainMenuScene : public Scene
 	private:
 		Button* buttons[4];
 		ALLEGRO_BITMAP* background;
+		ALLEGRO_BITMAP* face;
 		PrimitiveAnimation* background_animation;
 		void drawButtons();
 	public: 

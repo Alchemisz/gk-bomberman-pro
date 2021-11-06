@@ -9,6 +9,7 @@ void MainMenuScene::render() {
 	al_draw_scaled_bitmap(background, 0, 0, 426, 240, 0, 0, 1280, 720, 0);
 
 	drawButtons();
+	al_draw_bitmap(face, 1280 - 360, 720 - 360, 0);
 
 	if (Keyboard::isKeyDown(ALLEGRO_KEY_W)) {
 		SceneManager::setScene(new GameScene());
@@ -33,6 +34,9 @@ void MainMenuScene::show()
 	buttons[EXIT]->setText("Exit");
 
 	background = al_create_bitmap(426, 240);
+	face = al_create_bitmap(360,360);
+	face = al_load_bitmap("gfx/face.png");
+	al_convert_mask_to_alpha(face, al_map_rgb(255,255,0));
 	background_animation = new PrimitiveAnimation("gfx/animbg.png", 47, 1, 3, 240, 20022);
 }
 
