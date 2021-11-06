@@ -47,9 +47,9 @@ void GameScene::playerUpdate(Player& player)
 
 	Block b1 = blocks[(int)((deltaX + 13 + 0.5) / Block::WIDTH)][(int)((deltaY + 13 + 0.5) / Block::WIDTH)];
 	Block b2 = blocks[(int)((deltaX + 0.5) / Block::WIDTH)][(int)((deltaY + 0.5) / Block::WIDTH)];
-
+	Block b5 = blocks[(int)((deltaX + 13 + 0.5) / Block::WIDTH)][(int)((deltaY + 0.5) / Block::WIDTH)];
+	Block b6 = blocks[(int)((deltaX + 0.5) / Block::WIDTH)][(int)((deltaY + 13 + 0.5) / Block::WIDTH)];
 	Block b3,b4;
-
 
 	
 
@@ -90,9 +90,15 @@ void GameScene::playerUpdate(Player& player)
 
 	if ((b1.getBlockType() == AIR && (!b1.getHasBomb() || (b1.getX() == standingBlock.first && b1.getY() == standingBlock.second))) 
 		&& (b2.getBlockType() == AIR && (!b2.getHasBomb() || (b2.getX() == standingBlock.first && b2.getY() == standingBlock.second)))
+		&& (b5.getBlockType() == AIR && (!b5.getHasBomb() || (b5.getX() == standingBlock.first && b5.getY() == standingBlock.second)))
+		&& (b6.getBlockType() == AIR && (!b6.getHasBomb() || (b6.getX() == standingBlock.first && b6.getY() == standingBlock.second)))
+
 		|| ((b1.getBlockType() == AIR && (!b3.getHasBomb() || (b1.getX() == standingBlock.first && b1.getY() == standingBlock.second)))
 		&& (b2.getBlockType() == AIR && (!b4.getHasBomb() || (b2.getX() == standingBlock.first && b2.getY() == standingBlock.second)))
-			&& (deltaX - player.getX())*(deltaY - player.getY()) == 0)) {
+		&& (b5.getBlockType() == AIR && (!b3.getHasBomb() || (b5.getX() == standingBlock.first && b5.getY() == standingBlock.second)))
+		&& (b6.getBlockType() == AIR && (!b4.getHasBomb() || (b6.getX() == standingBlock.first && b6.getY() == standingBlock.second)))
+			&& (deltaX - player.getX())*(deltaY - player.getY()) == 0)) 
+	{
 		
 		player.setX(deltaX);
 		player.setY(deltaY);

@@ -83,6 +83,10 @@ void MapGenerator::generateTestMap(Block blocks[12][12])
 		for (int j = 0; j < 3; j++)
 		{
 			blocks[i][j].setBlockType(AIR);
+			blocks[11-i][11-j].setBlockType(AIR);
+			blocks[11 - i][j].setBlockType(AIR);
+			blocks[i][11 - j].setBlockType(AIR);
+
 		}
 	}
 
