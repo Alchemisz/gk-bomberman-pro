@@ -1,4 +1,5 @@
 #pragma once
+#include "PrimitiveAnimation.h"
 class PlayerConfiguration
 {
 private:
@@ -8,7 +9,8 @@ private:
 		moveRIGHT,
 		putBomb;
 public:
-	PlayerConfiguration(int moveUP, int moveDOWN, int moveLEFT, int moveRIGHT, int putBomb);
+	PlayerConfiguration(int moveUP, int moveDOWN, int moveLEFT, int moveRIGHT, int putBomb, PrimitiveAnimation* anim);
+	PrimitiveAnimation* animation;
 	void setMoveUP(int moveUP);
 	void setMoveDOWN(int moveDOWN);
 	void setMoveLEFT(int moveLEFT);
@@ -19,5 +21,6 @@ public:
 	int getMoveLEFT();
 	int getMoveRIGHT();
 	int getPutBomb();
+	PrimitiveAnimation* getAnimation();
 };
 

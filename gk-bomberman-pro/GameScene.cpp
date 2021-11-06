@@ -155,6 +155,30 @@ void GameScene::updateExplosions()
 	}
 }
 
+void GameScene::checkCollisions()
+{
+	for (Explosion* explo : explosionList) {
+		for (Player* player : playerList) {
+			std::pair<int, int> standingBlock = player->getBlockIndex();
+			if (explo->_x == standingBlock.first && explo->_y == standingBlock.second) {
+				resetGame();
+				return;
+			}
+		}
+	}
+}
+
+void GameScene::resetGame()
+{
+	int positions[8] = { 20,20,220, 220, 20, 220, 220, 20 };
+	int idx = 0;
+	for (Player* player : playerList) {
+		player->setX(positions[idx]);
+		player->setY(positions[idx + 1]);
+		idx += 2;
+	}
+}
+
 
 void GameScene::render()
 {
@@ -353,20 +377,15 @@ void GameScene::render()
 
 	updateExplosions();
 
+	checkCollisions();
+
 	renderExplosions();
 
 	for (Player* player : playerList) {
-		if (player->getX() < 50) {
 			if (player->getIsMoving())
-				PlayerAnim->drawAnimation(player->getX(), player->getY(), (int)player->getPositionState());
-			else PlayerAnim->drawDefaultPosition(player->getX(), player->getY(), (int)player->getPositionState());
-		}
-		else {
-				if (player->getIsMoving())
-					PlayerAnim2->drawAnimation(player->getX(), player->getY(), (int)player->getPositionState());
-				else PlayerAnim2->drawDefaultPosition(player->getX(), player->getY(), (int)player->getPositionState());
-		}
-		
+				player->getPlayerConfiguration()->getAnimation()->drawAnimation(player->getX(), player->getY(), (int)player->getPositionState());
+			else 
+				player->getPlayerConfiguration()->getAnimation()->drawDefaultPosition(player->getX(), player->getY(), (int)player->getPositionState());
 	}
 
 	/*if (player.getIsMoving())
@@ -408,7 +427,7 @@ void GameScene::show()
 	this->block_wall_border[3] = al_load_bitmap("gfx/g_down.png");
 
 	this->PlayerAnim = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
-	this->PlayerAnim2 = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
+	this->PlayerAnim2 = new PrimitiveAnimation("gfx/plr2anim.png", 6, 1, 3, 14, 84);
 	this->BombAnim = new PrimitiveAnimation("gfx/bomb.png", 5, 1, 2, 14, 70);
 	this->explosionAnimation_up = new PrimitiveAnimation("gfx/exp_up.png", 5, 1, 3, 20, 100);
 	this->explosionAnimation_down = new PrimitiveAnimation("gfx/exp_down.png", 5, 1, 3, 20, 100);
@@ -441,8 +460,8 @@ void GameScene::show()
 	pl2->setX(220);
 	pl2->setY(220);
 
-	pl1->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_W, ALLEGRO_KEY_S, ALLEGRO_KEY_A, ALLEGRO_KEY_D, ALLEGRO_KEY_Q));
-	pl2->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_UP, ALLEGRO_KEY_DOWN, ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT, ALLEGRO_KEY_SPACE));
+	pl1->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_W, ALLEGRO_KEY_S, ALLEGRO_KEY_A, ALLEGRO_KEY_D, ALLEGRO_KEY_Q, this->PlayerAnim));
+	pl2->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_UP, ALLEGRO_KEY_DOWN, ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT, ALLEGRO_KEY_SPACE, this->PlayerAnim2));
 
 	this->playerList.push_back(pl1);
 	this->playerList.push_back(pl2);
