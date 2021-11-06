@@ -5,7 +5,7 @@
 #include "Block.h"
 
 enum direction {
-	LEFT = 0,UP,RIGHT,DOWN
+	LEFT = 0,UP,RIGHT,DOWN,CENTER
 };
 
 

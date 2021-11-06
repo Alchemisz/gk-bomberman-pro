@@ -38,7 +38,13 @@ private:
 	PrimitiveAnimation *PlayerAnim;
 	PrimitiveAnimation *PlayerAnim2;
 	PrimitiveAnimation *BombAnim;
-	PrimitiveAnimation* explosionAnimation;
+	PrimitiveAnimation* explosionAnimation_up;
+	PrimitiveAnimation* explosionAnimation_down;
+	PrimitiveAnimation* explosionAnimation_left;
+	PrimitiveAnimation* explosionAnimation_right;
+	PrimitiveAnimation* explosionAnimation_center;
+
+
 
 	Player player;
 

@@ -57,3 +57,34 @@ void MapGenerator::generateMap(Block blocks[12][12])
 	}
 }
 
+void MapGenerator::generateTestMap(Block blocks[12][12])
+{
+	for (int i = 0; i < 12; i++)
+	{
+		for (int j = 0; j < 12; j++)
+		{
+			blocks[i][j].setX(i * Block::WIDTH);
+			blocks[i][j].setY(j * Block::WIDTH);
+			blocks[i][j].setBlockType(AIR);
+		}
+	}
+
+	for (int i = 0; i < 12; i++)
+	{
+		for (int j = 0; j < 12; j++)
+		{
+			if (i == 0 || i == 11 || j == 0 || j == 11)blocks[i][j].setBlockType(STONE);
+			if (i == 1 || i == 10 || j == 1 || j == 10)blocks[i][j].setBlockType(WALL);
+		}
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			blocks[i][j].setBlockType(AIR);
+		}
+	}
+
+}
+

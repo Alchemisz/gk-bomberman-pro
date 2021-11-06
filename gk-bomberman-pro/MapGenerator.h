@@ -33,5 +33,6 @@ private:
 	};
 public:
 	void generateMap(Block blocks[12][12]);
+	void generateTestMap(Block blocks[12][12]);
 };
 

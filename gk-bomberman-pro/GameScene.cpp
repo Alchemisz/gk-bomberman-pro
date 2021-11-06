@@ -114,7 +114,24 @@ void GameScene::renderExplosions()
 {
 	for (Explosion* explosion :  explosionList) {
 		Block bl = blocks[explosion->_x][explosion->_y];
-		this->explosionAnimation->drawAnimation(bl.getX(), bl.getY(), 0);
+		switch (explosion->getDir())
+		{	
+		case UP:
+			this->explosionAnimation_up->drawAnimation(bl.getX(), bl.getY(), 0);
+			break;
+		case DOWN:
+			this->explosionAnimation_down->drawAnimation(bl.getX(), bl.getY(), 0);
+			break;
+		case LEFT:
+			this->explosionAnimation_left->drawAnimation(bl.getX(), bl.getY(), 0);
+			break;
+		case RIGHT:
+			this->explosionAnimation_left->drawAnimation(bl.getX(), bl.getY(), 0);
+			break;
+		case CENTER:
+			this->explosionAnimation_center->drawAnimation(bl.getX(), bl.getY(), 0);
+			break;
+		}
 	}
 }
 
@@ -187,6 +204,13 @@ void GameScene::render()
 				if (bomb->decrementLife()) {
 					std::pair<int, int> bombPos = std::pair<int, int>((int)(bomb->getX()+7) / Block::WIDTH, (int)(bomb->getY()+7) / Block::WIDTH);
 					std::cout << "center x:" << bombPos.first << " y: " << bombPos.second << std::endl;
+					//dodaje centrum wybuchu jak cos
+					Explosion* exp_center = new Explosion();
+					exp_center->setDir(CENTER);
+					exp_center->_x = bombPos.first;
+					exp_center->_y = bombPos.second;
+					explosionList.push_back(exp_center);
+
 					for (direction dir : {LEFT, UP, RIGHT, DOWN}) {
 						for (int i = 1; i < bomb->getPower(); i++) {
 							int deltaX = 0, deltaY = 0;
@@ -305,7 +329,11 @@ void GameScene::show()
 	this->PlayerAnim = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
 	this->PlayerAnim2 = new PrimitiveAnimation("gfx/plranim.png", 6, 1, 3, 14, 84);
 	this->BombAnim = new PrimitiveAnimation("gfx/bomb.png", 5, 1, 2, 14, 70);
-	this->explosionAnimation = new PrimitiveAnimation("gfx/exp.png", 5, 1, 3, 20, 100);
+	this->explosionAnimation_up = new PrimitiveAnimation("gfx/exp_up.png", 5, 1, 3, 20, 100);
+	this->explosionAnimation_down = new PrimitiveAnimation("gfx/exp_down.png", 5, 1, 3, 20, 100);
+	this->explosionAnimation_left = new PrimitiveAnimation("gfx/exp_left.png", 5, 1, 3, 20, 100);
+	this->explosionAnimation_right = new PrimitiveAnimation("gfx/exp_right.png", 5, 1, 3, 20, 100);
+	this->explosionAnimation_center = new PrimitiveAnimation("gfx/exp_center.png", 5, 1, 3, 20, 100);
 
 
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
@@ -322,8 +350,8 @@ void GameScene::show()
 		}
 	}
 
-	MapGen.generateMap(this->blocks);
-
+	//MapGen.generateMap(this->blocks);
+	MapGen.generateTestMap(this->blocks);
 	Player* pl1 = new Player();
 	//Player* pl2 = new Player();
 	pl1->setX(0);
