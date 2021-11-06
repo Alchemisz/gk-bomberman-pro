@@ -52,6 +52,16 @@ std::pair<int, int> Player::getBlockIndex()
 	return std::pair<int, int>(this->x / Block::WIDTH, this->y / Block::WIDTH);
 }
 
+PlayerConfiguration* Player::getPlayerConfiguration()
+{
+	return this->playerConfiguration;
+}
+
+void Player::setPlayerConfiguration(PlayerConfiguration* playerConfiguration)
+{
+	this->playerConfiguration = playerConfiguration;
+}
+
 void Player::move()
 {	
 

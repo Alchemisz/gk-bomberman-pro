@@ -5,9 +5,11 @@ void GameScene::playerUpdate(Player& player)
 	player.setIsMoving(false);
 	float deltaX = player.getX(), deltaY = player.getY();
 
+	//Konfiguracja gracza
+	PlayerConfiguration* playerConfiguration = player.getPlayerConfiguration();
 
 	//Postawienie bomby
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_SPACE)) {
+	if (Keyboard::isKeyDown(playerConfiguration->getPutBomb())) {
 		Block* block = &blocks[player.getBlockIndex().first][player.getBlockIndex().second];
 		//Jesli na bloku nie ma bomby
 		if (!block->getHasBomb()) {
@@ -19,24 +21,22 @@ void GameScene::playerUpdate(Player& player)
 		}
 	}
 
-	
-
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_W)) {
+	if (Keyboard::isKeyDown(playerConfiguration->getMoveUP())) {
 		deltaY = deltaY - player.getVelocity();
 		player.setIsMoving(true);
 		player.setPositionState(UP);
 	}
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_S)) {
+	if (Keyboard::isKeyDown(playerConfiguration->getMoveDOWN())) {
 		deltaY = deltaY + player.getVelocity();
 		player.setIsMoving(true);
 		player.setPositionState(DOWN);
 	}
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_A)) {
+	if (Keyboard::isKeyDown(playerConfiguration->getMoveLEFT())) {
 		deltaX = deltaX - player.getVelocity();
 		player.setIsMoving(true);
 		player.setPositionState(LEFT);
 	}
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_D)) {
+	if (Keyboard::isKeyDown(playerConfiguration->getMoveRIGHT())) {
 		deltaX = deltaX + player.getVelocity();
 		player.setIsMoving(true);
 		player.setPositionState(RIGHT);
@@ -238,15 +238,18 @@ void GameScene::show()
 	MapGen.generateMap(this->blocks);
 
 	Player* pl1 = new Player();
-	//Player* pl2 = new Player();
+	Player* pl2 = new Player();
 	pl1->setX(0);
 	pl1->setY(0);
 
-	//pl2->setX(220);
-	//pl2->setY(220);
+	pl2->setX(220);
+	pl2->setY(220);
+
+	pl1->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_W, ALLEGRO_KEY_S, ALLEGRO_KEY_A, ALLEGRO_KEY_D, ALLEGRO_KEY_Q));
+	pl2->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_UP, ALLEGRO_KEY_DOWN, ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT, ALLEGRO_KEY_SPACE));
 
 	this->playerList.push_back(pl1);
-	//this->playerList.push_back(pl2);
+	this->playerList.push_back(pl2);
 }
 
 void GameScene::dispose()
