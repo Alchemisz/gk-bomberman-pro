@@ -1,6 +1,9 @@
 #pragma once
 #include "Block.h"
 
+#define BLOCKS_WIDTH_GEN 12
+#define BLOCKS_HEIGHT_GEN 12
+
 class MapGenerator
 {	
 private:
@@ -32,7 +35,7 @@ private:
 	},
 	};
 public:
-	void generateMap(Block blocks[12][12]);
-	void generateTestMap(Block blocks[12][12]);
+	void generateMap(Block blocks[BLOCKS_WIDTH_GEN + 1][BLOCKS_HEIGHT_GEN + 1]);
+	void generateTestMap(Block blocks[BLOCKS_WIDTH_GEN + 1][BLOCKS_HEIGHT_GEN + 1]);
 };
 

@@ -26,7 +26,7 @@ private:
 	const int MAP_WIDTH = 240;
 	const int MAP_HEIGHT = 240;
 
-	Block blocks[BLOCKS_WIDTH][BLOCKS_HEIGHT];
+	Block blocks[BLOCKS_WIDTH + 1][BLOCKS_HEIGHT + 1];
 	ALLEGRO_BITMAP* block_floor;
 	ALLEGRO_BITMAP* block_wall;
 	ALLEGRO_BITMAP* block_stone;

@@ -2,7 +2,7 @@
 #include <random>
 #include <time.h>
 
-void MapGenerator::generateMap(Block blocks[12][12])
+void MapGenerator::generateMap(Block blocks[BLOCKS_WIDTH_GEN + 1][BLOCKS_HEIGHT_GEN + 1])
 {
 	srand(time(0));
 	int randNumb;
@@ -57,7 +57,7 @@ void MapGenerator::generateMap(Block blocks[12][12])
 	}
 }
 
-void MapGenerator::generateTestMap(Block blocks[12][12])
+void MapGenerator::generateTestMap(Block blocks[BLOCKS_WIDTH_GEN + 1][BLOCKS_HEIGHT_GEN + 1])
 {
 	for (int i = 0; i < 12; i++)
 	{
