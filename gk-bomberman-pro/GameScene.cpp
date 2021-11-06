@@ -170,13 +170,14 @@ void GameScene::checkCollisions()
 
 void GameScene::resetGame()
 {
-	int positions[8] = { 20,20,220, 220, 20, 220, 220, 20 };
+	int positions[8] = { 0,0,220, 220, 20, 220, 220, 20 };
 	int idx = 0;
 	for (Player* player : playerList) {
 		player->setX(positions[idx]);
 		player->setY(positions[idx + 1]);
 		idx += 2;
 	}
+	MapGen.generateMap(this->blocks);
 }
 
 
@@ -450,8 +451,8 @@ void GameScene::show()
 		}
 	}
 
-	//MapGen.generateMap(this->blocks);
-	MapGen.generateTestMap(this->blocks);
+	MapGen.generateMap(this->blocks);
+
 	Player* pl1 = new Player();
 	Player* pl2 = new Player();
 	pl1->setX(0);
