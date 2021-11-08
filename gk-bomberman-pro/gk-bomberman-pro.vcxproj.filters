@@ -22,6 +22,8 @@
     <ClCompile Include="PrimitiveRenderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="MathUtil.cpp" />
+    <ClCompile Include="Matrix3x3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
@@ -44,6 +46,8 @@
     <ClInclude Include="PrimitiveRenderer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="MathUtil.h" />
+    <ClInclude Include="Matrix3x3.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -163,6 +163,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
+    <ClCompile Include="MathUtil.cpp" />
+    <ClCompile Include="Matrix3x3.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerConfiguration.cpp" />
     <ClCompile Include="Point2D.cpp" />
@@ -188,6 +190,8 @@
     <ClInclude Include="LineSegment.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="MapGenerator.h" />
+    <ClInclude Include="MathUtil.h" />
+    <ClInclude Include="Matrix3x3.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerConfiguration.h" />
     <ClInclude Include="Point2D.h" />

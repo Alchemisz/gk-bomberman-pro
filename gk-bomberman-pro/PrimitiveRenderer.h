@@ -6,6 +6,8 @@
 #include <vector>
 #include <stack>
 #include <iostream>
+#include <list>
+#include "Matrix3x3.h"
 
 class PrimitiveRenderer
 {
@@ -21,6 +23,6 @@ public:
 	void elipse_lab(Point2D p, int r1,int r2, ALLEGRO_COLOR colour);
 	void boundry_fill(Point2D p,ALLEGRO_COLOR fill_color,ALLEGRO_COLOR boundry_color);
 	bool compareColor(ALLEGRO_COLOR c1, ALLEGRO_COLOR c2);
-
+	void polygon(std::vector<LineSegment> lines, ALLEGRO_COLOR colour, bool closed);
 };
 

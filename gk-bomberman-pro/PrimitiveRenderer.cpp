@@ -1,5 +1,6 @@
 #include "PrimitiveRenderer.h"
 #include <cmath>
+
 void PrimitiveRenderer::rectangle(Point2D p0, Point2D p1, ALLEGRO_COLOR colour, bool filled)
 {
 	if (filled)
@@ -120,6 +121,33 @@ void PrimitiveRenderer::boundry_fill(Point2D p, ALLEGRO_COLOR fill_color, ALLEGR
 	al_draw_bitmap(tempBitmap, 0, 0, 0);
 	al_destroy_bitmap(tempBitmap);
 
+}
+
+void PrimitiveRenderer::polygon(std::vector<LineSegment> lines, ALLEGRO_COLOR colour, bool closed) {
+	LineSegment* lastLine = nullptr;
+	for (LineSegment line : lines) {
+		if (lastLine == nullptr) {
+			lastLine = &line;
+			continue;
+		}
+		Point2D p1 = line.getBeggining();
+		Point2D p2 = line.getEnd();
+		Point2D p3 = lastLine->getBeggining();
+		Point2D p4 = lastLine->getEnd();
+		float mat[3][3] = { {p1.getX(), p1.getY(), 1.0}, {p3.getX(), p3.getY(), 1.0}, {p4.getX(), p4.getY(), 1.0} };
+		Matrix3x3 s1(mat);
+		float mat2[3][3] = { {p2.getX(), p2.getY(), 1.0}, {p3.getX(), p3.getY(), 1.0}, {p4.getX(), p4.getY(), 1.0} };
+		Matrix3x3 s2(mat2);
+		float mat3[3][3] = { {p3.getX(), p3.getY(), 1.0}, {p1.getX(), p1.getY(), 1.0}, {p2.getX(), p2.getY(), 1.0} };
+		Matrix3x3 s3(mat3);
+		float mat4[3][3] = { {p4.getX(), p4.getY(), 1.0}, {p1.getX(), p1.getY(), 1.0}, {p2.getX(), p2.getY(), 1.0} };
+		Matrix3x3 s4(mat4);
+
+		if (s1.det() * s2.det() < 0 && s3.det() * s4.det() < 0) {
+			return;
+		}
+	}
+	this->polygonalChain(lines, colour, closed);
 }
 
 bool PrimitiveRenderer::compareColor(ALLEGRO_COLOR c1, ALLEGRO_COLOR c2)
