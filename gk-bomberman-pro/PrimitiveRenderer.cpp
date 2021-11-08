@@ -87,17 +87,41 @@ void PrimitiveRenderer::elipse_lab(Point2D p, int r1,int r2, ALLEGRO_COLOR colou
 
 void PrimitiveRenderer::boundry_fill(Point2D p, ALLEGRO_COLOR fill_color, ALLEGRO_COLOR boundry_color)
 {	
-	if (compareColor(al_get_pixel(al_get_backbuffer(al_get_current_display()), p.getX(), p.getY()), fill_color)) return;
-	if (compareColor(al_get_pixel(al_get_backbuffer(al_get_current_display()), p.getX(), p.getY()), boundry_color)) return;
+	std::stack<Point2D> stack;
+	std::stack<Point2D> stack2;
+	stack.push(p);
 
-	al_draw_pixel(p.getX(), p.getY(), fill_color);
-
-	boundry_fill(Point2D(p.getX() + 1, p.getY()), fill_color, boundry_color);
-	boundry_fill(Point2D(p.getX(), p.getY() + 1), fill_color, boundry_color);
-	boundry_fill(Point2D(p.getX() - 1, p.getY()), fill_color, boundry_color);
-	boundry_fill(Point2D(p.getX(), p.getY() - 1), fill_color, boundry_color);
-
-
+	/*ALLEGRO_BITMAP* tempBitmap = al_clone_bitmap(al_get_backbuffer(al_get_current_display()));
+	al_set_target_bitmap(tempBitmap);*/
+	
+	while (!stack.empty()) {
+		Point2D curPoint = stack.top();
+		if (curPoint.getX() < 0 || curPoint.getX() > 1280 || curPoint.getY() < 0 || curPoint.getY() > 720) {
+			stack.pop();
+			continue;
+		}
+		if (compareColor(al_get_pixel(al_get_backbuffer(al_get_current_display()), curPoint.getX(), curPoint.getY()), fill_color)) {
+			stack.pop();
+			continue;
+		}
+		if (compareColor(al_get_pixel(al_get_backbuffer(al_get_current_display()), curPoint.getX(), curPoint.getY()), boundry_color)) {
+			stack.pop();
+			continue;
+		}
+		al_draw_pixel(curPoint.getX(), curPoint.getY(), fill_color);
+		stack2.push(curPoint);
+		stack.pop();
+		stack.push(Point2D(curPoint.getX() + 1, curPoint.getY()));
+		//stack.push(Point2D(curPoint.getX(), curPoint.getY() + 1));
+		//stack.push(Point2D(curPoint.getX() - 1, curPoint.getY()));
+		//stack.push(Point2D(curPoint.getX(), curPoint.getY() - 1));
+	}
+	/*al_set_target_backbuffer(al_get_current_display());
+	while (!stack2.empty()) {
+		Point2D curPoint = stack.top();
+		al_draw_pixel(curPoint.getX(), curPoint.getY(), fill_color);
+		stack2.pop();
+	}*/
 }
 
 bool PrimitiveRenderer::compareColor(ALLEGRO_COLOR c1, ALLEGRO_COLOR c2)
