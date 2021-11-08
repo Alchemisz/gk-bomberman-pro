@@ -177,6 +177,7 @@ void GameScene::resetGame()
 		player->setY(positions[idx + 1]);
 		idx += 2;
 	}
+
 	MapGen.generateMap(this->blocks);
 }
 

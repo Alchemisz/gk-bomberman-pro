@@ -1,5 +1,5 @@
 #include "PrimitiveRenderer.h"
-
+#include <cmath>
 void PrimitiveRenderer::rectangle(Point2D p0, Point2D p1, ALLEGRO_COLOR colour, bool filled)
 {
 	if (filled)
@@ -49,6 +49,22 @@ void PrimitiveRenderer::polygonalChain(std::vector<LineSegment> chain, ALLEGRO_C
 	}
 	if (closed)
 		line(chain[chain.size() - 1].getEnd(), chain[0].getBeggining(), colour);
+}
+
+void PrimitiveRenderer::circle_lab(Point2D p, int r, ALLEGRO_COLOR colour)
+{
+	int x, y;
+	double PI = 3.141;
+	for (double a = 0; a < PI / 2; a += 0.1)
+	{
+		x = p.getX() + r * cos(a);
+		y = p.getY() + r * sin(a);
+
+		al_put_pixel(x, y, colour);
+		al_put_pixel(p.getX() + x, y, colour);
+		al_put_pixel(x, p.getY() + y, colour);
+		al_put_pixel(p.getX() + x, y + p.getY(), colour);
+	}
 }
 
 

@@ -15,5 +15,7 @@ public:
 	void singlePoint(Point2D p, ALLEGRO_COLOR colour);
 	void polygonalChain(std::vector<Point2D> chain, ALLEGRO_COLOR colour, bool closed);
 	void polygonalChain(std::vector<LineSegment> chain, ALLEGRO_COLOR colour, bool closed);
+	void circle_lab(Point2D p, int r, ALLEGRO_COLOR colour);
+
 };
 
