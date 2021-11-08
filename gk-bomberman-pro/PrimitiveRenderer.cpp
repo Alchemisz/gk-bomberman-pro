@@ -55,16 +55,57 @@ void PrimitiveRenderer::circle_lab(Point2D p, int r, ALLEGRO_COLOR colour)
 {
 	int x, y;
 	double PI = 3.141;
-	for (double a = 0; a < PI / 2; a += 0.1)
+	for (double a = 0; a < PI / 2; a += 0.01)
 	{
-		x = p.getX() + r * cos(a);
-		y = p.getY() + r * sin(a);
+		x = r * cos(a);
+		y = r * sin(a);
 
-		al_put_pixel(x, y, colour);
-		al_put_pixel(p.getX() + x, y, colour);
-		al_put_pixel(x, p.getY() + y, colour);
-		al_put_pixel(p.getX() + x, y + p.getY(), colour);
+		al_draw_pixel(p.getX() + x, p.getY() + y, colour);
+		al_draw_pixel(p.getX() - x, p.getY() + y, colour);
+		al_draw_pixel(p.getX() + x, p.getY() - y, colour);
+		al_draw_pixel(p.getX() - x, p.getY() - y, colour);
+
 	}
+}
+
+void PrimitiveRenderer::elipse_lab(Point2D p, int r1,int r2, ALLEGRO_COLOR colour)
+{
+	int x, y;
+	double PI = 3.141;
+	for (double a = 0; a < PI / 2; a += 0.01)
+	{
+		x = r1 * cos(a);
+		y = r2 * sin(a);
+
+		al_draw_pixel(p.getX() + x, p.getY() + y, colour);
+		al_draw_pixel(p.getX() - x, p.getY() + y, colour);
+		al_draw_pixel(p.getX() + x, p.getY() - y, colour);
+		al_draw_pixel(p.getX() - x, p.getY() - y, colour);
+
+	}
+}
+
+void PrimitiveRenderer::boundry_fill(Point2D p, ALLEGRO_COLOR fill_color, ALLEGRO_COLOR boundry_color)
+{	
+	if (compareColor(al_get_pixel(al_get_backbuffer(al_get_current_display()), p.getX(), p.getY()), fill_color)) return;
+	if (compareColor(al_get_pixel(al_get_backbuffer(al_get_current_display()), p.getX(), p.getY()), boundry_color)) return;
+
+	al_draw_pixel(p.getX(), p.getY(), fill_color);
+
+	boundry_fill(Point2D(p.getX() + 1, p.getY()), fill_color, boundry_color);
+	boundry_fill(Point2D(p.getX(), p.getY() + 1), fill_color, boundry_color);
+	boundry_fill(Point2D(p.getX() - 1, p.getY()), fill_color, boundry_color);
+	boundry_fill(Point2D(p.getX(), p.getY() - 1), fill_color, boundry_color);
+
+
+}
+
+bool PrimitiveRenderer::compareColor(ALLEGRO_COLOR c1, ALLEGRO_COLOR c2)
+{	
+	unsigned char r1, g1, b1, r2, g2, b2;
+	al_unmap_rgb(c1, &r1,&g1,&b1);
+	al_unmap_rgb(c2, &r2, &g2, &b2);
+	return (r1 == r2) && (g1 == g2) && (b1 == b2);
 }
 
 

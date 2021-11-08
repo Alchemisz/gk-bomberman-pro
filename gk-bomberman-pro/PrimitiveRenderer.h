@@ -16,6 +16,9 @@ public:
 	void polygonalChain(std::vector<Point2D> chain, ALLEGRO_COLOR colour, bool closed);
 	void polygonalChain(std::vector<LineSegment> chain, ALLEGRO_COLOR colour, bool closed);
 	void circle_lab(Point2D p, int r, ALLEGRO_COLOR colour);
+	void elipse_lab(Point2D p, int r1,int r2, ALLEGRO_COLOR colour);
+	void boundry_fill(Point2D p,ALLEGRO_COLOR fill_color,ALLEGRO_COLOR boundry_color);
+	bool compareColor(ALLEGRO_COLOR c1, ALLEGRO_COLOR c2);
 
 };
 

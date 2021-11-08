@@ -36,7 +36,8 @@ void Engine::init()
     loopTimer = al_create_timer(1.0 / (float)config.getFPS());
     al_register_event_source(loopQueue, al_get_timer_event_source(loopTimer));
     al_start_timer(loopTimer);
-    SceneManager::setScene(new MainMenuScene());
+    //SceneManager::setScene(new MainMenuScene());
+    SceneManager::setScene(new DebugScene());
 
     this->eventQueue = al_create_event_queue();
     al_register_event_source(this->eventQueue, al_get_mouse_event_source());
