@@ -7,10 +7,10 @@ void DebugScene::render() {
 
 	//i = (i + 10) % 700;
 	//al_draw_line(0, 0, 1280, i, al_map_rgb(0, 0, 0), 10);
-	//renderer.circle_lab(Point2D(200, 200), 10, al_map_rgb(255, 0, 0));
-	renderer.rectangle(Point2D(100, 100), Point2D(300, 300), al_map_rgb(255, 0, 0), false);
+	renderer.circle_lab(Point2D(200, 200), 50, al_map_rgb(255, 0, 0));
+	//renderer.rectangle(Point2D(100, 100), Point2D(300,300), al_map_rgb(255, 0, 0), false);
 	//renderer.elipse_lab(Point2D(400, 400), 50,100, al_map_rgb(255, 0, 255));
-	renderer.boundry_fill(Point2D(122, 122), al_map_rgb(255, 0, 255), al_map_rgb(255, 0, 0));
+	renderer.boundry_fill(Point2D(200, 200), al_map_rgb(255, 0, 255), al_map_rgb(255, 0, 0));
 }
 
 void DebugScene::show()

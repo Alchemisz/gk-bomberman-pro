@@ -88,40 +88,38 @@ void PrimitiveRenderer::elipse_lab(Point2D p, int r1,int r2, ALLEGRO_COLOR colou
 void PrimitiveRenderer::boundry_fill(Point2D p, ALLEGRO_COLOR fill_color, ALLEGRO_COLOR boundry_color)
 {	
 	std::stack<Point2D> stack;
-	std::stack<Point2D> stack2;
 	stack.push(p);
 
-	/*ALLEGRO_BITMAP* tempBitmap = al_clone_bitmap(al_get_backbuffer(al_get_current_display()));
-	al_set_target_bitmap(tempBitmap);*/
-	
+	ALLEGRO_BITMAP* tempBitmap = al_clone_bitmap(al_get_backbuffer(al_get_current_display()));
+	al_lock_bitmap(tempBitmap,al_get_bitmap_format(tempBitmap) ,ALLEGRO_LOCK_READWRITE);
+	al_set_target_bitmap(tempBitmap);
+
 	while (!stack.empty()) {
 		Point2D curPoint = stack.top();
 		if (curPoint.getX() < 0 || curPoint.getX() > 1280 || curPoint.getY() < 0 || curPoint.getY() > 720) {
 			stack.pop();
 			continue;
 		}
-		if (compareColor(al_get_pixel(al_get_backbuffer(al_get_current_display()), curPoint.getX(), curPoint.getY()), fill_color)) {
+		if (compareColor(al_get_pixel(tempBitmap, curPoint.getX(), curPoint.getY()), fill_color)) {
 			stack.pop();
 			continue;
 		}
-		if (compareColor(al_get_pixel(al_get_backbuffer(al_get_current_display()), curPoint.getX(), curPoint.getY()), boundry_color)) {
+		if (compareColor(al_get_pixel(tempBitmap, curPoint.getX(), curPoint.getY()), boundry_color)) {
 			stack.pop();
 			continue;
 		}
-		al_draw_pixel(curPoint.getX(), curPoint.getY(), fill_color);
-		stack2.push(curPoint);
 		stack.pop();
+		al_put_pixel(curPoint.getX(), curPoint.getY(), fill_color);
 		stack.push(Point2D(curPoint.getX() + 1, curPoint.getY()));
-		//stack.push(Point2D(curPoint.getX(), curPoint.getY() + 1));
-		//stack.push(Point2D(curPoint.getX() - 1, curPoint.getY()));
-		//stack.push(Point2D(curPoint.getX(), curPoint.getY() - 1));
+		stack.push(Point2D(curPoint.getX(), curPoint.getY() + 1));
+		stack.push(Point2D(curPoint.getX() - 1, curPoint.getY()));
+		stack.push(Point2D(curPoint.getX(), curPoint.getY() - 1));
 	}
-	/*al_set_target_backbuffer(al_get_current_display());
-	while (!stack2.empty()) {
-		Point2D curPoint = stack.top();
-		al_draw_pixel(curPoint.getX(), curPoint.getY(), fill_color);
-		stack2.pop();
-	}*/
+	al_set_target_backbuffer(al_get_current_display());
+	al_unlock_bitmap(tempBitmap);
+	al_draw_bitmap(tempBitmap, 0, 0, 0);
+	al_destroy_bitmap(tempBitmap);
+
 }
 
 bool PrimitiveRenderer::compareColor(ALLEGRO_COLOR c1, ALLEGRO_COLOR c2)
