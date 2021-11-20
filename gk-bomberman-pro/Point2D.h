@@ -1,15 +1,20 @@
 #pragma once
-class Point2D
+#include "TransformableObject.h"
+#include <Math.h>
+class Point2D : public TransformableObject
 {
 private:
-	int x, y;
+	float x, y;
 
 public:
-	Point2D(int x, int y);
+	Point2D(float x, float y);
+	virtual void translate(float x, float y);
+	virtual void rotate(float alpha);
+	virtual void scale(float factor);
 	Point2D();
-	int getX();
-	int getY();
-	void setX(int x);
-	void setY(int y);
+	float getX();
+	float getY();
+	void setX(float x);
+	void setY(float y);
 };
 

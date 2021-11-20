@@ -24,6 +24,11 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="MathUtil.cpp" />
     <ClCompile Include="Matrix3x3.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="UpdatableObject.cpp" />
+    <ClCompile Include="DrawableOvject.cpp" />
+    <ClCompile Include="TransformableObject.cpp" />
+    <ClCompile Include="ShapeObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
@@ -48,6 +53,11 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="MathUtil.h" />
     <ClInclude Include="Matrix3x3.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="UpdatableObject.h" />
+    <ClInclude Include="DrawableOvject.h" />
+    <ClInclude Include="TransformableObject.h" />
+    <ClInclude Include="ShapeObject.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
