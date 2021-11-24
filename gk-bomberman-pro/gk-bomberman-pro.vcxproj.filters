@@ -30,6 +30,7 @@
     <ClCompile Include="TransformableObject.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="BitmapHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
@@ -59,6 +60,7 @@
     <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="TransformableObject.h" />
     <ClInclude Include="ShapeObject.h" />
+    <ClInclude Include="BitmapHandler.h" />
     <ClInclude Include="Mouse.h" />
   </ItemGroup>
   <ItemGroup>

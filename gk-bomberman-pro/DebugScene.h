@@ -12,6 +12,7 @@ class DebugScene :
 private:
 	ALLEGRO_EVENT_QUEUE* eventQueue;
 	PrimitiveRenderer renderer;
+	
 	int i = 10;
 public:
 	virtual void render();
