@@ -1,7 +1,5 @@
 #pragma once
-#include "GameObject.h"
-class UpdatableObject :
-    public GameObject
+class UpdatableObject 
 {
     virtual void update();
 };
