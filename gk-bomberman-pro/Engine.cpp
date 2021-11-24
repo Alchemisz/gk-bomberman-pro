@@ -56,6 +56,7 @@ void Engine::loop()
         clearScreen(white);
 
         ALLEGRO_EVENT ev;
+        ALLEGRO_MOUSE_STATE mouseState;
         ev.type = NULL;
 
         do {
@@ -64,6 +65,11 @@ void Engine::loop()
             } else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
                 Keyboard::setDown(ev.keyboard.keycode, false);
             }
+            al_get_mouse_state(&mouseState);
+            Mouse::x = mouseState.x;
+            Mouse::y = mouseState.y;
+            Mouse::mouseDown = al_mouse_button_down(&mouseState, 1);
+            
             if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
                 running = false;
             }

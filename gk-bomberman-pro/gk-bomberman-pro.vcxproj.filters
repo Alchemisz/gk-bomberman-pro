@@ -26,9 +26,10 @@
     <ClCompile Include="Matrix3x3.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="UpdatableObject.cpp" />
-    <ClCompile Include="DrawableOvject.cpp" />
+    <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="TransformableObject.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
+    <ClCompile Include="Mouse.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
@@ -55,9 +56,10 @@
     <ClInclude Include="Matrix3x3.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="UpdatableObject.h" />
-    <ClInclude Include="DrawableOvject.h" />
+    <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="TransformableObject.h" />
     <ClInclude Include="ShapeObject.h" />
+    <ClInclude Include="Mouse.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

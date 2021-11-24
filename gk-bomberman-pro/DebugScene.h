@@ -4,6 +4,7 @@
 #include <allegro5/allegro_primitives.h>
 #include "PrimitiveRenderer.h"
 #include "LineSegment.h"
+#include "Mouse.h"
 
 class DebugScene :
     public Scene

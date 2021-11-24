@@ -10,6 +10,10 @@ void DebugScene::render() {
 	//al_draw_line(0, 0, 1280, i, al_map_rgb(0, 0, 0), 10);
 
 	Point2D p1 = Point2D(200, 200);
+	if (Mouse::mouseDown) {
+		std::cout << "mouseDown" << std::endl;
+	}
+	
 	
 	renderer.circle_lab(p1, 50, al_map_rgb(255, 0, 0));
 	//renderer.rectangle(Point2D(100, 100), Point2D(300,300), al_map_rgb(255, 0, 0), false);

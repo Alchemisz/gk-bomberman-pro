@@ -154,7 +154,7 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="DebugScene.cpp" />
-    <ClCompile Include="DrawableOvject.cpp" />
+    <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineConfiguration.cpp" />
     <ClCompile Include="Explosion.cpp" />
@@ -167,6 +167,7 @@
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="MathUtil.cpp" />
     <ClCompile Include="Matrix3x3.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerConfiguration.cpp" />
     <ClCompile Include="Point2D.cpp" />
@@ -187,7 +188,7 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Bomb.h" />
     <ClInclude Include="DebugScene.h" />
-    <ClInclude Include="DrawableOvject.h" />
+    <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EngineConfiguration.h" />
     <ClInclude Include="Explosion.h" />
@@ -199,6 +200,7 @@
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="MathUtil.h" />
     <ClInclude Include="Matrix3x3.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerConfiguration.h" />
     <ClInclude Include="Point2D.h" />

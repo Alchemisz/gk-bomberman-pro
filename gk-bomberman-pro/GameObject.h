@@ -1,5 +1,7 @@
 #pragma once
-class GameObject
+#include "DrawableObject.h"
+#include "UpdatableObject.h"
+class GameObject : public DrawableObject, public UpdatableObject
 {
 
 };

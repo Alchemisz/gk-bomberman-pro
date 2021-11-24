@@ -1,5 +1,5 @@
 #pragma once
-class DrawableOvject
+class DrawableObject
 {
 	virtual void draw();
 };

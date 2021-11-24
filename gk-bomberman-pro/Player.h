@@ -4,13 +4,14 @@
 #include <iostream>
 #include "Block.h"
 #include "PlayerConfiguration.h"
+#include "GameObject.h"
 
 enum direction {
 	LEFT = 0,UP,RIGHT,DOWN,CENTER
 };
 
 
-class Player
+class Player : public GameObject
 {
 private:
 	float x, y;
