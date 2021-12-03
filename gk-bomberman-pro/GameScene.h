@@ -13,6 +13,7 @@
 #include "Bomb.h"
 #include "Explosion.h"
 #include "Engine.h"
+#include "ScoreBox.h"
 
 const int BLOCKS_WIDTH = 12;
 const int BLOCKS_HEIGHT = 12;
@@ -34,6 +35,7 @@ private:
 	ALLEGRO_BITMAP* block_wall_border[4];
 	std::list<Player*> playerList;
 	ALLEGRO_BITMAP* main_world;
+	ALLEGRO_BITMAP* game_background;
 
 	MapGenerator MapGen;
 	PrimitiveAnimation *PlayerAnim;
@@ -51,6 +53,8 @@ private:
 
 	std::list<Bomb*> bombList;
 	std::list<Explosion*> explosionList;
+
+	ScoreBox* SBox;
 
 	void playerUpdate(Player& player);
 	void bombRender();

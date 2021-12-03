@@ -7,7 +7,7 @@
 class MapGenerator
 {	
 private:
-	BLOCK_TYPE block_template[5][3][3] = 
+	BLOCK_TYPE block_template[7][3][3] = 
 	{
 	{	{AIR, AIR, WALL}, 
 		{AIR, WALL, WALL}, 
@@ -31,6 +31,14 @@ private:
 
 	{	{AIR, AIR, AIR},
 		{WALL, AIR, AIR},
+		{WALL,WALL,WALL}
+	},
+	{	{WALL, WALL, WALL},
+		{WALL, AIR, WALL},
+		{WALL,WALL,WALL}
+	},
+	{	{WALL, WALL, WALL},
+		{WALL, STONE, WALL},
 		{WALL,WALL,WALL}
 	},
 	};

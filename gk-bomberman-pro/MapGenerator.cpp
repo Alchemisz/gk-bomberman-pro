@@ -19,7 +19,7 @@ void MapGenerator::generateMap(Block blocks[BLOCKS_WIDTH_GEN + 1][BLOCKS_HEIGHT_
 	{
 		for (int k = 0; k < 2; k++)
 		{
-			randNumb = rand() % 5;
+			randNumb = rand() % 7;
 
 			for (int i = 0; i < 3; i++)
 			{

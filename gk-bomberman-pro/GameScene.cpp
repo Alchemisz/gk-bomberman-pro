@@ -161,6 +161,12 @@ void GameScene::checkCollisions()
 		for (Player* player : playerList) {
 			std::pair<int, int> standingBlock = player->getBlockIndex();
 			if (explo->_x == standingBlock.first && explo->_y == standingBlock.second) {
+				
+				for (Player* player2 : playerList) {
+					if (player2 != player)player2->incScore();
+				}//kazdy gracz ktory nie jest tym co dostal w miche dostaje punkty
+				// w sumie moze zostac do trybu 4 graczy bo wtedy najwiecej pkt dostaje ten co przezyje najdluzej
+
 				resetGame();
 				return;
 			}
@@ -177,6 +183,15 @@ void GameScene::resetGame()
 		player->setY(positions[idx + 1]);
 		idx += 2;
 	}
+	for (Explosion* explo : explosionList)
+		delete explo;
+	explosionList.clear();
+
+	for (Bomb* b : bombList)
+		delete b;
+	bombList.clear();
+
+	SBox->setActive();
 
 	MapGen.generateMap(this->blocks);
 }
@@ -401,13 +416,15 @@ void GameScene::render()
 	al_draw_scaled_bitmap(this->main_world, 0, 0, MAP_WIDTH, MAP_HEIGHT, (1280/2) - (720/2), 0,
 							MAP_WIDTH * SCALLING_LEVEL, MAP_HEIGHT * SCALLING_LEVEL, 0);
 
+	al_draw_bitmap(game_background, 0, 0, 0);
 	//Ohydnie recznie robione, potem trzeba bedzie dorobic to do postaci i dac automatycznie
 	al_draw_bitmap(Player1Icon, 20, 20, 0);
 	al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 255, 255), 100, 50, ALLEGRO_ALIGN_LEFT, "Player 1");
 	al_draw_bitmap(Player2Icon, 1280 - 20 - 70, 720 - 20 - 70, 0);
 	al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 255, 255), 1280 -20 - 10 - 70, 720 - 55 , ALLEGRO_ALIGN_RIGHT, "Player 2");
 
-
+	//Dla dwoch graczy ten tryb, wiec nie kombinowalem z pozyskaniem wyniku z listy (chodzi o back i front)
+	SBox->update(this->Player1Icon,this->Player2Icon,playerList.front()->getScore(), playerList.back()->getScore());
 }
 
 void GameScene::show()
@@ -450,6 +467,11 @@ void GameScene::show()
 
 	this->Player2Icon = al_create_bitmap(70, 70);
 	this->Player2Icon = al_load_bitmap("gfx/plr2face.png");
+
+	this->game_background = al_load_bitmap("gfx/backgr.png");
+	al_convert_mask_to_alpha(this->game_background, al_map_rgb(255, 255, 0));
+
+	SBox = new ScoreBox();
 
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
 

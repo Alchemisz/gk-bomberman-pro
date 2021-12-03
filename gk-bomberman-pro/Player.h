@@ -17,10 +17,13 @@ private:
 	float velocity = 1;
 	int power = 3;
 	bool isMoving;
+	int score = 0;
 	direction state;
 	PlayerConfiguration* playerConfiguration;
 public:
 	static const int PLAYER_WIDTH = 14;
+	void incScore();
+	int getScore();
 	void move();
 	void drawPlayer();
 	void putBomb();

@@ -71,6 +71,16 @@ void Player::setPlayerConfiguration(PlayerConfiguration* playerConfiguration)
 	this->playerConfiguration = playerConfiguration;
 }
 
+void Player::incScore()
+{
+	score++;
+}
+
+int Player::getScore()
+{
+	return score;
+}
+
 void Player::move()
 {	
 
