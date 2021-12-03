@@ -88,6 +88,8 @@
     <Allegro_AddonImage>true</Allegro_AddonImage>
     <Allegro_AddonTTF>true</Allegro_AddonTTF>
     <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -149,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Color.cpp" />
@@ -176,6 +179,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="Block.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Color.h" />

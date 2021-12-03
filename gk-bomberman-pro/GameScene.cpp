@@ -189,8 +189,13 @@ void GameScene::resetGame()
 
 	for (Bomb* b : bombList)
 		delete b;
-	bombList.clear();
+	
+	for (int i = 0; i < 12; i++)
+		for (int j = 0; j < 12; j++)
+			blocks[i][j].setHasBomb(false);
 
+	bombList.clear();
+	Audio->Play("boom");
 	SBox->setActive();
 
 	MapGen.generateMap(this->blocks);
@@ -264,7 +269,7 @@ void GameScene::render()
 				Bomb* bomb = *it;
 				if (bomb->decrementLife()) {
 					std::pair<int, int> bombPos = std::pair<int, int>((int)(bomb->getX()+7) / Block::WIDTH, (int)(bomb->getY()+7) / Block::WIDTH);
-		
+					Audio->Play("explosion");
 					//dodaje centrum wybuchu jak cos
 					Explosion* exp_center = new Explosion();
 					exp_center->setDir(CENTER);
@@ -472,7 +477,8 @@ void GameScene::show()
 	al_convert_mask_to_alpha(this->game_background, al_map_rgb(255, 255, 0));
 
 	SBox = new ScoreBox();
-
+	Audio = new AudioManager();
+	Audio->Play("music");
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
 
 	for (int i = 0; i < 12; i++)

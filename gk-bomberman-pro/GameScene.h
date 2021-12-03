@@ -14,6 +14,7 @@
 #include "Explosion.h"
 #include "Engine.h"
 #include "ScoreBox.h"
+#include "AudioManager.h"
 
 const int BLOCKS_WIDTH = 12;
 const int BLOCKS_HEIGHT = 12;
@@ -55,7 +56,7 @@ private:
 	std::list<Explosion*> explosionList;
 
 	ScoreBox* SBox;
-
+	AudioManager *Audio;
 	void playerUpdate(Player& player);
 	void bombRender();
 	void renderExplosions();
