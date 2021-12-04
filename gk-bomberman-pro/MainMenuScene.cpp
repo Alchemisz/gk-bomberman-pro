@@ -8,13 +8,20 @@ void MainMenuScene::render() {
 	al_set_target_bitmap(al_get_backbuffer(al_get_current_display()));
 	al_draw_scaled_bitmap(background, 0, 0, 426, 240, 0, 0, 1280, 720, 0);
 
+	updateButtons();
 	drawButtons();
 	al_draw_bitmap(face, 1280 - 360, 720 - 360, 0);
 	//al_draw_bitmap(logo, 1280 - 960, 0, 0);
 	al_draw_bitmap(logo, 20, 720 - 150 - 20, 0);
-	if (Keyboard::isKeyDown(ALLEGRO_KEY_W)) {
-		SceneManager::setScene(new GameScene());
-	}
+	
+}
+
+void singlePlayer() {
+	SceneManager::setScene(new GameScene());
+}
+
+void multiPlayer() {
+	SceneManager::setScene(new GameScene());
 }
 
 void MainMenuScene::show()
@@ -30,14 +37,14 @@ void MainMenuScene::show()
 	}
 
 	buttons[SINGLEPLAYER]->setText("Singleplayer");
+	buttons[SINGLEPLAYER]->registerEventListener(singlePlayer);
 	buttons[MULTIPLAYER]->setText("Multiplayer");
+	buttons[MULTIPLAYER]->registerEventListener(multiPlayer);
 	buttons[HELP]->setText("Help");
 	buttons[EXIT]->setText("Exit");
 
 	background = al_create_bitmap(426, 240);
-	face = al_create_bitmap(360,360);
 	face = al_load_bitmap("gfx/face.png");
-	logo = al_create_bitmap(960, 150);
 	logo = al_load_bitmap("gfx/logo.png");
 	al_convert_mask_to_alpha(face, al_map_rgb(255,255,0));
 	al_convert_mask_to_alpha(logo, al_map_rgb(255, 255, 0));
@@ -45,8 +52,17 @@ void MainMenuScene::show()
 	background_animation = new PrimitiveAnimation("gfx/animbg.png", 47, 1, 3, 240, 20022);
 }
 
+
+
 void MainMenuScene::dispose()
 {
+}
+
+void MainMenuScene::updateButtons()
+{
+	for (Button* button : buttons) {
+		button->update();
+	}
 }
 
 void MainMenuScene::drawButtons()

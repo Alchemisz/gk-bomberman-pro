@@ -21,6 +21,7 @@ class MainMenuScene : public Scene
 		ALLEGRO_BITMAP* face;
 		ALLEGRO_BITMAP* logo;
 		PrimitiveAnimation* background_animation;
+		void updateButtons();
 		void drawButtons();
 	public: 
 		virtual void render();

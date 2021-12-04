@@ -24,6 +24,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScoreBox.cpp" />
     <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="Mouse.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
@@ -48,6 +49,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ScoreBox.h" />
     <ClInclude Include="AudioManager.h" />
+    <ClInclude Include="Mouse.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

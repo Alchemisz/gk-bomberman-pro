@@ -57,6 +57,7 @@ void Engine::loop()
         clearScreen(white);
 
         ALLEGRO_EVENT ev;
+        ALLEGRO_MOUSE_STATE mouseState;
         ev.type = NULL;
 
         do {
@@ -69,6 +70,11 @@ void Engine::loop()
                 running = false;
             }
         } while (al_get_next_event(this->eventQueue, &ev) != NULL);
+
+        al_get_mouse_state(&mouseState);
+        Mouse::x = mouseState.x;
+        Mouse::y = mouseState.y;
+        Mouse::mouseDown = al_mouse_button_down(&mouseState, 1);
 
         SceneManager::update();
         SceneManager::scene->render();
