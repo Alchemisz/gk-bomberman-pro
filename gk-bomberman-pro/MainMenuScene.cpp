@@ -10,7 +10,7 @@ void MainMenuScene::render() {
 
 	updateButtons();
 	drawButtons();
-	al_draw_bitmap(face, 1280 - 360, 720 - 360, 0);
+	al_draw_bitmap(ricardo_bomberman, 1280 - al_get_bitmap_width(ricardo_bomberman), 720 - al_get_bitmap_height(ricardo_bomberman), 0);
 	//al_draw_bitmap(logo, 1280 - 960, 0, 0);
 	al_draw_bitmap(logo, 20, 720 - 150 - 20, 0);
 	
@@ -46,8 +46,10 @@ void MainMenuScene::show()
 	background = al_create_bitmap(426, 240);
 	face = al_load_bitmap("gfx/face.png");
 	logo = al_load_bitmap("gfx/logo.png");
+	ricardo_bomberman = al_load_bitmap("gfx/ricbomb.png");
 	al_convert_mask_to_alpha(face, al_map_rgb(255,255,0));
 	al_convert_mask_to_alpha(logo, al_map_rgb(255, 255, 0));
+	al_convert_mask_to_alpha(ricardo_bomberman, al_map_rgb(255, 255, 0));
 
 	background_animation = new PrimitiveAnimation("gfx/animbg.png", 47, 1, 3, 240, 20022);
 }
