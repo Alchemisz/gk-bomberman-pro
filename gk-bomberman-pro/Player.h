@@ -18,9 +18,13 @@ private:
 	int power = 3;
 	bool isMoving;
 	int score = 0;
+
 	direction state;
 	PlayerConfiguration* playerConfiguration;
 public:
+	int bombCredits = 0;
+	int maxBombCredits = 90;
+	const int bombCreditsCost = 90;
 	static const int PLAYER_WIDTH = 14;
 	void incScore();
 	int getScore();

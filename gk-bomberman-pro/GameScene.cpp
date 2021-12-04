@@ -2,6 +2,7 @@
 
 void GameScene::playerUpdate(Player& player)
 {
+	player.bombCredits = (player.bombCredits < player.maxBombCredits) ? (player.bombCredits+1) : (player.maxBombCredits);
 	player.setIsMoving(false);
 	float deltaX = player.getX(), deltaY = player.getY();
 
@@ -12,7 +13,8 @@ void GameScene::playerUpdate(Player& player)
 	if (Keyboard::isKeyDown(playerConfiguration->getPutBomb())) {
 		Block* block = &blocks[player.getBlockIndex().first][player.getBlockIndex().second];
 		//Jesli na bloku nie ma bomby
-		if (!block->getHasBomb()) {
+		if (!block->getHasBomb() && (player.bombCredits - player.bombCreditsCost >= 0)) {
+			player.bombCredits -= player.bombCreditsCost;
 			Bomb* bomb = new Bomb(player.getPower());
 			block->setHasBomb(true);
 			bomb->setX(block->getX());
@@ -424,9 +426,17 @@ void GameScene::render()
 	al_draw_bitmap(game_background, 0, 0, 0);
 	//Ohydnie recznie robione, potem trzeba bedzie dorobic to do postaci i dac automatycznie
 	al_draw_bitmap(Player1Icon, 20, 20, 0);
-	al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 255, 255), 100, 50, ALLEGRO_ALIGN_LEFT, "Player 1");
+	if((playerList.front()->bombCredits - playerList.front()->bombCreditsCost >= 0))
+		al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 255, 255), 100, 50, ALLEGRO_ALIGN_LEFT, "Player 1");
+	else 
+		al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 0, 0), 100, 50, ALLEGRO_ALIGN_LEFT, "Player 1");
+
 	al_draw_bitmap(Player2Icon, 1280 - 20 - 70, 720 - 20 - 70, 0);
-	al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 255, 255), 1280 -20 - 10 - 70, 720 - 55 , ALLEGRO_ALIGN_RIGHT, "Player 2");
+
+	if ((playerList.back()->bombCredits - playerList.back()->bombCreditsCost >= 0))
+		al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 255, 255), 1280 -20 - 10 - 70, 720 - 55 , ALLEGRO_ALIGN_RIGHT, "Player 2");
+	else
+		al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 0, 0), 1280 - 20 - 10 - 70, 720 - 55, ALLEGRO_ALIGN_RIGHT, "Player 2");
 
 	//Dla dwoch graczy ten tryb, wiec nie kombinowalem z pozyskaniem wyniku z listy (chodzi o back i front)
 	SBox->update(this->Player1Icon,this->Player2Icon,playerList.front()->getScore(), playerList.back()->getScore());
