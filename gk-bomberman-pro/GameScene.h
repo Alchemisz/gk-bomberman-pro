@@ -10,6 +10,7 @@
 #include "PrimitiveAnimation.h"
 #include "Keyboard.h"
 #include "Player.h"
+#include "ArtificalPlayer.h"
 #include "Bomb.h"
 #include "Explosion.h"
 #include "Engine.h"

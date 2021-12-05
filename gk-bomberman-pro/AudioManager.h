@@ -9,7 +9,7 @@
 class AudioManager
 {
 private:
-	bool active = true; //jak was leb boli od muzyki to mozna wylaczyc
+	bool active = false; //jak was leb boli od muzyki to mozna wylaczyc
 	ALLEGRO_SAMPLE* MUSIC;
 	ALLEGRO_SAMPLE* BOOM;
 	std::vector<ALLEGRO_SAMPLE*> EXPLOSION;

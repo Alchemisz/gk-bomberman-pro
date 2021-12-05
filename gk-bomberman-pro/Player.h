@@ -13,10 +13,12 @@ enum direction {
 class Player
 {
 private:
+protected:
 	float x, y;
 	float velocity = 1;
 	int power = 3;
 	bool isMoving;
+	const bool isArtifical = false;
 	int score = 0;
 	direction state;
 	PlayerConfiguration* playerConfiguration;
@@ -24,6 +26,7 @@ public:
 	static const int PLAYER_WIDTH = 14;
 	void incScore();
 	int getScore();
+	virtual bool getIsArtifical();
 	void move();
 	void drawPlayer();
 	void putBomb();

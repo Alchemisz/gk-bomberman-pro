@@ -81,6 +81,11 @@ int Player::getScore()
 	return score;
 }
 
+bool Player::getIsArtifical()
+{
+	return isArtifical;
+}
+
 void Player::move()
 {	
 

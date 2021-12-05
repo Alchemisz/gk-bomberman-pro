@@ -8,6 +8,11 @@ void GameScene::playerUpdate(Player& player)
 	//Konfiguracja gracza
 	PlayerConfiguration* playerConfiguration = player.getPlayerConfiguration();
 
+	if (player.getIsArtifical()) {
+		ArtificalPlayer* temp = static_cast<ArtificalPlayer*>(&player);
+		temp->logic(blocks, bombList, explosionList);
+	}
+
 	//Postawienie bomby
 	if (Keyboard::isKeyDown(playerConfiguration->getPutBomb())) {
 		Block* block = &blocks[player.getBlockIndex().first][player.getBlockIndex().second];
@@ -493,19 +498,24 @@ void GameScene::show()
 		}
 	}
 
-	MapGen.generateMap(this->blocks);
+	//MapGen.generateMap(this->blocks);
+	MapGen.generateTestMap(this->blocks);
 
 	Player* pl1 = new Player();
-	Player* pl2 = new Player();
+	//Player* pl2 = new Player();
 	pl1->setX(0);
 	pl1->setY(0);
 
-	pl2->setX(220);
-	pl2->setY(220);
+	//pl2->setX(220);
+	//pl2->setY(220);
 
 	pl1->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_W, ALLEGRO_KEY_S, ALLEGRO_KEY_A, ALLEGRO_KEY_D, ALLEGRO_KEY_Q, this->PlayerAnim));
-	pl2->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_UP, ALLEGRO_KEY_DOWN, ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT, ALLEGRO_KEY_SPACE, this->PlayerAnim2));
+	//pl2->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_UP, ALLEGRO_KEY_DOWN, ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT, ALLEGRO_KEY_SPACE, this->PlayerAnim2));
 
+	Player* pl2 = new ArtificalPlayer();
+	pl2->setPlayerConfiguration(new PlayerConfiguration(ALLEGRO_KEY_UP, ALLEGRO_KEY_DOWN, ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT, ALLEGRO_KEY_SPACE, this->PlayerAnim2));
+	pl2->setX(220);
+	pl2->setY(220);
 	this->playerList.push_back(pl1);
 	this->playerList.push_back(pl2);
 }
