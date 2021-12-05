@@ -37,6 +37,13 @@ private:
 	std::list<Player*> playerList;
 	ALLEGRO_BITMAP* main_world;
 	ALLEGRO_BITMAP* game_background;
+	ALLEGRO_BITMAP* player_shield;
+	ALLEGRO_BITMAP* bonus_inv;
+	ALLEGRO_BITMAP* bonus_bomb;
+	ALLEGRO_BITMAP* bonus_nuke;
+	ALLEGRO_BITMAP* bonus_speed;
+	ALLEGRO_BITMAP* bonus_null;
+
 
 	MapGenerator MapGen;
 	PrimitiveAnimation *PlayerAnim;
@@ -55,8 +62,13 @@ private:
 	std::list<Bomb*> bombList;
 	std::list<Explosion*> explosionList;
 
+	int BonusFrameTimer = 0;
+	const int BonusFrameTimerBoundry = 300;
+
 	ScoreBox* SBox;
 	AudioManager *Audio;
+	void DrawCurrentBonus(int x,int y,Player* player);
+	void BonusHandler();
 	void playerUpdate(Player& player);
 	void bombRender();
 	void renderExplosions();

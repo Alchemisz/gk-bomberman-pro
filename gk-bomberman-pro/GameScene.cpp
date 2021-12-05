@@ -1,5 +1,54 @@
 #include "GameScene.h"
 
+void GameScene::DrawCurrentBonus(int x, int y, Player* player)
+{	
+	float divided_time = (float)BonusFrameTimer / (float)BonusFrameTimerBoundry;
+	al_draw_filled_rectangle(x, y, x + 120, y + 120, al_map_rgb(30, 30, 30));
+	al_draw_rectangle(x, y, x + 120, y + 120, al_map_rgb(70, 70, 70),5);
+	al_draw_filled_rectangle(x + 5, y + divided_time * 115, x + 120 - 5, y + 120 - 5, al_map_rgb_f(divided_time,1-divided_time,0));
+	switch (player->bonus_type)
+	{
+	case INVINCIBILITY:
+	{
+		al_draw_bitmap(bonus_inv, x + 10, y + 10, 0);
+		break;
+	}
+	case SPEED:
+	{
+		al_draw_bitmap(bonus_speed, x + 10, y + 10, 0);
+		break;
+	}
+	case BONUS_BOMBS:
+	{
+		al_draw_bitmap(bonus_bomb, x + 10, y + 10, 0);
+		break;
+	}
+	case STRONGER_BOMBS:
+	{
+		al_draw_bitmap(bonus_nuke, x + 10, y + 10, 0);
+		break;
+	}
+	default:
+	{
+		al_draw_bitmap(bonus_null, x + 10, y + 10, 0);
+		break;
+	}
+	}
+}
+
+void GameScene::BonusHandler()
+{
+	BonusFrameTimer = (BonusFrameTimer <= BonusFrameTimerBoundry) ? (BonusFrameTimer + 1) : (0);
+
+	if (BonusFrameTimer != BonusFrameTimerBoundry) return;
+
+	for (Player* player : playerList)
+	{
+		player->resetBonus();
+		player->generateRandomBonus();
+	}
+}
+
 void GameScene::playerUpdate(Player& player)
 {
 	player.bombCredits = (player.bombCredits < player.maxBombCredits) ? (player.bombCredits+1) : (player.maxBombCredits);
@@ -164,6 +213,8 @@ void GameScene::checkCollisions()
 			std::pair<int, int> standingBlock = player->getBlockIndex();
 			if (explo->_x == standingBlock.first && explo->_y == standingBlock.second) {
 				
+				if (player->bonus_invincibility)continue; // BONUS NIEZNISZCZALNOSC
+
 				for (Player* player2 : playerList) {
 					if (player2 != player)player2->incScore();
 				}//kazdy gracz ktory nie jest tym co dostal w miche dostaje punkty
@@ -259,6 +310,8 @@ void GameScene::render()
 
 	//player.move();
 	//playerUpdate(player);
+	BonusHandler();
+
 	for (Player* player : playerList) {
 		playerUpdate(*player);
 	}
@@ -410,6 +463,10 @@ void GameScene::render()
 				player->getPlayerConfiguration()->getAnimation()->drawAnimation(player->getX(), player->getY(), (int)player->getPositionState());
 			else 
 				player->getPlayerConfiguration()->getAnimation()->drawDefaultPosition(player->getX(), player->getY(), (int)player->getPositionState());
+
+			float divided_time = (float)BonusFrameTimer / (float)BonusFrameTimerBoundry;
+
+			if (player->bonus_invincibility)al_draw_tinted_bitmap(player_shield, al_map_rgb((unsigned char)(rand() * divided_time * 100) % 127 + 127, (unsigned char)(rand() * divided_time * 100) % 127 + 127, (unsigned char)(rand() * divided_time * 100) % 127 + 127), player->getX(), player->getY(), 0);
 	}
 
 	/*if (player.getIsMoving())
@@ -437,6 +494,9 @@ void GameScene::render()
 		al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 255, 255), 1280 -20 - 10 - 70, 720 - 55 , ALLEGRO_ALIGN_RIGHT, "Player 2");
 	else
 		al_draw_text(Engine::getInstance()->getFont(), al_map_rgb(255, 0, 0), 1280 - 20 - 10 - 70, 720 - 55, ALLEGRO_ALIGN_RIGHT, "Player 2");
+
+	DrawCurrentBonus(20,120,playerList.front());
+	DrawCurrentBonus(1280 - 20 - 120, 720 - 20 - 120 - 100, playerList.back());
 
 	//Dla dwoch graczy ten tryb, wiec nie kombinowalem z pozyskaniem wyniku z listy (chodzi o back i front)
 	SBox->update(this->Player1Icon,this->Player2Icon,playerList.front()->getScore(), playerList.back()->getScore());
@@ -482,9 +542,16 @@ void GameScene::show()
 
 	this->Player2Icon = al_create_bitmap(70, 70);
 	this->Player2Icon = al_load_bitmap("gfx/plr2face.png");
-
+	this->player_shield = al_load_bitmap("gfx/plrshield.png");
 	this->game_background = al_load_bitmap("gfx/backgr.png");
+	this->bonus_bomb = al_load_bitmap("gfx/bonus_bomb.png");
+	this->bonus_speed = al_load_bitmap("gfx/bonus_speed.png");
+	this->bonus_nuke = al_load_bitmap("gfx/bonus_nuke.png");
+	this->bonus_inv = al_load_bitmap("gfx/bonus_inv.png");
+	this->bonus_null = al_load_bitmap("gfx/bonus_null.png");
+
 	al_convert_mask_to_alpha(this->game_background, al_map_rgb(255, 255, 0));
+	al_convert_mask_to_alpha(this->player_shield, al_map_rgb(255, 255, 0));
 
 	SBox = new ScoreBox();
 	Audio = new AudioManager();

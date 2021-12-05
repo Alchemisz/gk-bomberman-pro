@@ -9,6 +9,9 @@ enum direction {
 	LEFT = 0,UP,RIGHT,DOWN,CENTER
 };
 
+enum bonus_types {
+	NO_BONUS = 0, INVINCIBILITY, SPEED,BONUS_BOMBS, STRONGER_BOMBS
+};
 
 class Player
 {
@@ -26,6 +29,13 @@ public:
 	int maxBombCredits = 90;
 	const int bombCreditsCost = 90;
 	static const int PLAYER_WIDTH = 14;
+
+	bool bonus_invincibility = false;
+	bonus_types bonus_type = NO_BONUS;
+
+	void generateRandomBonus();
+	void resetBonus();
+
 	void incScore();
 	int getScore();
 	void move();

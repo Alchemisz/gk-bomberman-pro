@@ -71,9 +71,56 @@ void Player::setPlayerConfiguration(PlayerConfiguration* playerConfiguration)
 	this->playerConfiguration = playerConfiguration;
 }
 
+void Player::generateRandomBonus()
+{
+	srand((int)this + time(NULL));
+	bonus_types temp;
+	do
+	{
+		temp = (bonus_types)(rand() % 4 + 1);
+	} while (temp == this->bonus_type);
+
+	switch (temp)
+	{
+	case INVINCIBILITY:
+	{
+		bonus_invincibility = true;
+		bonus_type = INVINCIBILITY;
+		break;
+	}
+	case SPEED:
+	{
+		this->setVelocity(2);
+		bonus_type = SPEED;
+		break;
+	}
+	case BONUS_BOMBS:
+	{
+		maxBombCredits = 180;
+		bonus_type = BONUS_BOMBS;
+		break;
+	}
+	case STRONGER_BOMBS:
+	{
+		this->setPower(6);
+		bonus_type = STRONGER_BOMBS;
+		break;
+	}
+	}
+}
+
 void Player::incScore()
 {
 	score++;
+}
+
+void Player::resetBonus()
+{
+	//bonus_type = NO_BONUS;
+	bonus_invincibility = false;
+	this->setVelocity(1);
+	maxBombCredits = 90;
+	this->setPower(3);
 }
 
 int Player::getScore()
