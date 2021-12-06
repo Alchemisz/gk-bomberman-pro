@@ -10,7 +10,7 @@ void GameScene::playerUpdate(Player& player)
 
 	if (player.getIsArtifical()) {
 		ArtificalPlayer* temp = static_cast<ArtificalPlayer*>(&player);
-		temp->logic(blocks, bombList, explosionList);
+		temp->logic(blocks, bombList, explosionList, *playerList.front());
 	}
 
 	//Postawienie bomby
@@ -169,8 +169,7 @@ void GameScene::checkCollisions()
 				
 				for (Player* player2 : playerList) {
 					if (player2 != player)player2->incScore();
-				}//kazdy gracz ktory nie jest tym co dostal w miche dostaje punkty
-				// w sumie moze zostac do trybu 4 graczy bo wtedy najwiecej pkt dostaje ten co przezyje najdluzej
+				}
 
 				resetGame();
 				return;
