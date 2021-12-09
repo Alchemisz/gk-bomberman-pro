@@ -24,6 +24,10 @@ void multiPlayer() {
 	SceneManager::setScene(new GameScene());
 }
 
+void options() {
+	SceneManager::setScene(new OptionScene());
+}
+
 void MainMenuScene::show()
 {
 	//int centerX = (1280 / 2) - Button::BUTTON_WIDTH / 2;
@@ -41,9 +45,10 @@ void MainMenuScene::show()
 	buttons[MULTIPLAYER]->setText("Multiplayer");
 	buttons[MULTIPLAYER]->registerEventListener(multiPlayer);
 	buttons[HELP]->setText("Help");
+	buttons[HELP]->registerEventListener(options);
 	buttons[EXIT]->setText("Exit");
 
-	Audio = new AudioManager();
+	Audio = AudioManager::getInstance();
 	Audio->Play("menu");
 
 	background = al_create_bitmap(426, 240);
@@ -59,7 +64,6 @@ void MainMenuScene::show()
 
 void MainMenuScene::dispose()
 {
-	Audio->stopSample();
 }
 
 void MainMenuScene::updateButtons()

@@ -11,6 +11,7 @@
 #include "Color.h"
 #include "Engine.h"
 #include "AudioManager.h"
+#include "OptionScene.h"
 
 enum MENU_BUTTONS {SINGLEPLAYER, MULTIPLAYER, HELP, EXIT};
 

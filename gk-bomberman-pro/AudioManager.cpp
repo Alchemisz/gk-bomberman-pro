@@ -1,5 +1,15 @@
 #include "AudioManager.h"
 
+AudioManager* AudioManager::audioManger = nullptr;
+
+AudioManager* AudioManager::getInstance()
+{
+	if (audioManger == nullptr) {
+		audioManger = new AudioManager();
+	}
+	return audioManger;
+}
+
 AudioManager::AudioManager()
 {
 	SAMPLE_POINTER;
@@ -21,7 +31,7 @@ void AudioManager::Play(std::string sample_name)
 
 	if (!active)return;
 	if(sample_name == "menu")
-		al_play_sample(MENU_MUSIC, 0.5, 0, 1, ALLEGRO_PLAYMODE_LOOP, &SAMPLE_POINTER);
+		al_play_sample(MENU_MUSIC, 0.5, 0, 1, ALLEGRO_PLAYMODE_LOOP, NULL);
 	if (sample_name == "boom")
 		al_play_sample(BOOM, 1.0, 0, 1, ALLEGRO_PLAYMODE_ONCE, NULL);
 	if(sample_name == "music")
@@ -34,7 +44,7 @@ void AudioManager::Play(std::string sample_name)
 
 }
 
-void AudioManager::stopSample()
+void AudioManager::stopAllSamples()
 {
-	al_stop_sample(&SAMPLE_POINTER);
+	al_stop_samples();
 }
