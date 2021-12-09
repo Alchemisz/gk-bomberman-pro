@@ -16,10 +16,13 @@ private:
 	std::vector<ALLEGRO_SAMPLE*> EXPLOSION;
 	unsigned int randCount = 0;
 
+	static AudioManager* audioManger;
+	AudioManager();
+
 	ALLEGRO_SAMPLE_ID SAMPLE_POINTER;
 public:
-	AudioManager();
+	static AudioManager* getInstance();
 	void Play(std::string sample_name);
-	void stopSample();
+	void stopAllSamples();
 };
 

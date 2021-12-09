@@ -48,7 +48,7 @@ void MainMenuScene::show()
 	buttons[HELP]->registerEventListener(options);
 	buttons[EXIT]->setText("Exit");
 
-	Audio = new AudioManager();
+	Audio = AudioManager::getInstance();
 	Audio->Play("menu");
 
 	background = al_create_bitmap(426, 240);
@@ -64,7 +64,6 @@ void MainMenuScene::show()
 
 void MainMenuScene::dispose()
 {
-	Audio->stopSample();
 }
 
 void MainMenuScene::updateButtons()

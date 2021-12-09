@@ -504,6 +504,7 @@ void GameScene::render()
 
 void GameScene::show()
 {	
+	
 	bombTimerQueue = al_create_event_queue();
 	bombTimer = al_create_timer(1.0/4);
 	al_register_event_source(bombTimerQueue, al_get_timer_event_source(bombTimer));
@@ -554,8 +555,11 @@ void GameScene::show()
 	al_convert_mask_to_alpha(this->player_shield, al_map_rgb(255, 255, 0));
 
 	SBox = new ScoreBox();
-	Audio = new AudioManager();
+	Audio = AudioManager::getInstance();
+	Audio->stopAllSamples();
 	Audio->Play("music");
+
+
 	for (int i = 0; i < 4; i++)al_convert_mask_to_alpha(this->block_wall_border[i], al_map_rgb(255, 255, 0));
 
 	for (int i = 0; i < 12; i++)
