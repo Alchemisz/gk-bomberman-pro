@@ -169,6 +169,7 @@
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="OptionScene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerConfiguration.cpp" />
     <ClCompile Include="Point2D.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="OptionScene.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerConfiguration.h" />
     <ClInclude Include="Point2D.h" />
