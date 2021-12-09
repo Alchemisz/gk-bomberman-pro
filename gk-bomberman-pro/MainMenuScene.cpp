@@ -43,6 +43,9 @@ void MainMenuScene::show()
 	buttons[HELP]->setText("Help");
 	buttons[EXIT]->setText("Exit");
 
+	Audio = new AudioManager();
+	Audio->Play("menu");
+
 	background = al_create_bitmap(426, 240);
 	face = al_load_bitmap("gfx/face.png");
 	logo = al_load_bitmap("gfx/logo.png");
@@ -54,10 +57,9 @@ void MainMenuScene::show()
 	background_animation = new PrimitiveAnimation("gfx/animbg.png", 47, 1, 3, 240, 20022);
 }
 
-
-
 void MainMenuScene::dispose()
 {
+	Audio->stopSample();
 }
 
 void MainMenuScene::updateButtons()

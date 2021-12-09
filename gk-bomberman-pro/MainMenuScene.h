@@ -10,6 +10,7 @@
 #include "Button.h"
 #include "Color.h"
 #include "Engine.h"
+#include "AudioManager.h"
 
 enum MENU_BUTTONS {SINGLEPLAYER, MULTIPLAYER, HELP, EXIT};
 
@@ -21,6 +22,7 @@ class MainMenuScene : public Scene
 		ALLEGRO_BITMAP* face;
 		ALLEGRO_BITMAP* logo;
 		ALLEGRO_BITMAP* ricardo_bomberman;
+		AudioManager* Audio;
 
 		PrimitiveAnimation* background_animation;
 		void updateButtons();
