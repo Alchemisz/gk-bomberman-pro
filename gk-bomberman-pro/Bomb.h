@@ -6,7 +6,8 @@ class Bomb
 {
 private:
 	float x, y;
-	int life = 9;
+	//int life = 9;
+	int life = 9999;
 	int power;
 public:
 	Bomb(int power);

@@ -71,38 +71,89 @@ void PrimitiveRenderer::circle_lab(Point2D p, int r, ALLEGRO_COLOR colour)
 
 void PrimitiveRenderer::line(Point2D p0, Point2D p1, ALLEGRO_COLOR colour)
 {
-	int dx, dy, g, h, c;
-	dx = p1.getX() - p0.getX();
-
-	if (dx > 0) g = 1; else g = -1;
-
-	dx = abs(dx);
-	dy = p1.getY() - p0.getY();
-	if (dy > 0) h = 1; else h = -1;
-	dy = abs(dy);
-
-	if (dx > dy) {
-		c = -1 * dx;
-		while (p0.getX() != p1.getX())
+	int x1 = p0.getX();
+	int y1 = p0.getY();
+	int x2 = p1.getX();
+	int y2 = p1.getY();
+	int x, y, dx, dy, dx1, dy1, px, py, xe, ye, i;
+	dx = x2 - x1;
+	dy = y2 - y1;
+	dx1 = fabs(dx);
+	dy1 = fabs(dy);
+	px = 2 * dy1 - dx1;
+	py = 2 * dx1 - dy1;
+	if (dy1 <= dx1)
+	{
+		if (dx >= 0)
 		{
-			al_put_pixel(p0.getX(), p0.getY(), colour);
-			c += (2 * dy);
-			if (c > 0) { p0.setY(p0.getY() + h); c -= (2 * dx); }
-			p0.setX(p0.getX() + g);
+			x = x1;
+			y = y1;
+			xe = x2;
+		}
+		else
+		{
+			x = x2;
+			y = y2;
+			xe = x1;
+		}
+		al_put_pixel(x, y, colour);
+		for (i = 0; x < xe; i++)
+		{
+			x = x + 1;
+			if (px < 0)
+			{
+				px = px + 2 * dy1;
+			}
+			else
+			{
+				if ((dx < 0 && dy < 0) || (dx > 0 && dy > 0))
+				{
+					y = y + 1;
+				}
+				else
+				{
+					y = y - 1;
+				}
+				px = px + 2 * (dy1 - dx1);
+			}
+			al_put_pixel(x, y, colour);
 		}
 	}
-	else {
-		c = (-1 * dy);
-		while (p0.getY() != p1.getY())
+	else
+	{
+		if (dy >= 0)
 		{
-			al_put_pixel(p0.getX(), p0.getY(), colour);
-			c += (2 * dx);
-			if (c > 0)
+			x = x1;
+			y = y1;
+			ye = y2;
+		}
+		else
+		{
+			x = x2;
+			y = y2;
+			ye = y1;
+		}
+		al_put_pixel(x, y, colour);
+		for (i = 0; y < ye; i++)
+		{
+			y = y + 1;
+			if (py <= 0)
 			{
-				p0.setX(p0.getX() + g);
-				c -= (2 * dy);
+				py = py + 2 * dx1;
 			}
-			p0.setY(p0.getY() + h);
+			else
+			{
+				if ((dx < 0 && dy < 0) || (dx > 0 && dy > 0))
+				{
+					x = x + 1;
+				}
+				else
+				{
+					x = x - 1;
+				}
+				py = py + 2 * (dx1 - dy1);
+			}
+			al_put_pixel(x, y, colour);
 		}
 	}
 }

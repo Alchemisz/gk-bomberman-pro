@@ -72,14 +72,18 @@ void ArtificalPlayer::markMap(Block blocks[12 + 1][12 + 1], std::list<Bomb*> bom
 
 }
 
+#include "PrimitiveRenderer.h"
+
 std::pair<int, int> ArtificalPlayer::findPath(int destX, int destY)
 {
 	int visitedMap[12 + 1][12 + 1];
+	int costMap[12 + 1][12 + 1];
 	std::pair<int, int> parents[12 + 1][12 + 1];
 	std::priority_queue<std::pair<int, std::pair<int, int>>> queue;
 	for (int i = 0; i < 13; i++) {
 		for (int j = 0; j < 13; j++) {
 			visitedMap[i][j] = 0;
+			costMap[i][j] = 2000;
 		}
 	}
 	std::pair<int, int> curBlock = getBlockIndex();
@@ -87,13 +91,16 @@ std::pair<int, int> ArtificalPlayer::findPath(int destX, int destY)
 		return curBlock;
 	}
 	std::stack<std::pair<int, int>> path;
-	int aprox = 1000 - (abs(curBlock.first - destX) + abs(curBlock.second - destY));
-	queue.push(std::pair<int, std::pair<int, int>> (aprox, curBlock));
+	costMap[curBlock.first][curBlock.second] = 0;
+	int firstAprox = 1000 - (abs(curBlock.first - destX) + abs(curBlock.second - destY));
+	queue.push(std::pair<int, std::pair<int, int>> (firstAprox, curBlock));
 
 	int pathLen = 0;
 	bool success = false;
+	int idx = 0;
 
 	while (!queue.empty()) {
+		idx++;
 		std::pair<int, std::pair<int, int>> curPoint = queue.top();
 		std::pair<int, int> cur = curPoint.second;
 		if (cur.first == destX && cur.second == destY) {
@@ -116,27 +123,44 @@ std::pair<int, int> ArtificalPlayer::findPath(int destX, int destY)
 			if (_x >= 0 && _x < 12 && _y >= 0 && _y < 12) {
 				if (visitedMap[_x][_y] == 0) {
 					if ((markedMap[_x][_y] & ACCESIBLE_MASK) != 0) {
-						int aprox = 1000 - (abs(_x - destX) + abs(_y - destY));
-						parents[_x][_y] = std::pair<int, int>(cur);
-						queue.push(std::pair<int, std::pair<int, int>>(aprox, std::pair<int, int>(_x, _y)));
+						int tempCost = costMap[cur.first][cur.second] + 1;
+						if (markedMap[_x][_y] & DANGER_MASK) {
+							tempCost += 20;
+						}
+						if (tempCost < costMap[_x][_y]) {
+							parents[_x][_y] = std::pair<int, int>(cur);
+							costMap[_x][_y] = tempCost;
+							int aprox = 1000 - (abs(_x - destX) + abs(_y - destY) + costMap[_x][_y]);
+							queue.push(std::pair<int, std::pair<int, int>>(aprox, std::pair<int, int>(_x, _y)));
+						}
+						//parents[_x][_y] = std::pair<int, int>(cur);
+						int a = 2;
 					}
 				}
 			}
 		}
 	}
 
+	PrimitiveRenderer rend;
 	if (success) {
-		std::cout << "success" << std::endl;
 		std::pair<int, int> current = std::pair<int, int>(destX, destY);
-		while (parents[current.first][current.second].first != curBlock.first && parents[current.first][current.second].second != curBlock.second) {
+		while (parents[current.first][current.second].first != curBlock.first || parents[current.first][current.second].second != curBlock.second) {
+			
 			int oldX = current.first;
 			int oldY = current.second;
+			int tempX = oldX * 20;
+			int tempY = oldY * 20;
+			rend.rectangle(Point2D(tempX, tempY), Point2D(tempX+20, tempY+20), al_map_rgb(255, 255, 0), false);
+
 			current.first = parents[oldX][oldY].first;
 			current.second = parents[oldX][oldY].second;
+			rend.rectangle(Point2D(tempX+10, tempY+10), Point2D(current.first*20+10, current.second*20+10), al_map_rgb(255, 255, 0), false);
 		}
+		int tempX = current.first * 20;
+		int tempY = current.second * 20;
+		rend.rectangle(Point2D(tempX, tempY), Point2D(tempX + 20, tempY + 20), al_map_rgb(255, 255, 0), false);
 		return current;
 	}
-	std::cout << "failure" << std::endl;
 	return curBlock;
 }
 
@@ -153,18 +177,17 @@ void ArtificalPlayer::logic(Block blocks[12 + 1][12 + 1], std::list<Bomb*> bombL
 	std::queue<std::pair<int, int>> path;
 	markMap(blocks, bombList, explosionList);
 	std::pair<int, int> playerBlock = player.getBlockIndex();
+
+
 	std::pair<int, int> next = findPath(playerBlock.first, playerBlock.second);
-	std::cout << "P: " << next.first << " : " << next.second << std::endl;
+
 	if (next.first > curBlock.first) {
 		Keyboard::artificialSetDown(playerConfiguration->getMoveRIGHT());
-	}
-	if (next.first < curBlock.first) {
+	} else if (next.first < curBlock.first) {
 		Keyboard::artificialSetDown(playerConfiguration->getMoveLEFT());
-	}
-	if (next.second > curBlock.second) {
+	} else if (next.second > curBlock.second) {
 		Keyboard::artificialSetDown(playerConfiguration->getMoveDOWN());
-	}
-	if (next.second < curBlock.second) {
+	} else if  (next.second < curBlock.second) {
 		Keyboard::artificialSetDown(playerConfiguration->getMoveUP());
 	}
 }
