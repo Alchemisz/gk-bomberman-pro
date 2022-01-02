@@ -18,7 +18,7 @@ void ArtificalPlayer::markMap(Block blocks[12 + 1][12 + 1], std::list<Bomb*> bom
 
 	for (int i = 0; i < 12+1; i++) {
 		for (int j = 0; j < 12 + 1; j++) {
-			markedMap[curBlock.first][curBlock.second] = 0;
+			markedMap[i][j] = 0;
 			switch (blocks[i][j].getBlockType()) {
 			case AIR:
 				markedMap[i][j] |= AIR_MASK;
@@ -36,29 +36,32 @@ void ArtificalPlayer::markMap(Block blocks[12 + 1][12 + 1], std::list<Bomb*> bom
 
 	for (Bomb* bomb : bombList) {
 		std::pair<int, int> bombPos = std::pair<int, int>((int)(bomb->getX() + 7) / Block::WIDTH, (int)(bomb->getY() + 7) / Block::WIDTH);
+		int dangerMask = bomb->getLife() < 3 ? BIG_DANGER_MASK | DANGER_MASK : DANGER_MASK;
 		markedMap[bombPos.first][bombPos.second] |= BOMB_MASK;
-		markedMap[bombPos.first][bombPos.second] |= DANGER_MASK;
+		markedMap[bombPos.first][bombPos.second] &= ~ACCESIBLE_MASK;
+		markedMap[bombPos.first][bombPos.second] |= dangerMask;
+		
 		for (direction dir : {LEFT, UP, RIGHT, DOWN}) {
 			for (int i = 0; i <= bomb->getPower(); i++) {
 				switch (dir) {
 				case LEFT:
 					if (!(bombPos.first - i <= 0)) {
-						markedMap[bombPos.first - i][bombPos.second] |= DANGER_MASK;
+						markedMap[bombPos.first - i][bombPos.second] |= dangerMask;
 					}
 					break;
 				case UP:
 					if (!(bombPos.second - i <= 0)) {
-						markedMap[bombPos.first][bombPos.second - i] |= DANGER_MASK;
+						markedMap[bombPos.first][bombPos.second - i] |= dangerMask;
 					}
 					break;
 				case RIGHT:
 					if (!(bombPos.first + i > 12)) {
-						markedMap[bombPos.first + i][bombPos.second] |= DANGER_MASK;
+						markedMap[bombPos.first + i][bombPos.second] |= dangerMask;
 					}
 					break;
 				case DOWN:
 					if (!(bombPos.second + i > 12)) {
-						markedMap[bombPos.first][bombPos.second + i] |= DANGER_MASK;
+						markedMap[bombPos.first][bombPos.second + i] |= dangerMask;
 					}
 					break;
 				}
@@ -66,15 +69,14 @@ void ArtificalPlayer::markMap(Block blocks[12 + 1][12 + 1], std::list<Bomb*> bom
 		}
 	}
 	for (Explosion* bomb : explosionList) {
-		std::pair<int, int> bombPos = std::pair<int, int>((int)(bomb->getX() + 7) / Block::WIDTH, (int)(bomb->getY() + 7) / Block::WIDTH);
-		markedMap[bombPos.first][bombPos.second] |= DANGER_MASK;
+		markedMap[bomb->_x][bomb->_y] |= BIG_DANGER_MASK;
 	}
 
 }
 
 #include "PrimitiveRenderer.h"
 
-std::pair<int, int> ArtificalPlayer::findPath(int destX, int destY)
+std::vector<std::pair<int, int>> ArtificalPlayer::findPath(int destX, int destY)
 {
 	int visitedMap[12 + 1][12 + 1];
 	int costMap[12 + 1][12 + 1];
@@ -88,7 +90,7 @@ std::pair<int, int> ArtificalPlayer::findPath(int destX, int destY)
 	}
 	std::pair<int, int> curBlock = getBlockIndex();
 	if (destX == curBlock.first && destY == curBlock.second) {
-		return curBlock;
+		return std::vector<std::pair<int, int>>();
 	}
 	std::stack<std::pair<int, int>> path;
 	costMap[curBlock.first][curBlock.second] = 0;
@@ -97,10 +99,8 @@ std::pair<int, int> ArtificalPlayer::findPath(int destX, int destY)
 
 	int pathLen = 0;
 	bool success = false;
-	int idx = 0;
 
 	while (!queue.empty()) {
-		idx++;
 		std::pair<int, std::pair<int, int>> curPoint = queue.top();
 		std::pair<int, int> cur = curPoint.second;
 		if (cur.first == destX && cur.second == destY) {
@@ -122,18 +122,17 @@ std::pair<int, int> ArtificalPlayer::findPath(int destX, int destY)
 			int _y = cur.second + neighbours[i + 1];
 			if (_x >= 0 && _x < 12 && _y >= 0 && _y < 12) {
 				if (visitedMap[_x][_y] == 0) {
-					if ((markedMap[_x][_y] & ACCESIBLE_MASK) != 0) {
+					if ((markedMap[_x][_y] & ACCESIBLE_MASK) != 0 && (markedMap[_x][_y] & BIG_DANGER_MASK) == 0) {
 						int tempCost = costMap[cur.first][cur.second] + 1;
 						if (markedMap[_x][_y] & DANGER_MASK) {
-							tempCost += 20;
+							tempCost += 25;
 						}
 						if (tempCost < costMap[_x][_y]) {
 							parents[_x][_y] = std::pair<int, int>(cur);
 							costMap[_x][_y] = tempCost;
-							int aprox = 1000 - (abs(_x - destX) + abs(_y - destY) + costMap[_x][_y]);
+							int aprox = 1000 - ((abs(_x - destX) + abs(_y - destY))*2 + costMap[_x][_y]);
 							queue.push(std::pair<int, std::pair<int, int>>(aprox, std::pair<int, int>(_x, _y)));
 						}
-						//parents[_x][_y] = std::pair<int, int>(cur);
 						int a = 2;
 					}
 				}
@@ -143,6 +142,7 @@ std::pair<int, int> ArtificalPlayer::findPath(int destX, int destY)
 
 	PrimitiveRenderer rend;
 	if (success) {
+		std::vector<std::pair<int, int>> path;
 		std::pair<int, int> current = std::pair<int, int>(destX, destY);
 		while (parents[current.first][current.second].first != curBlock.first || parents[current.first][current.second].second != curBlock.second) {
 			
@@ -150,23 +150,66 @@ std::pair<int, int> ArtificalPlayer::findPath(int destX, int destY)
 			int oldY = current.second;
 			int tempX = oldX * 20;
 			int tempY = oldY * 20;
-			rend.rectangle(Point2D(tempX, tempY), Point2D(tempX+20, tempY+20), al_map_rgb(255, 255, 0), false);
+			path.push_back(std::pair<int, int>(current.first, current.second));
 
+			rend.rectangle(Point2D(tempX, tempY), Point2D(tempX+20, tempY+20), al_map_rgb(255, 255, 0), false);
 			current.first = parents[oldX][oldY].first;
 			current.second = parents[oldX][oldY].second;
 			rend.rectangle(Point2D(tempX+10, tempY+10), Point2D(current.first*20+10, current.second*20+10), al_map_rgb(255, 255, 0), false);
 		}
 		int tempX = current.first * 20;
 		int tempY = current.second * 20;
+		path.push_back(std::pair<int, int>(current.first, current.second));
+
 		rend.rectangle(Point2D(tempX, tempY), Point2D(tempX + 20, tempY + 20), al_map_rgb(255, 255, 0), false);
-		return current;
+		return path;
 	}
-	return curBlock;
+	return std::vector<std::pair<int, int>>();
 }
 
 std::pair<int, int> ArtificalPlayer::closestSafe(Block blocks[12 + 1][12 + 1])
 {
-	return std::pair<int, int>(0, 0);
+	int visitedMap[12 + 1][12 + 1];
+	std::priority_queue<std::pair<int, std::pair<int, int>>> queue;;
+	for (int i = 0; i < 13; i++) {
+		for (int j = 0; j < 13; j++) {
+			visitedMap[i][j] = 0;
+		}
+	}
+	std::pair<int, int> curBlock = getBlockIndex();
+
+	queue.push(std::pair<int, std::pair<int, int>>(1000, curBlock));
+
+	while (!queue.empty()) {
+		std::pair<int, std::pair<int, int>> curPoint = queue.top();
+		int level = curPoint.first - 1;
+		std::pair<int, int> cur = curPoint.second;
+		if (!(markedMap[cur.first][cur.second] & BIG_DANGER_MASK)) {
+			curBlock = std::pair<int, int>(cur.first, cur.second);
+			break;
+		}
+		queue.pop();
+		visitedMap[cur.first][cur.second] = 1;
+
+		int neighbours[8] = {
+			0, 1,
+			-1, 0,
+			0, -1,
+			1, 0,
+		};
+		for (int i = 0; i < 8; i += 2) {
+			int _x = cur.first + neighbours[i];
+			int _y = cur.second + neighbours[i + 1];
+			if (_x >= 0 && _x < 12 && _y >= 0 && _y < 12) {
+				if (visitedMap[_x][_y] == 0) {
+					if ((markedMap[_x][_y] & ACCESIBLE_MASK) != 0) {
+						queue.push(std::pair<int, std::pair<int, int>>(level, std::pair<int, int>(_x, _y)));
+					}
+				}
+			}
+		}
+	}
+	return curBlock;
 }
 
 
@@ -174,20 +217,68 @@ std::pair<int, int> ArtificalPlayer::closestSafe(Block blocks[12 + 1][12 + 1])
 void ArtificalPlayer::logic(Block blocks[12 + 1][12 + 1], std::list<Bomb*> bombList, std::list<Explosion*> explosionList, Player& player)
 {
 	std::pair<int, int> curBlock = getBlockIndex();
-	std::queue<std::pair<int, int>> path;
 	markMap(blocks, bombList, explosionList);
 	std::pair<int, int> playerBlock = player.getBlockIndex();
 
+	std::pair<int, int> closestSafe = this->closestSafe(blocks);
+	std::vector<std::pair<int, int>> path;
+	std::pair<int, int> next = curBlock;
 
-	std::pair<int, int> next = findPath(playerBlock.first, playerBlock.second);
 
-	if (next.first > curBlock.first) {
-		Keyboard::artificialSetDown(playerConfiguration->getMoveRIGHT());
-	} else if (next.first < curBlock.first) {
-		Keyboard::artificialSetDown(playerConfiguration->getMoveLEFT());
-	} else if (next.second > curBlock.second) {
-		Keyboard::artificialSetDown(playerConfiguration->getMoveDOWN());
-	} else if  (next.second < curBlock.second) {
-		Keyboard::artificialSetDown(playerConfiguration->getMoveUP());
+	if (closestSafe.first != curBlock.first || closestSafe.second != curBlock.second) {
+		path = findPath(closestSafe.first, closestSafe.second);
+		if (path.empty()) {
+			
+		}
+		else {
+			next = path.back();	
+		}
+	}
+	else {
+		path = findPath(playerBlock.first, playerBlock.second);
+		if (path.empty()) {
+
+		}
+		else {
+			next = path.back();
+		}
+	}
+	
+	float realX = this->getX();
+	float realY = this->getY();
+	float nextX = next.first * 20.0 + 7.0;
+	float nextY = next.second * 20.0 + 7.0;
+
+	if (nextX > realX) {
+		if (abs(nextX - realX) < this->getVelocity()) {
+			this->setX(nextX);
+		}
+		else {
+			this->setX(realX + this->getVelocity());
+		}
+	}
+	if (nextX < realX) {
+		if (abs(nextX - realX) < this->getVelocity()) {
+			this->setX(nextX);
+		}
+		else {
+			this->setX(realX - this->getVelocity());
+		}
+	}
+	if (nextY > realY) {
+		if (abs(nextY - realY) < this->getVelocity()) {
+			this->setY(nextY);
+		}
+		else {
+			this->setY(realY + this->getVelocity());
+		}
+	}
+	if (nextY < realY) {
+		if (abs(nextY - realY) < this->getVelocity()) {
+			this->setY(nextY);
+		}
+		else {
+			this->setY(realY - this->getVelocity());
+		}
 	}
 }

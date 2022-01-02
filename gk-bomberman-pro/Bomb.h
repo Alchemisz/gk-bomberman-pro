@@ -6,12 +6,12 @@ class Bomb
 {
 private:
 	float x, y;
-	//int life = 9;
-	int life = 9999;
+	int life = 9;
 	int power;
 public:
 	Bomb(int power);
 	int getPower();
+	int getLife();
 	static const int BOMB_WIDTH = 14;
 	float getX();
 	float getY();

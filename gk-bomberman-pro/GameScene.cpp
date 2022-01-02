@@ -11,6 +11,7 @@ void GameScene::playerUpdate(Player& player)
 	if (player.getIsArtifical()) {
 		ArtificalPlayer* temp = static_cast<ArtificalPlayer*>(&player);
 		temp->logic(blocks, bombList, explosionList, *playerList.front());
+		return;
 	}
 
 	//Postawienie bomby

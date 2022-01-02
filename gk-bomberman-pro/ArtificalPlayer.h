@@ -10,7 +10,8 @@
 
 const int WALL_MASK = 1;
 const int DANGER_MASK = WALL_MASK << 1;
-const int ENEMY_MASK = DANGER_MASK << 1;
+const int BIG_DANGER_MASK = DANGER_MASK << 1;
+const int ENEMY_MASK = BIG_DANGER_MASK << 1;
 const int AIR_MASK = ENEMY_MASK << 1;
 const int BOMB_MASK = AIR_MASK << 1;
 const int STONE_MASK = BOMB_MASK << 1;
@@ -30,7 +31,7 @@ public:
 	void moveLeft();
 	std::pair<int, int> closestSafe(Block blocks[12 + 1][12 + 1]);
 	void markMap(Block blocks[12 + 1][12 + 1], std::list<Bomb*> bombList, std::list<Explosion*> explosionList);
-	std::pair<int, int> findPath(int destX, int destY);
+	std::vector<std::pair<int, int>> findPath(int destX, int destY);
 	void logic(Block blocks[12 + 1][12 + 1], std::list<Bomb*> bombList, std::list<Explosion*> explosionList, Player& player);
 };
 

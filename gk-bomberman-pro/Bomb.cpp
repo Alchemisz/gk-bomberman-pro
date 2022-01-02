@@ -10,6 +10,11 @@ int Bomb::getPower()
 	return this->power;
 }
 
+int Bomb::getLife()
+{
+	return this->life;
+}
+
 float Bomb::getX() {
 	return this->x;
 }
