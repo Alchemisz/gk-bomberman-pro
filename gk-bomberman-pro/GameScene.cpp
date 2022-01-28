@@ -498,8 +498,8 @@ void GameScene::show()
 		}
 	}
 
-	//MapGen.generateMap(this->blocks);
-	MapGen.generateTestMap(this->blocks);
+	MapGen.generateMap(this->blocks);
+	//MapGen.generateTestMap(this->blocks);
 
 	Player* pl1 = new Player();
 	//Player* pl2 = new Player();

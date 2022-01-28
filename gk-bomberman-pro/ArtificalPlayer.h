@@ -25,6 +25,8 @@ private:
 	const bool isArtifical = true;
 	std::pair<int, int> nextBlock = { 0, 0 };
 	bool danger = false;
+	int bombCounter = 0;
+	int aggressive = true;
 	int markedMap[12 + 1][12 + 1];
 public:
 	virtual bool getIsArtifical();
@@ -32,6 +34,7 @@ public:
 	std::pair<int, int> closestSafe(Block blocks[12 + 1][12 + 1]);
 	void markMap(Block blocks[12 + 1][12 + 1], std::list<Bomb*> bombList, std::list<Explosion*> explosionList);
 	std::vector<std::pair<int, int>> findPath(int destX, int destY);
-	void logic(Block blocks[12 + 1][12 + 1], std::list<Bomb*> bombList, std::list<Explosion*> explosionList, Player& player);
+	std::vector<std::pair<int, int>> findBlockedPath(int destX, int destY);
+	void logic(Block blocks[12 + 1][12 + 1], std::list<Bomb*>& bombList, std::list<Explosion*>& explosionList, Player& player);
 };
 
