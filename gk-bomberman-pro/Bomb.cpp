@@ -18,6 +18,11 @@ float Bomb::getY() {
 	return this->y;
 }
 
+int Bomb::getLife()
+{
+	return this->life;
+}
+
 void Bomb::setX(float x) {
 	this->x = x;
 }

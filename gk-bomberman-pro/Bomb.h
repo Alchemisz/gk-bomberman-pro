@@ -14,6 +14,7 @@ public:
 	static const int BOMB_WIDTH = 14;
 	float getX();
 	float getY();
+	int getLife();
 	void setX(float x);
 	void setY(float y);
 	bool decrementLife();
