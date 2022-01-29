@@ -58,6 +58,12 @@ void GameScene::playerUpdate(Player& player)
 	//Konfiguracja gracza
 	PlayerConfiguration* playerConfiguration = player.getPlayerConfiguration();
 
+	if (player.getIsArtifical()) {
+		ArtificalPlayer* temp = static_cast<ArtificalPlayer*>(&player);
+		temp->logic(blocks, bombList, explosionList, *playerList.front());
+		return;
+	}
+
 	//Postawienie bomby
 	if (Keyboard::isKeyDown(playerConfiguration->getPutBomb())) {
 		Block* block = &blocks[player.getBlockIndex().first][player.getBlockIndex().second];
@@ -577,7 +583,8 @@ void GameScene::show()
 	MapGen.generateMap(this->blocks);
 
 	Player* pl1 = new Player();
-	Player* pl2 = new Player();
+	//Player* pl2 = new Player();
+	Player* pl2 = new ArtificalPlayer();
 	pl1->setX(0);
 	pl1->setY(0);
 

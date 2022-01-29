@@ -26,6 +26,7 @@
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="OptionScene.cpp" />
+    <ClCompile Include="ArtificalPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
@@ -52,6 +53,7 @@
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="OptionScene.h" />
+    <ClInclude Include="ArtificalPlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -23,6 +23,7 @@ private:
 	int score = 0;
 	const bool isArtifical = false;
 	direction state;
+protected:
 	PlayerConfiguration* playerConfiguration;
 public:
 	int bombCredits = 0;

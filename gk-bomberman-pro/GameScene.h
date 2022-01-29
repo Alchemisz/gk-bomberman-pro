@@ -14,6 +14,7 @@
 #include "Explosion.h"
 #include "Engine.h"
 #include "ScoreBox.h"
+#include "ArtificalPlayer.h"
 #include "AudioManager.h"
 
 const int BLOCKS_WIDTH = 12;

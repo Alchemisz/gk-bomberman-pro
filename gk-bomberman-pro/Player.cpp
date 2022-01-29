@@ -136,6 +136,10 @@ int Player::getScore()
 void Player::move()
 {	
 
+	if (this->getIsArtifical()) {
+		return;
+	}
+
 	this->isMoving = false;
 
 	if (Keyboard::isKeyDown(ALLEGRO_KEY_W)) {
