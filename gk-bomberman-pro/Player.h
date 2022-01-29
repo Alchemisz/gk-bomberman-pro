@@ -21,7 +21,7 @@ private:
 	int power = 3;
 	bool isMoving;
 	int score = 0;
-
+	const bool isArtifical = false;
 	direction state;
 	PlayerConfiguration* playerConfiguration;
 public:
@@ -56,5 +56,6 @@ public:
 	std::pair<int, int> getBlockIndex();
 	PlayerConfiguration* getPlayerConfiguration();
 	void setPlayerConfiguration(PlayerConfiguration* playerConfiguration);
+	bool getIsArtifical();
 };
 

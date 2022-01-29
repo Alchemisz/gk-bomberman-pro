@@ -71,6 +71,11 @@ void Player::setPlayerConfiguration(PlayerConfiguration* playerConfiguration)
 	this->playerConfiguration = playerConfiguration;
 }
 
+bool Player::getIsArtifical()
+{
+	return isArtifical;
+}
+
 void Player::generateRandomBonus()
 {
 	srand((int)this + time(NULL));
