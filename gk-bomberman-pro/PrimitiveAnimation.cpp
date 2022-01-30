@@ -28,3 +28,8 @@ void PrimitiveAnimation::drawDefaultPosition(int x, int y,int row)
 	al_draw_bitmap_region(this->Animation,0, row * (height / (rows)), (width / frames), (height / (rows)), x, y, 0);
 	this->frametime = 0;
 }
+
+void PrimitiveAnimation::destroyAnimation()
+{
+	al_destroy_bitmap(Animation);
+}

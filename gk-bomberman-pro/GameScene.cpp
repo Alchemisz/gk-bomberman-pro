@@ -617,5 +617,31 @@ void GameScene::show()
 
 void GameScene::dispose()
 {
+	al_destroy_bitmap(block_floor);
+	al_destroy_bitmap(block_wall);
+	al_destroy_bitmap(block_stone);
+	al_destroy_bitmap(block_wall_border[0]);
+	al_destroy_bitmap(block_wall_border[1]);
+	al_destroy_bitmap(block_wall_border[2]);
+	al_destroy_bitmap(block_wall_border[3]);
+	al_destroy_bitmap(main_world);
+	al_destroy_bitmap(game_background);
+	al_destroy_bitmap(player_shield);
+	al_destroy_bitmap(bonus_inv);
+	al_destroy_bitmap(bonus_bomb);
+	al_destroy_bitmap(bonus_nuke);
+	al_destroy_bitmap(bonus_speed);
+	al_destroy_bitmap(bonus_null);
+	al_destroy_bitmap(Player1Icon);
+	al_destroy_bitmap(Player2Icon);
+
+	PlayerAnim->destroyAnimation();
+	PlayerAnim2->destroyAnimation();
+	BombAnim->destroyAnimation();
+	explosionAnimation_up->destroyAnimation();
+	explosionAnimation_down->destroyAnimation();
+	explosionAnimation_left->destroyAnimation();
+	explosionAnimation_right->destroyAnimation();
+	explosionAnimation_center->destroyAnimation();
 
 }

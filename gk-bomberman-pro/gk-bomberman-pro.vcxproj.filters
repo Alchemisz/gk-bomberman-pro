@@ -54,6 +54,7 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="OptionScene.h" />
     <ClInclude Include="ArtificalPlayer.h" />
+    <ClInclude Include="AssetManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

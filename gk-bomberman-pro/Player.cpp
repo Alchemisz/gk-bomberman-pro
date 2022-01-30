@@ -169,6 +169,3 @@ void Player::drawPlayer()
 	al_draw_filled_rectangle(this->x, this->y, this->x + PLAYER_WIDTH, this->y + PLAYER_WIDTH, al_map_rgb(0, 255, 0));
 }
 
-void Player::putBomb()
-{
-}

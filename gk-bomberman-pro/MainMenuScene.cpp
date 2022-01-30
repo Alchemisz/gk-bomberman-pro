@@ -69,6 +69,12 @@ void MainMenuScene::show()
 
 void MainMenuScene::dispose()
 {
+	al_destroy_bitmap(background);
+	al_destroy_bitmap(face);
+	al_destroy_bitmap(logo);
+	al_destroy_bitmap(ricardo_bomberman);
+
+	background_animation->destroyAnimation();
 }
 
 void MainMenuScene::updateButtons()
