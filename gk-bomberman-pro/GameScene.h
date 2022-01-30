@@ -76,7 +76,9 @@ private:
 	void updateExplosions();
 	void checkCollisions();
 	void resetGame();
+	bool multi = false;
 public:
+	GameScene(bool multi);
 	virtual void render();
 	virtual void show();
 	virtual void dispose();

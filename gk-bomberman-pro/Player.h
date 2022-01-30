@@ -57,6 +57,6 @@ public:
 	std::pair<int, int> getBlockIndex();
 	PlayerConfiguration* getPlayerConfiguration();
 	void setPlayerConfiguration(PlayerConfiguration* playerConfiguration);
-	bool getIsArtifical();
+	virtual bool getIsArtifical();
 };
 

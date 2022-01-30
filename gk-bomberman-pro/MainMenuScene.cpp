@@ -17,11 +17,11 @@ void MainMenuScene::render() {
 }
 
 void singlePlayer() {
-	SceneManager::setScene(new GameScene());
+	SceneManager::setScene(new GameScene(false));
 }
 
 void multiPlayer() {
-	SceneManager::setScene(new GameScene());
+	SceneManager::setScene(new GameScene(true));
 }
 
 void options() {

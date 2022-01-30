@@ -261,6 +261,11 @@ void GameScene::resetGame()
 }
 
 
+GameScene::GameScene(bool multi)
+{
+	this->multi = multi;
+}
+
 void GameScene::render()
 {
 	ALLEGRO_BITMAP* backup_world = al_get_target_bitmap();
@@ -583,8 +588,14 @@ void GameScene::show()
 	MapGen.generateMap(this->blocks);
 
 	Player* pl1 = new Player();
-	//Player* pl2 = new Player();
-	Player* pl2 = new ArtificalPlayer();
+	Player* pl2;
+	if (multi) {
+		pl2 = new Player();
+	}
+	else {
+		pl2 = new ArtificalPlayer();
+	}
+
 	pl1->setX(0);
 	pl1->setY(0);
 
