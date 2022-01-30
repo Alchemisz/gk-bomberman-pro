@@ -27,6 +27,10 @@ void multiPlayer() {
 void options() {
 	SceneManager::setScene(new OptionScene());
 }
+void exitHandler()
+{
+	exit(0);
+}
 
 void MainMenuScene::show()
 {
@@ -47,6 +51,7 @@ void MainMenuScene::show()
 	buttons[HELP]->setText("Help");
 	buttons[HELP]->registerEventListener(options);
 	buttons[EXIT]->setText("Exit");
+	buttons[EXIT]->registerEventListener(exitHandler);
 
 	Audio = AudioManager::getInstance();
 	Audio->Play("menu");

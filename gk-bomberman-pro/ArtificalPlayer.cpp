@@ -153,16 +153,16 @@ std::vector<std::pair<int, int>> ArtificalPlayer::findPath(int destX, int destY)
 			int tempY = oldY * 20;
 			path.push_back(std::pair<int, int>(current.first, current.second));
 
-			rend.rectangle(Point2D(tempX, tempY), Point2D(tempX + 20, tempY + 20), al_map_rgb(255, 255, 0), false);
+			//rend.rectangle(Point2D(tempX, tempY), Point2D(tempX + 20, tempY + 20), al_map_rgb(255, 255, 0), false);
 			current.first = parents[oldX][oldY].first;
 			current.second = parents[oldX][oldY].second;
-			rend.rectangle(Point2D(tempX + 10, tempY + 10), Point2D(current.first * 20 + 10, current.second * 20 + 10), al_map_rgb(255, 255, 0), false);
+			//rend.rectangle(Point2D(tempX + 10, tempY + 10), Point2D(current.first * 20 + 10, current.second * 20 + 10), al_map_rgb(255, 255, 0), false);
 		}
 		int tempX = current.first * 20;
 		int tempY = current.second * 20;
 		path.push_back(std::pair<int, int>(current.first, current.second));
 
-		rend.rectangle(Point2D(tempX, tempY), Point2D(tempX + 20, tempY + 20), al_map_rgb(255, 255, 0), false);
+		//rend.rectangle(Point2D(tempX, tempY), Point2D(tempX + 20, tempY + 20), al_map_rgb(255, 255, 0), false);
 		return path;
 	}
 	return std::vector<std::pair<int, int>>();

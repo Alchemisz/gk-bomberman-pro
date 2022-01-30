@@ -98,6 +98,12 @@ void GameScene::playerUpdate(Player& player)
 		player.setIsMoving(true);
 		player.setPositionState(RIGHT);
 	}
+	if (Keyboard::isKeyDown(ALLEGRO_KEY_ESCAPE))
+	{
+		Audio->stopAllSamples();
+		SceneManager::setScene(new MainMenuScene());
+	}
+
 	if ((deltaX < 0 || deltaX + 14 > MAP_WIDTH) || (deltaY < 0 || deltaY + 14 > MAP_HEIGHT)) {
 		return;
 	}

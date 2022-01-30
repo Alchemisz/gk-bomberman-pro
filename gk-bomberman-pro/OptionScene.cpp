@@ -3,6 +3,7 @@
 void OptionScene::render()
 {
 	al_clear_to_color(al_map_rgb(0,0,0));
+	al_draw_bitmap(help_screen, 0, 0, 0);
 	button->draw();
 	button->update();
 }
@@ -18,6 +19,7 @@ void OptionScene::show()
 	button = new Button(centerX, posY);
 	button->setText("Back To Menu");
 	button->registerEventListener(mainMenuScene);
+	help_screen = al_load_bitmap("gfx/helpscreen.png");
 }
 
 void OptionScene::dispose()

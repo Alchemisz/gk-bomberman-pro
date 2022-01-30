@@ -8,6 +8,7 @@ class OptionScene : public Scene
 {
 private:
 	Button* button;
+	ALLEGRO_BITMAP* help_screen;
 
 public:
 	virtual void render();
