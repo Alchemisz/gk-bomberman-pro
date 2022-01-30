@@ -1,0 +1,461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gra Bomberman: Dokumentacja klasy Engine</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="plr1face.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Gra Bomberman<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Gra 2D autorstwa Wiktor Simlat, Kacper Robak, Adrian Rubak 3ID13A</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_engine.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pub-static-methods">Statyczne metody publiczne</a> &#124;
+<a href="#pub-static-attribs">Statyczne atrybuty publiczne</a> &#124;
+<a href="class_engine-members.html">Lista wszystkich składowych</a>  </div>
+  <div class="headertitle"><div class="title">Dokumentacja klasy Engine</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Klasa glowna silnika.  
+ <a href="class_engine.html#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_engine_8h_source.html">Engine.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a8645895a8d6107ac641763e7e073508e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a8645895a8d6107ac641763e7e073508e">clearScreen</a> (ALLEGRO_COLOR color)</td></tr>
+<tr class="memdesc:a8645895a8d6107ac641763e7e073508e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Czysci ekran podanym kolorem.  <a href="class_engine.html#a8645895a8d6107ac641763e7e073508e">Więcej...</a><br /></td></tr>
+<tr class="separator:a8645895a8d6107ac641763e7e073508e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ed1eb665fc915e538a7840c78245060"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a1ed1eb665fc915e538a7840c78245060">errorMessage</a> (std::string title, std::string heading, std::string errorMsg)</td></tr>
+<tr class="memdesc:a1ed1eb665fc915e538a7840c78245060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyswietla blad z dana trescia.  <a href="class_engine.html#a1ed1eb665fc915e538a7840c78245060">Więcej...</a><br /></td></tr>
+<tr class="separator:a1ed1eb665fc915e538a7840c78245060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab44d76e2ff6057e73d6210cf9af0d89e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ab44d76e2ff6057e73d6210cf9af0d89e">init</a> ()</td></tr>
+<tr class="memdesc:ab44d76e2ff6057e73d6210cf9af0d89e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicjalizuje silnik.  <a href="class_engine.html#ab44d76e2ff6057e73d6210cf9af0d89e">Więcej...</a><br /></td></tr>
+<tr class="separator:ab44d76e2ff6057e73d6210cf9af0d89e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a514f8d788ced7c6508b8b6f9ef66ccb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a514f8d788ced7c6508b8b6f9ef66ccb1">loop</a> ()</td></tr>
+<tr class="memdesc:a514f8d788ced7c6508b8b6f9ef66ccb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Petla glowna silnika.  <a href="class_engine.html#a514f8d788ced7c6508b8b6f9ef66ccb1">Więcej...</a><br /></td></tr>
+<tr class="separator:a514f8d788ced7c6508b8b6f9ef66ccb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f00047153c2581a74c7c1912bfe5f36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a6f00047153c2581a74c7c1912bfe5f36">close</a> ()</td></tr>
+<tr class="memdesc:a6f00047153c2581a74c7c1912bfe5f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zamyka silnik.  <a href="class_engine.html#a6f00047153c2581a74c7c1912bfe5f36">Więcej...</a><br /></td></tr>
+<tr class="separator:a6f00047153c2581a74c7c1912bfe5f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fc0098efd52f282bc6eb8e842a4fb75"><td class="memItemLeft" align="right" valign="top">ALLEGRO_FONT *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a6fc0098efd52f282bc6eb8e842a4fb75">getFont</a> ()</td></tr>
+<tr class="memdesc:a6fc0098efd52f282bc6eb8e842a4fb75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca domyslna czcionke.  <a href="class_engine.html#a6fc0098efd52f282bc6eb8e842a4fb75">Więcej...</a><br /></td></tr>
+<tr class="separator:a6fc0098efd52f282bc6eb8e842a4fb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2897f9a003700b37889e0a0708d54af1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#a2897f9a003700b37889e0a0708d54af1">Engine</a> (<a class="el" href="class_engine_configuration.html">EngineConfiguration</a> config)</td></tr>
+<tr class="memdesc:a2897f9a003700b37889e0a0708d54af1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor domyslny z konfiguracja silnika.  <a href="class_engine.html#a2897f9a003700b37889e0a0708d54af1">Więcej...</a><br /></td></tr>
+<tr class="separator:a2897f9a003700b37889e0a0708d54af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Statyczne metody publiczne</h2></td></tr>
+<tr class="memitem:ae8f7319cf3683c23f6a215952d47ebdf"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_engine.html">Engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine.html#ae8f7319cf3683c23f6a215952d47ebdf">getInstance</a> ()</td></tr>
+<tr class="memdesc:ae8f7319cf3683c23f6a215952d47ebdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca lub tworzy nowa instacje klasy.  <a href="class_engine.html#ae8f7319cf3683c23f6a215952d47ebdf">Więcej...</a><br /></td></tr>
+<tr class="separator:ae8f7319cf3683c23f6a215952d47ebdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Statyczne atrybuty publiczne</h2></td></tr>
+<tr class="memitem:a84995269a911eabc5abd9dfa682fd05d"><td class="memItemLeft" align="right" valign="top"><a id="a84995269a911eabc5abd9dfa682fd05d" name="a84995269a911eabc5abd9dfa682fd05d"></a>
+static <a class="el" href="class_engine.html">Engine</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>engine</b> = nullptr</td></tr>
+<tr class="memdesc:a84995269a911eabc5abd9dfa682fd05d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaznik na silnik. <br /></td></tr>
+<tr class="separator:a84995269a911eabc5abd9dfa682fd05d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p >Klasa glowna silnika. </p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="a2897f9a003700b37889e0a0708d54af1" name="a2897f9a003700b37889e0a0708d54af1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2897f9a003700b37889e0a0708d54af1">&#9670;&nbsp;</a></span>Engine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Engine::Engine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_engine_configuration.html">EngineConfiguration</a>&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor domyslny z konfiguracja silnika. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Konfiguracja silnika </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">    6</span>{</div>
+<div class="line"><span class="lineno">    7</span>    this-&gt;config = config;</div>
+<div class="line"><span class="lineno">    8</span>    this-&gt;font = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">    9</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a8645895a8d6107ac641763e7e073508e" name="a8645895a8d6107ac641763e7e073508e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8645895a8d6107ac641763e7e073508e">&#9670;&nbsp;</a></span>clearScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::clearScreen </td>
+          <td>(</td>
+          <td class="paramtype">ALLEGRO_COLOR&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Czysci ekran podanym kolorem. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>Kolor </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   12</span>{</div>
+<div class="line"><span class="lineno">   13</span>    al_clear_to_color(color);</div>
+<div class="line"><span class="lineno">   14</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6f00047153c2581a74c7c1912bfe5f36" name="a6f00047153c2581a74c7c1912bfe5f36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f00047153c2581a74c7c1912bfe5f36">&#9670;&nbsp;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zamyka silnik. </p>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>{</div>
+<div class="line"><span class="lineno">   90</span>    al_destroy_event_queue(this-&gt;loopQueue);</div>
+<div class="line"><span class="lineno">   91</span>    al_destroy_event_queue(this-&gt;eventQueue);</div>
+<div class="line"><span class="lineno">   92</span>    al_destroy_display(this-&gt;display);</div>
+<div class="line"><span class="lineno">   93</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1ed1eb665fc915e538a7840c78245060" name="a1ed1eb665fc915e538a7840c78245060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ed1eb665fc915e538a7840c78245060">&#9670;&nbsp;</a></span>errorMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::errorMessage </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>heading</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>errorMsg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wyswietla blad z dana trescia. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>Tytul </td></tr>
+    <tr><td class="paramname">heading</td><td>Naglowek </td></tr>
+    <tr><td class="paramname">errorMsg</td><td>Wiadomosc </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>{</div>
+<div class="line"><span class="lineno">   18</span>    al_show_native_message_box(this-&gt;display, title.c_str(), heading.c_str(), errorMsg.c_str(), NULL, ALLEGRO_MESSAGEBOX_ERROR);</div>
+<div class="line"><span class="lineno">   19</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6fc0098efd52f282bc6eb8e842a4fb75" name="a6fc0098efd52f282bc6eb8e842a4fb75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fc0098efd52f282bc6eb8e842a4fb75">&#9670;&nbsp;</a></span>getFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ALLEGRO_FONT * Engine::getFont </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwraca domyslna czcionke. </p>
+<dl class="section return"><dt>Zwraca</dt><dd>Czcionka </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>{</div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">return</span> this-&gt;font;</div>
+<div class="line"><span class="lineno">   98</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae8f7319cf3683c23f6a215952d47ebdf" name="ae8f7319cf3683c23f6a215952d47ebdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8f7319cf3683c23f6a215952d47ebdf">&#9670;&nbsp;</a></span>getInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_engine.html">Engine</a> * Engine::getInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zwraca lub tworzy nowa instacje klasy. </p>
+<dl class="section return"><dt>Zwraca</dt><dd>Nowa lub istniejaca instancja klasy </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  101</span>{</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_engine.html#a84995269a911eabc5abd9dfa682fd05d">engine</a> == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  103</span>        <a class="code hl_variable" href="class_engine.html#a84995269a911eabc5abd9dfa682fd05d">engine</a> = <span class="keyword">new</span> <a class="code hl_function" href="class_engine.html#a2897f9a003700b37889e0a0708d54af1">Engine</a>(<a class="code hl_function" href="class_engine_configuration.html#ab629607bf6c735660a555f32cb447acf">EngineConfiguration::getDefault</a>());</div>
+<div class="line"><span class="lineno">  104</span>    }</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_engine.html#a84995269a911eabc5abd9dfa682fd05d">engine</a>;</div>
+<div class="line"><span class="lineno">  106</span>}</div>
+<div class="ttc" id="aclass_engine_configuration_html_ab629607bf6c735660a555f32cb447acf"><div class="ttname"><a href="class_engine_configuration.html#ab629607bf6c735660a555f32cb447acf">EngineConfiguration::getDefault</a></div><div class="ttdeci">static EngineConfiguration getDefault()</div><div class="ttdoc">Zwraca domyslna konfiguracje silnika.</div><div class="ttdef"><b>Definition:</b> EngineConfiguration.cpp:3</div></div>
+<div class="ttc" id="aclass_engine_html_a2897f9a003700b37889e0a0708d54af1"><div class="ttname"><a href="class_engine.html#a2897f9a003700b37889e0a0708d54af1">Engine::Engine</a></div><div class="ttdeci">Engine(EngineConfiguration config)</div><div class="ttdoc">Konstruktor domyslny z konfiguracja silnika.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:5</div></div>
+<div class="ttc" id="aclass_engine_html_a84995269a911eabc5abd9dfa682fd05d"><div class="ttname"><a href="class_engine.html#a84995269a911eabc5abd9dfa682fd05d">Engine::engine</a></div><div class="ttdeci">static Engine * engine</div><div class="ttdoc">Wskaznik na silnik.</div><div class="ttdef"><b>Definition:</b> Engine.h:62</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab44d76e2ff6057e73d6210cf9af0d89e" name="ab44d76e2ff6057e73d6210cf9af0d89e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab44d76e2ff6057e73d6210cf9af0d89e">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicjalizuje silnik. </p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>{</div>
+<div class="line"><span class="lineno">   23</span>    al_init();</div>
+<div class="line"><span class="lineno">   24</span>    al_install_mouse();</div>
+<div class="line"><span class="lineno">   25</span>    al_install_keyboard();</div>
+<div class="line"><span class="lineno">   26</span>    al_init_primitives_addon();</div>
+<div class="line"><span class="lineno">   27</span>    al_install_audio();</div>
+<div class="line"><span class="lineno">   28</span>    al_init_acodec_addon();</div>
+<div class="line"><span class="lineno">   29</span>    al_init_image_addon();</div>
+<div class="line"><span class="lineno">   30</span>    al_init_font_addon();</div>
+<div class="line"><span class="lineno">   31</span>    al_init_ttf_addon();</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>    this-&gt;font = al_load_font(<span class="stringliteral">&quot;fonts/JosefinSans-Bold.ttf&quot;</span>, 24, 0);</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>    display = al_create_display(config.<a class="code hl_function" href="class_engine_configuration.html#acbb3240168e80a4c1e575ee198f1d813">getWidth</a>(), config.<a class="code hl_function" href="class_engine_configuration.html#ad781a5eed558ca1910767dbbe0a1711a">getHeight</a>());</div>
+<div class="line"><span class="lineno">   36</span>    loopQueue = al_create_event_queue();</div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordtype">float</span> fps = 1.0 / (float)config.<a class="code hl_function" href="class_engine_configuration.html#adeb66eb8bc0cb5f891c871e0f410dafa">getFPS</a>();</div>
+<div class="line"><span class="lineno">   38</span>    loopTimer = al_create_timer(1.0 / (<span class="keywordtype">float</span>)config.<a class="code hl_function" href="class_engine_configuration.html#adeb66eb8bc0cb5f891c871e0f410dafa">getFPS</a>());</div>
+<div class="line"><span class="lineno">   39</span>    al_register_event_source(loopQueue, al_get_timer_event_source(loopTimer));</div>
+<div class="line"><span class="lineno">   40</span>    al_start_timer(loopTimer);</div>
+<div class="line"><span class="lineno">   41</span>    <a class="code hl_function" href="class_scene_manager.html#ae6cfdf6df90133f640c9f857af4c277d">SceneManager::setScene</a>(<span class="keyword">new</span> <a class="code hl_class" href="class_main_menu_scene.html">MainMenuScene</a>());</div>
+<div class="line"><span class="lineno">   42</span> </div>
+<div class="line"><span class="lineno">   43</span>    this-&gt;eventQueue = al_create_event_queue();</div>
+<div class="line"><span class="lineno">   44</span>    al_register_event_source(this-&gt;eventQueue, al_get_mouse_event_source());</div>
+<div class="line"><span class="lineno">   45</span>    al_register_event_source(this-&gt;eventQueue, al_get_keyboard_event_source());</div>
+<div class="line"><span class="lineno">   46</span>    al_register_event_source(this-&gt;eventQueue, al_get_display_event_source(al_get_current_display()));</div>
+<div class="line"><span class="lineno">   47</span>}</div>
+<div class="ttc" id="aclass_engine_configuration_html_acbb3240168e80a4c1e575ee198f1d813"><div class="ttname"><a href="class_engine_configuration.html#acbb3240168e80a4c1e575ee198f1d813">EngineConfiguration::getWidth</a></div><div class="ttdeci">int getWidth()</div><div class="ttdoc">Zwraca wartosc szerokosci ekranu.</div><div class="ttdef"><b>Definition:</b> EngineConfiguration.cpp:32</div></div>
+<div class="ttc" id="aclass_engine_configuration_html_ad781a5eed558ca1910767dbbe0a1711a"><div class="ttname"><a href="class_engine_configuration.html#ad781a5eed558ca1910767dbbe0a1711a">EngineConfiguration::getHeight</a></div><div class="ttdeci">int getHeight()</div><div class="ttdoc">Zwraca wartosc wysokosci ekranu.</div><div class="ttdef"><b>Definition:</b> EngineConfiguration.cpp:27</div></div>
+<div class="ttc" id="aclass_engine_configuration_html_adeb66eb8bc0cb5f891c871e0f410dafa"><div class="ttname"><a href="class_engine_configuration.html#adeb66eb8bc0cb5f891c871e0f410dafa">EngineConfiguration::getFPS</a></div><div class="ttdeci">int getFPS()</div><div class="ttdoc">Zwraca wartosc klatek na sekunde ekranu.</div><div class="ttdef"><b>Definition:</b> EngineConfiguration.cpp:37</div></div>
+<div class="ttc" id="aclass_main_menu_scene_html"><div class="ttname"><a href="class_main_menu_scene.html">MainMenuScene</a></div><div class="ttdoc">Klasa reprezentujaca scene menu.</div><div class="ttdef"><b>Definition:</b> MainMenuScene.h:22</div></div>
+<div class="ttc" id="aclass_scene_manager_html_ae6cfdf6df90133f640c9f857af4c277d"><div class="ttname"><a href="class_scene_manager.html#ae6cfdf6df90133f640c9f857af4c277d">SceneManager::setScene</a></div><div class="ttdeci">static void setScene(Scene *scene)</div><div class="ttdoc">Ustawia obecna scene.</div><div class="ttdef"><b>Definition:</b> SceneManager.cpp:5</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a514f8d788ced7c6508b8b6f9ef66ccb1" name="a514f8d788ced7c6508b8b6f9ef66ccb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a514f8d788ced7c6508b8b6f9ef66ccb1">&#9670;&nbsp;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::loop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Petla glowna silnika. </p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
+<div class="line"><span class="lineno">   51</span>    ALLEGRO_COLOR white = al_map_rgb(255, 255, 255);</div>
+<div class="line"><span class="lineno">   52</span>    ALLEGRO_EVENT ev;</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordtype">bool</span> running = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">while</span> (running)</div>
+<div class="line"><span class="lineno">   55</span>    {</div>
+<div class="line"><span class="lineno">   56</span>        al_wait_for_event(loopQueue, &amp;ev);  </div>
+<div class="line"><span class="lineno">   57</span>        <a class="code hl_function" href="class_engine.html#a8645895a8d6107ac641763e7e073508e">clearScreen</a>(white);</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>        ALLEGRO_EVENT ev;</div>
+<div class="line"><span class="lineno">   60</span>        ALLEGRO_MOUSE_STATE mouseState;</div>
+<div class="line"><span class="lineno">   61</span>        ev.type = NULL;</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">   64</span>            <span class="keywordflow">if</span> (ev.type == ALLEGRO_EVENT_KEY_DOWN) {</div>
+<div class="line"><span class="lineno">   65</span>                <a class="code hl_function" href="class_keyboard.html#adff92c0df3d8b8f41fe0f6b17fd9bca9">Keyboard::setDown</a>(ev.keyboard.keycode, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">   66</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ev.type == ALLEGRO_EVENT_KEY_UP) {</div>
+<div class="line"><span class="lineno">   67</span>                <a class="code hl_function" href="class_keyboard.html#adff92c0df3d8b8f41fe0f6b17fd9bca9">Keyboard::setDown</a>(ev.keyboard.keycode, <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">   68</span>            }</div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">if</span> (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {</div>
+<div class="line"><span class="lineno">   70</span>                running = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   71</span>            }</div>
+<div class="line"><span class="lineno">   72</span>        } <span class="keywordflow">while</span> (al_get_next_event(this-&gt;eventQueue, &amp;ev) != NULL);</div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>        al_get_mouse_state(&amp;mouseState);</div>
+<div class="line"><span class="lineno">   75</span>        <a class="code hl_variable" href="class_mouse.html#a136eea114b70f46392b89cc3779d4291">Mouse::x</a> = mouseState.x;</div>
+<div class="line"><span class="lineno">   76</span>        <a class="code hl_variable" href="class_mouse.html#a4a29b1c18faaa2fbe39ff985ba9d6737">Mouse::y</a> = mouseState.y;</div>
+<div class="line"><span class="lineno">   77</span>        <a class="code hl_variable" href="class_mouse.html#afb7b53cb4ce717e0fde3e94b1b3c4bba">Mouse::mouseDown</a> = al_mouse_button_down(&amp;mouseState, 1);</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>        <a class="code hl_function" href="class_scene_manager.html#aa1aca67532fca8ae38c1ef8b2a6eb637">SceneManager::update</a>();</div>
+<div class="line"><span class="lineno">   80</span>        <a class="code hl_variable" href="class_scene_manager.html#a78015cba26ca167df7a988ff40e0be7a">SceneManager::scene</a>-&gt;<a class="code hl_function" href="class_scene.html#a823f4cd60d27932ee16f74adb0421ff6">render</a>();</div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>        al_flip_display();</div>
+<div class="line"><span class="lineno">   83</span>        ev.type = NULL;</div>
+<div class="line"><span class="lineno">   84</span>    }</div>
+<div class="line"><span class="lineno">   85</span>    this-&gt;<a class="code hl_function" href="class_engine.html#a6f00047153c2581a74c7c1912bfe5f36">close</a>();</div>
+<div class="line"><span class="lineno">   86</span>}</div>
+<div class="ttc" id="aclass_engine_html_a6f00047153c2581a74c7c1912bfe5f36"><div class="ttname"><a href="class_engine.html#a6f00047153c2581a74c7c1912bfe5f36">Engine::close</a></div><div class="ttdeci">void close()</div><div class="ttdoc">Zamyka silnik.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:88</div></div>
+<div class="ttc" id="aclass_engine_html_a8645895a8d6107ac641763e7e073508e"><div class="ttname"><a href="class_engine.html#a8645895a8d6107ac641763e7e073508e">Engine::clearScreen</a></div><div class="ttdeci">void clearScreen(ALLEGRO_COLOR color)</div><div class="ttdoc">Czysci ekran podanym kolorem.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:11</div></div>
+<div class="ttc" id="aclass_keyboard_html_adff92c0df3d8b8f41fe0f6b17fd9bca9"><div class="ttname"><a href="class_keyboard.html#adff92c0df3d8b8f41fe0f6b17fd9bca9">Keyboard::setDown</a></div><div class="ttdeci">static void setDown(int keyCode, bool down)</div><div class="ttdoc">Ustawia stan przycisku z klawiatury.</div><div class="ttdef"><b>Definition:</b> Keyboard.cpp:6</div></div>
+<div class="ttc" id="aclass_mouse_html_a136eea114b70f46392b89cc3779d4291"><div class="ttname"><a href="class_mouse.html#a136eea114b70f46392b89cc3779d4291">Mouse::x</a></div><div class="ttdeci">static int x</div><div class="ttdoc">Wspolrzedna x myszy.</div><div class="ttdef"><b>Definition:</b> Mouse.h:9</div></div>
+<div class="ttc" id="aclass_mouse_html_a4a29b1c18faaa2fbe39ff985ba9d6737"><div class="ttname"><a href="class_mouse.html#a4a29b1c18faaa2fbe39ff985ba9d6737">Mouse::y</a></div><div class="ttdeci">static int y</div><div class="ttdoc">Wspolrzedna y myszy.</div><div class="ttdef"><b>Definition:</b> Mouse.h:11</div></div>
+<div class="ttc" id="aclass_mouse_html_afb7b53cb4ce717e0fde3e94b1b3c4bba"><div class="ttname"><a href="class_mouse.html#afb7b53cb4ce717e0fde3e94b1b3c4bba">Mouse::mouseDown</a></div><div class="ttdeci">static bool mouseDown</div><div class="ttdoc">Wartosc logiczna przycisniecia przycisku myszy.</div><div class="ttdef"><b>Definition:</b> Mouse.h:13</div></div>
+<div class="ttc" id="aclass_scene_html_a823f4cd60d27932ee16f74adb0421ff6"><div class="ttname"><a href="class_scene.html#a823f4cd60d27932ee16f74adb0421ff6">Scene::render</a></div><div class="ttdeci">virtual void render()=0</div><div class="ttdoc">Renderuje scene.</div></div>
+<div class="ttc" id="aclass_scene_manager_html_a78015cba26ca167df7a988ff40e0be7a"><div class="ttname"><a href="class_scene_manager.html#a78015cba26ca167df7a988ff40e0be7a">SceneManager::scene</a></div><div class="ttdeci">static Scene * scene</div><div class="ttdoc">Wskaznik na obecna scene.</div><div class="ttdef"><b>Definition:</b> SceneManager.h:14</div></div>
+<div class="ttc" id="aclass_scene_manager_html_aa1aca67532fca8ae38c1ef8b2a6eb637"><div class="ttname"><a href="class_scene_manager.html#aa1aca67532fca8ae38c1ef8b2a6eb637">SceneManager::update</a></div><div class="ttdeci">static void update()</div><div class="ttdoc">Aktualizuje stan menadzera scen.</div><div class="ttdef"><b>Definition:</b> SceneManager.cpp:16</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_engine_8h_source.html">Engine.h</a></li>
+<li>Engine.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_engine.html">Engine</a></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

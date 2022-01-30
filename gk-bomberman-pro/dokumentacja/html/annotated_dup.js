@@ -1,0 +1,28 @@
+var annotated_dup =
+[
+    [ "ArtificalPlayer", "class_artifical_player.html", "class_artifical_player" ],
+    [ "AudioManager", "class_audio_manager.html", "class_audio_manager" ],
+    [ "Block", "class_block.html", "class_block" ],
+    [ "Bomb", "class_bomb.html", "class_bomb" ],
+    [ "Button", "class_button.html", "class_button" ],
+    [ "Color", "class_color.html", null ],
+    [ "DebugScene", "class_debug_scene.html", "class_debug_scene" ],
+    [ "Engine", "class_engine.html", "class_engine" ],
+    [ "EngineConfiguration", "class_engine_configuration.html", "class_engine_configuration" ],
+    [ "Explosion", "class_explosion.html", "class_explosion" ],
+    [ "GameScene", "class_game_scene.html", "class_game_scene" ],
+    [ "Keyboard", "class_keyboard.html", null ],
+    [ "LineSegment", "class_line_segment.html", "class_line_segment" ],
+    [ "MainMenuScene", "class_main_menu_scene.html", "class_main_menu_scene" ],
+    [ "MapGenerator", "class_map_generator.html", "class_map_generator" ],
+    [ "Mouse", "class_mouse.html", null ],
+    [ "OptionScene", "class_option_scene.html", "class_option_scene" ],
+    [ "Player", "class_player.html", "class_player" ],
+    [ "PlayerConfiguration", "class_player_configuration.html", "class_player_configuration" ],
+    [ "Point2D", "class_point2_d.html", "class_point2_d" ],
+    [ "PrimitiveAnimation", "class_primitive_animation.html", "class_primitive_animation" ],
+    [ "PrimitiveRenderer", "class_primitive_renderer.html", "class_primitive_renderer" ],
+    [ "Scene", "class_scene.html", "class_scene" ],
+    [ "SceneManager", "class_scene_manager.html", null ],
+    [ "ScoreBox", "class_score_box.html", "class_score_box" ]
+];

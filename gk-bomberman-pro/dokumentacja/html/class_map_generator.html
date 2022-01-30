@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gra Bomberman: Dokumentacja klasy MapGenerator</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="plr1face.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Gra Bomberman<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Gra 2D autorstwa Wiktor Simlat, Kacper Robak, Adrian Rubak 3ID13A</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_map_generator.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="class_map_generator-members.html">Lista wszystkich składowych</a>  </div>
+  <div class="headertitle"><div class="title">Dokumentacja klasy MapGenerator</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Klasa do generowania map w grze.  
+ <a href="class_map_generator.html#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_map_generator_8h_source.html">MapGenerator.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a20450d9ae2bac6ae24cb05dd97e7f9f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_generator.html#a20450d9ae2bac6ae24cb05dd97e7f9f4">generateMap</a> (<a class="el" href="class_block.html">Block</a> blocks[BLOCKS_WIDTH_GEN+1][BLOCKS_HEIGHT_GEN+1])</td></tr>
+<tr class="memdesc:a20450d9ae2bac6ae24cb05dd97e7f9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Losowo generuje rozmieszczenie bloczkow w poziomie.  <a href="class_map_generator.html#a20450d9ae2bac6ae24cb05dd97e7f9f4">Więcej...</a><br /></td></tr>
+<tr class="separator:a20450d9ae2bac6ae24cb05dd97e7f9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade92a8abcea101bbaf731898ac295074"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_generator.html#ade92a8abcea101bbaf731898ac295074">generateTestMap</a> (<a class="el" href="class_block.html">Block</a> blocks[BLOCKS_WIDTH_GEN+1][BLOCKS_HEIGHT_GEN+1])</td></tr>
+<tr class="memdesc:ade92a8abcea101bbaf731898ac295074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy poziom przeznaczony do debugowania.  <a href="class_map_generator.html#ade92a8abcea101bbaf731898ac295074">Więcej...</a><br /></td></tr>
+<tr class="separator:ade92a8abcea101bbaf731898ac295074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p >Klasa do generowania map w grze. </p>
+</div><h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a20450d9ae2bac6ae24cb05dd97e7f9f4" name="a20450d9ae2bac6ae24cb05dd97e7f9f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20450d9ae2bac6ae24cb05dd97e7f9f4">&#9670;&nbsp;</a></span>generateMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapGenerator::generateMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_block.html">Block</a>&#160;</td>
+          <td class="paramname"><em>blocks</em>[BLOCKS_WIDTH_GEN+1][BLOCKS_HEIGHT_GEN+1]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Losowo generuje rozmieszczenie bloczkow w poziomie. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blocks</td><td>Bloczki do generowania </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">    6</span>{</div>
+<div class="line"><span class="lineno">    7</span>    srand(time(0));</div>
+<div class="line"><span class="lineno">    8</span>    <span class="keywordtype">int</span> randNumb;</div>
+<div class="line"><span class="lineno">    9</span> </div>
+<div class="line"><span class="lineno">   10</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 12; i++)</div>
+<div class="line"><span class="lineno">   11</span>    {</div>
+<div class="line"><span class="lineno">   12</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 12; j++)</div>
+<div class="line"><span class="lineno">   13</span>        {</div>
+<div class="line"><span class="lineno">   14</span>            blocks[i][j].<a class="code hl_function" href="class_block.html#ab9ac08d83a0e4ff7acb78029df4cc9e2">setX</a>(i * <a class="code hl_variable" href="class_block.html#a48f67a6fc8a690fc731267eda7d3d851">Block::WIDTH</a>);</div>
+<div class="line"><span class="lineno">   15</span>            blocks[i][j].<a class="code hl_function" href="class_block.html#a57c1fcfd7d7cda4b9e21d69a25896c17">setY</a>(j * <a class="code hl_variable" href="class_block.html#a48f67a6fc8a690fc731267eda7d3d851">Block::WIDTH</a>);</div>
+<div class="line"><span class="lineno">   16</span>        }</div>
+<div class="line"><span class="lineno">   17</span>    }</div>
+<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> g = 0; g &lt; 2; g++)</div>
+<div class="line"><span class="lineno">   19</span>    {</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; 2; k++)</div>
+<div class="line"><span class="lineno">   21</span>        {</div>
+<div class="line"><span class="lineno">   22</span>            randNumb = rand() % 7;</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; i++)</div>
+<div class="line"><span class="lineno">   25</span>            {</div>
+<div class="line"><span class="lineno">   26</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 3; j++)</div>
+<div class="line"><span class="lineno">   27</span>                {</div>
+<div class="line"><span class="lineno">   28</span>                    blocks[g * 3+i][k * 3+j].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(block_template[randNumb][i][j]);</div>
+<div class="line"><span class="lineno">   29</span>                }</div>
+<div class="line"><span class="lineno">   30</span>            }</div>
+<div class="line"><span class="lineno">   31</span>        }</div>
+<div class="line"><span class="lineno">   32</span>    }</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; i++)</div>
+<div class="line"><span class="lineno">   35</span>    {</div>
+<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 3; j++)</div>
+<div class="line"><span class="lineno">   37</span>        {</div>
+<div class="line"><span class="lineno">   38</span>            blocks[i][j].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(block_template[0][i][j]);</div>
+<div class="line"><span class="lineno">   39</span>        }</div>
+<div class="line"><span class="lineno">   40</span>    }</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 6; i++)</div>
+<div class="line"><span class="lineno">   43</span>    {</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 6; j++)</div>
+<div class="line"><span class="lineno">   45</span>        {</div>
+<div class="line"><span class="lineno">   46</span>            blocks[i][12 - j - 1].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(blocks[i][j].getBlockType());</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>        }</div>
+<div class="line"><span class="lineno">   49</span>    }</div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 6; i++)</div>
+<div class="line"><span class="lineno">   51</span>    {</div>
+<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 12; j++)</div>
+<div class="line"><span class="lineno">   53</span>        {</div>
+<div class="line"><span class="lineno">   54</span>            blocks[12 - i - 1][j].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(blocks[i][j].getBlockType());</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>        }</div>
+<div class="line"><span class="lineno">   57</span>    }</div>
+<div class="line"><span class="lineno">   58</span>}</div>
+<div class="ttc" id="aclass_block_html_a48f67a6fc8a690fc731267eda7d3d851"><div class="ttname"><a href="class_block.html#a48f67a6fc8a690fc731267eda7d3d851">Block::WIDTH</a></div><div class="ttdeci">static const int WIDTH</div><div class="ttdoc">Szerokosc bloczka.</div><div class="ttdef"><b>Definition:</b> Block.h:20</div></div>
+<div class="ttc" id="aclass_block_html_a57c1fcfd7d7cda4b9e21d69a25896c17"><div class="ttname"><a href="class_block.html#a57c1fcfd7d7cda4b9e21d69a25896c17">Block::setY</a></div><div class="ttdeci">void setY(int y)</div><div class="ttdoc">Ustawia wartosc wspolrzednej y.</div><div class="ttdef"><b>Definition:</b> Block.cpp:9</div></div>
+<div class="ttc" id="aclass_block_html_a95a2567ce96c33e9a41c9603064756db"><div class="ttname"><a href="class_block.html#a95a2567ce96c33e9a41c9603064756db">Block::setBlockType</a></div><div class="ttdeci">void setBlockType(BLOCK_TYPE block_type)</div><div class="ttdoc">Ustawia nowy typ bloczka.</div><div class="ttdef"><b>Definition:</b> Block.cpp:32</div></div>
+<div class="ttc" id="aclass_block_html_ab9ac08d83a0e4ff7acb78029df4cc9e2"><div class="ttname"><a href="class_block.html#ab9ac08d83a0e4ff7acb78029df4cc9e2">Block::setX</a></div><div class="ttdeci">void setX(int x)</div><div class="ttdoc">Ustawia wartosc wspolrzednej x.</div><div class="ttdef"><b>Definition:</b> Block.cpp:5</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ade92a8abcea101bbaf731898ac295074" name="ade92a8abcea101bbaf731898ac295074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade92a8abcea101bbaf731898ac295074">&#9670;&nbsp;</a></span>generateTestMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapGenerator::generateTestMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_block.html">Block</a>&#160;</td>
+          <td class="paramname"><em>blocks</em>[BLOCKS_WIDTH_GEN+1][BLOCKS_HEIGHT_GEN+1]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tworzy poziom przeznaczony do debugowania. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blocks</td><td>Bloczki do generowania </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   61</span>{</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 12; i++)</div>
+<div class="line"><span class="lineno">   63</span>    {</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 12; j++)</div>
+<div class="line"><span class="lineno">   65</span>        {</div>
+<div class="line"><span class="lineno">   66</span>            blocks[i][j].<a class="code hl_function" href="class_block.html#ab9ac08d83a0e4ff7acb78029df4cc9e2">setX</a>(i * <a class="code hl_variable" href="class_block.html#a48f67a6fc8a690fc731267eda7d3d851">Block::WIDTH</a>);</div>
+<div class="line"><span class="lineno">   67</span>            blocks[i][j].<a class="code hl_function" href="class_block.html#a57c1fcfd7d7cda4b9e21d69a25896c17">setY</a>(j * <a class="code hl_variable" href="class_block.html#a48f67a6fc8a690fc731267eda7d3d851">Block::WIDTH</a>);</div>
+<div class="line"><span class="lineno">   68</span>            blocks[i][j].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(AIR);</div>
+<div class="line"><span class="lineno">   69</span>        }</div>
+<div class="line"><span class="lineno">   70</span>    }</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 12; i++)</div>
+<div class="line"><span class="lineno">   73</span>    {</div>
+<div class="line"><span class="lineno">   74</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 12; j++)</div>
+<div class="line"><span class="lineno">   75</span>        {</div>
+<div class="line"><span class="lineno">   76</span>            <span class="keywordflow">if</span> (i == 0 || i == 11 || j == 0 || j == 11)blocks[i][j].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(STONE);</div>
+<div class="line"><span class="lineno">   77</span>            <span class="keywordflow">if</span> (i == 1 || i == 10 || j == 1 || j == 10)blocks[i][j].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(WALL);</div>
+<div class="line"><span class="lineno">   78</span>        }</div>
+<div class="line"><span class="lineno">   79</span>    }</div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; i++)</div>
+<div class="line"><span class="lineno">   82</span>    {</div>
+<div class="line"><span class="lineno">   83</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 3; j++)</div>
+<div class="line"><span class="lineno">   84</span>        {</div>
+<div class="line"><span class="lineno">   85</span>            blocks[i][j].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(AIR);</div>
+<div class="line"><span class="lineno">   86</span>            blocks[11-i][11-j].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(AIR);</div>
+<div class="line"><span class="lineno">   87</span>            blocks[11 - i][j].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(AIR);</div>
+<div class="line"><span class="lineno">   88</span>            blocks[i][11 - j].<a class="code hl_function" href="class_block.html#a95a2567ce96c33e9a41c9603064756db">setBlockType</a>(AIR);</div>
+<div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   90</span>        }</div>
+<div class="line"><span class="lineno">   91</span>    }</div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_map_generator_8h_source.html">MapGenerator.h</a></li>
+<li>MapGenerator.cpp</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_map_generator.html">MapGenerator</a></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

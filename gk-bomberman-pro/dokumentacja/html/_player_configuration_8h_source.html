@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gra Bomberman: Plik źródłowy PlayerConfiguration.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="plr1face.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Gra Bomberman<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Gra 2D autorstwa Wiktor Simlat, Kacper Robak, Adrian Rubak 3ID13A</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_player_configuration_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PlayerConfiguration.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;PrimitiveAnimation.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_player_configuration.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_player_configuration.html">PlayerConfiguration</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">int</span> moveUP,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        moveDOWN,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        moveLEFT,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        moveRIGHT,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        putBomb;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_function" href="class_player_configuration.html#ad17f8d645058070954b25d0d7857a316">PlayerConfiguration</a>(<span class="keywordtype">int</span> moveUP, <span class="keywordtype">int</span> moveDOWN, <span class="keywordtype">int</span> moveLEFT, <span class="keywordtype">int</span> moveRIGHT, <span class="keywordtype">int</span> putBomb, <a class="code hl_class" href="class_primitive_animation.html">PrimitiveAnimation</a>* anim);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_player_configuration.html#afbfb7502f5b8f170df890b7e9b8fee01">   27</a></span>    <a class="code hl_class" href="class_primitive_animation.html">PrimitiveAnimation</a>* <a class="code hl_variable" href="class_player_configuration.html#afbfb7502f5b8f170df890b7e9b8fee01">animation</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player_configuration.html#a99a43ed7d23696e570bceccccb0d3f03">setMoveUP</a>(<span class="keywordtype">int</span> moveUP);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player_configuration.html#aa0a1c487b630511bb6a974dfb45648a2">setMoveDOWN</a>(<span class="keywordtype">int</span> moveDOWN);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player_configuration.html#ad4f6d65ec87d0d39f2727edc7792c3e7">setMoveLEFT</a>(<span class="keywordtype">int</span> moveLEFT);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player_configuration.html#a9219d520537891347297d9eb47a2a02d">setMoveRIGHT</a>(<span class="keywordtype">int</span> moveRIGHT);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_player_configuration.html#ada4d1ad8d1d4cd4096630cb908d1f916">setPutBomb</a>(<span class="keywordtype">int</span> putBomb);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player_configuration.html#a94bf9ac39a2c72ab29a85a9478d3bbda">getMoveUP</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player_configuration.html#aefb5e3cf14d56abdf264df20d8502354">getMoveDOWN</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player_configuration.html#a8dbf88bddd41436d11b816d6c580271d">getMoveLEFT</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player_configuration.html#afe32d7780433d8dfb6854a994d9f383f">getMoveRIGHT</a>();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_player_configuration.html#af71d5ffea0b9877b52d46851eea84d85">getPutBomb</a>();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_class" href="class_primitive_animation.html">PrimitiveAnimation</a>* <a class="code hl_function" href="class_player_configuration.html#a599f5fd9d9fb00a883b8f0e1fa42883e">getAnimation</a>();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="ttc" id="aclass_player_configuration_html"><div class="ttname"><a href="class_player_configuration.html">PlayerConfiguration</a></div><div class="ttdoc">Klasa zawierajaca konfiguracje gracza.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.h:8</div></div>
+<div class="ttc" id="aclass_player_configuration_html_a599f5fd9d9fb00a883b8f0e1fa42883e"><div class="ttname"><a href="class_player_configuration.html#a599f5fd9d9fb00a883b8f0e1fa42883e">PlayerConfiguration::getAnimation</a></div><div class="ttdeci">PrimitiveAnimation * getAnimation()</div><div class="ttdoc">Zwraca animacje gracza.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:63</div></div>
+<div class="ttc" id="aclass_player_configuration_html_a8dbf88bddd41436d11b816d6c580271d"><div class="ttname"><a href="class_player_configuration.html#a8dbf88bddd41436d11b816d6c580271d">PlayerConfiguration::getMoveLEFT</a></div><div class="ttdeci">int getMoveLEFT()</div><div class="ttdoc">Zwraca przycisk do poruszania sie w lewo.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:48</div></div>
+<div class="ttc" id="aclass_player_configuration_html_a9219d520537891347297d9eb47a2a02d"><div class="ttname"><a href="class_player_configuration.html#a9219d520537891347297d9eb47a2a02d">PlayerConfiguration::setMoveRIGHT</a></div><div class="ttdeci">void setMoveRIGHT(int moveRIGHT)</div><div class="ttdoc">Ustawia przycisk do poruszania w prawo.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:28</div></div>
+<div class="ttc" id="aclass_player_configuration_html_a94bf9ac39a2c72ab29a85a9478d3bbda"><div class="ttname"><a href="class_player_configuration.html#a94bf9ac39a2c72ab29a85a9478d3bbda">PlayerConfiguration::getMoveUP</a></div><div class="ttdeci">int getMoveUP()</div><div class="ttdoc">Zwraca przycisk do poruszania sie w gore.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:38</div></div>
+<div class="ttc" id="aclass_player_configuration_html_a99a43ed7d23696e570bceccccb0d3f03"><div class="ttname"><a href="class_player_configuration.html#a99a43ed7d23696e570bceccccb0d3f03">PlayerConfiguration::setMoveUP</a></div><div class="ttdeci">void setMoveUP(int moveUP)</div><div class="ttdoc">Ustawia przycisk do poruszania w gore.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:13</div></div>
+<div class="ttc" id="aclass_player_configuration_html_aa0a1c487b630511bb6a974dfb45648a2"><div class="ttname"><a href="class_player_configuration.html#aa0a1c487b630511bb6a974dfb45648a2">PlayerConfiguration::setMoveDOWN</a></div><div class="ttdeci">void setMoveDOWN(int moveDOWN)</div><div class="ttdoc">Ustawia przycisk do poruszania w dol.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:18</div></div>
+<div class="ttc" id="aclass_player_configuration_html_ad17f8d645058070954b25d0d7857a316"><div class="ttname"><a href="class_player_configuration.html#ad17f8d645058070954b25d0d7857a316">PlayerConfiguration::PlayerConfiguration</a></div><div class="ttdeci">PlayerConfiguration(int moveUP, int moveDOWN, int moveLEFT, int moveRIGHT, int putBomb, PrimitiveAnimation *anim)</div><div class="ttdoc">Konstruktor do konfiguracji.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:3</div></div>
+<div class="ttc" id="aclass_player_configuration_html_ad4f6d65ec87d0d39f2727edc7792c3e7"><div class="ttname"><a href="class_player_configuration.html#ad4f6d65ec87d0d39f2727edc7792c3e7">PlayerConfiguration::setMoveLEFT</a></div><div class="ttdeci">void setMoveLEFT(int moveLEFT)</div><div class="ttdoc">Ustawia przycisk do poruszania w lewo.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:23</div></div>
+<div class="ttc" id="aclass_player_configuration_html_ada4d1ad8d1d4cd4096630cb908d1f916"><div class="ttname"><a href="class_player_configuration.html#ada4d1ad8d1d4cd4096630cb908d1f916">PlayerConfiguration::setPutBomb</a></div><div class="ttdeci">void setPutBomb(int putBomb)</div><div class="ttdoc">Ustawia przycisk do stawiania bomby.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:33</div></div>
+<div class="ttc" id="aclass_player_configuration_html_aefb5e3cf14d56abdf264df20d8502354"><div class="ttname"><a href="class_player_configuration.html#aefb5e3cf14d56abdf264df20d8502354">PlayerConfiguration::getMoveDOWN</a></div><div class="ttdeci">int getMoveDOWN()</div><div class="ttdoc">Zwraca przycisk do poruszania sie w dol.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:43</div></div>
+<div class="ttc" id="aclass_player_configuration_html_af71d5ffea0b9877b52d46851eea84d85"><div class="ttname"><a href="class_player_configuration.html#af71d5ffea0b9877b52d46851eea84d85">PlayerConfiguration::getPutBomb</a></div><div class="ttdeci">int getPutBomb()</div><div class="ttdoc">Zwraca przycisk do stawiania bomby.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:58</div></div>
+<div class="ttc" id="aclass_player_configuration_html_afbfb7502f5b8f170df890b7e9b8fee01"><div class="ttname"><a href="class_player_configuration.html#afbfb7502f5b8f170df890b7e9b8fee01">PlayerConfiguration::animation</a></div><div class="ttdeci">PrimitiveAnimation * animation</div><div class="ttdoc">Animacja.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.h:27</div></div>
+<div class="ttc" id="aclass_player_configuration_html_afe32d7780433d8dfb6854a994d9f383f"><div class="ttname"><a href="class_player_configuration.html#afe32d7780433d8dfb6854a994d9f383f">PlayerConfiguration::getMoveRIGHT</a></div><div class="ttdeci">int getMoveRIGHT()</div><div class="ttdoc">Zwraca przycisk do poruszania sie w prawo.</div><div class="ttdef"><b>Definition:</b> PlayerConfiguration.cpp:53</div></div>
+<div class="ttc" id="aclass_primitive_animation_html"><div class="ttname"><a href="class_primitive_animation.html">PrimitiveAnimation</a></div><div class="ttdoc">Klasa do tworzenia animacji.</div><div class="ttdef"><b>Definition:</b> PrimitiveAnimation.h:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>PlayerConfiguration.h</b></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

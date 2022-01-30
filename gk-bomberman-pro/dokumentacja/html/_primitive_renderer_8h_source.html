@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gra Bomberman: Plik źródłowy PrimitiveRenderer.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="plr1face.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Gra Bomberman<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Gra 2D autorstwa Wiktor Simlat, Kacper Robak, Adrian Rubak 3ID13A</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_primitive_renderer_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PrimitiveRenderer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Point2D.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;LineSegment.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;allegro5/allegro.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;allegro5/allegro_primitives.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_primitive_renderer.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="class_primitive_renderer.html">PrimitiveRenderer</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_primitive_renderer.html#a89aa871711160af3a598559c6d66228c">line</a>(<a class="code hl_class" href="class_point2_d.html">Point2D</a> p0, <a class="code hl_class" href="class_point2_d.html">Point2D</a> p1, ALLEGRO_COLOR colour);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_primitive_renderer.html#a009d3b56b010d310f29e38667129e498">rectangle</a>(<a class="code hl_class" href="class_point2_d.html">Point2D</a> p0, <a class="code hl_class" href="class_point2_d.html">Point2D</a> p1, ALLEGRO_COLOR colour, <span class="keywordtype">bool</span> filled);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_primitive_renderer.html#ad8decd88fc17a8aad691d813b4bbb643">circle</a>(<a class="code hl_class" href="class_point2_d.html">Point2D</a> p,<span class="keywordtype">int</span> radius, ALLEGRO_COLOR colour, <span class="keywordtype">bool</span> filled);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_primitive_renderer.html#a50ccb25a91fbe32d627131a802435a09">triangle</a>(<a class="code hl_class" href="class_point2_d.html">Point2D</a> p1, <a class="code hl_class" href="class_point2_d.html">Point2D</a> p2, <a class="code hl_class" href="class_point2_d.html">Point2D</a> p3, ALLEGRO_COLOR colour, <span class="keywordtype">bool</span> filled);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_primitive_renderer.html#a39f7d6bd1c18bb394391b00dd5e5d9a5">singlePoint</a>(<a class="code hl_class" href="class_point2_d.html">Point2D</a> p, ALLEGRO_COLOR colour);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_primitive_renderer.html#a82ae36b95784011bb998405ea64c22fc">polygonalChain</a>(std::vector&lt;Point2D&gt; chain, ALLEGRO_COLOR colour, <span class="keywordtype">bool</span> closed);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_primitive_renderer.html#a82ae36b95784011bb998405ea64c22fc">polygonalChain</a>(std::vector&lt;LineSegment&gt; chain, ALLEGRO_COLOR colour, <span class="keywordtype">bool</span> closed);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_primitive_renderer.html#af14cdd043ae6209cc49ebf4666c81d31">circle_lab</a>(<a class="code hl_class" href="class_point2_d.html">Point2D</a> p, <span class="keywordtype">int</span> r, ALLEGRO_COLOR colour);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="ttc" id="aclass_point2_d_html"><div class="ttname"><a href="class_point2_d.html">Point2D</a></div><div class="ttdoc">Klasa opisujaca punkt w przestrzeni 2D.</div><div class="ttdef"><b>Definition:</b> Point2D.h:6</div></div>
+<div class="ttc" id="aclass_primitive_renderer_html"><div class="ttname"><a href="class_primitive_renderer.html">PrimitiveRenderer</a></div><div class="ttdoc">Klasa do rysowania prymitywow.</div><div class="ttdef"><b>Definition:</b> PrimitiveRenderer.h:12</div></div>
+<div class="ttc" id="aclass_primitive_renderer_html_a009d3b56b010d310f29e38667129e498"><div class="ttname"><a href="class_primitive_renderer.html#a009d3b56b010d310f29e38667129e498">PrimitiveRenderer::rectangle</a></div><div class="ttdeci">void rectangle(Point2D p0, Point2D p1, ALLEGRO_COLOR colour, bool filled)</div><div class="ttdoc">Rysuje prostokat.</div><div class="ttdef"><b>Definition:</b> PrimitiveRenderer.cpp:3</div></div>
+<div class="ttc" id="aclass_primitive_renderer_html_a39f7d6bd1c18bb394391b00dd5e5d9a5"><div class="ttname"><a href="class_primitive_renderer.html#a39f7d6bd1c18bb394391b00dd5e5d9a5">PrimitiveRenderer::singlePoint</a></div><div class="ttdeci">void singlePoint(Point2D p, ALLEGRO_COLOR colour)</div><div class="ttdoc">Rysuje punkt.</div><div class="ttdef"><b>Definition:</b> PrimitiveRenderer.cpp:27</div></div>
+<div class="ttc" id="aclass_primitive_renderer_html_a50ccb25a91fbe32d627131a802435a09"><div class="ttname"><a href="class_primitive_renderer.html#a50ccb25a91fbe32d627131a802435a09">PrimitiveRenderer::triangle</a></div><div class="ttdeci">void triangle(Point2D p1, Point2D p2, Point2D p3, ALLEGRO_COLOR colour, bool filled)</div><div class="ttdoc">Rysuje trojkat.</div><div class="ttdef"><b>Definition:</b> PrimitiveRenderer.cpp:19</div></div>
+<div class="ttc" id="aclass_primitive_renderer_html_a82ae36b95784011bb998405ea64c22fc"><div class="ttname"><a href="class_primitive_renderer.html#a82ae36b95784011bb998405ea64c22fc">PrimitiveRenderer::polygonalChain</a></div><div class="ttdeci">void polygonalChain(std::vector&lt; Point2D &gt; chain, ALLEGRO_COLOR colour, bool closed)</div><div class="ttdoc">Rysuje lancuch linii.</div><div class="ttdef"><b>Definition:</b> PrimitiveRenderer.cpp:32</div></div>
+<div class="ttc" id="aclass_primitive_renderer_html_a89aa871711160af3a598559c6d66228c"><div class="ttname"><a href="class_primitive_renderer.html#a89aa871711160af3a598559c6d66228c">PrimitiveRenderer::line</a></div><div class="ttdeci">void line(Point2D p0, Point2D p1, ALLEGRO_COLOR colour)</div><div class="ttdoc">Rysuje linie.</div><div class="ttdef"><b>Definition:</b> PrimitiveRenderer.cpp:72</div></div>
+<div class="ttc" id="aclass_primitive_renderer_html_ad8decd88fc17a8aad691d813b4bbb643"><div class="ttname"><a href="class_primitive_renderer.html#ad8decd88fc17a8aad691d813b4bbb643">PrimitiveRenderer::circle</a></div><div class="ttdeci">void circle(Point2D p, int radius, ALLEGRO_COLOR colour, bool filled)</div><div class="ttdoc">Rysuje kolo.</div><div class="ttdef"><b>Definition:</b> PrimitiveRenderer.cpp:11</div></div>
+<div class="ttc" id="aclass_primitive_renderer_html_af14cdd043ae6209cc49ebf4666c81d31"><div class="ttname"><a href="class_primitive_renderer.html#af14cdd043ae6209cc49ebf4666c81d31">PrimitiveRenderer::circle_lab</a></div><div class="ttdeci">void circle_lab(Point2D p, int r, ALLEGRO_COLOR colour)</div><div class="ttdoc">Rysuje okrag metoda z laboratorium.</div><div class="ttdef"><b>Definition:</b> PrimitiveRenderer.cpp:54</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>PrimitiveRenderer.h</b></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>

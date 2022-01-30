@@ -185,7 +185,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArtificalPlayer.h" />
-    <ClInclude Include="AssetManager.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="Block.h" />
     <ClInclude Include="Button.h" />

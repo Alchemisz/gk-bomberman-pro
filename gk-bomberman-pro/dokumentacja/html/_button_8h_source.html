@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gra Bomberman: Plik źródłowy Button.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="plr1face.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Gra Bomberman<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Gra 2D autorstwa Wiktor Simlat, Kacper Robak, Adrian Rubak 3ID13A</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_button_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Button.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;allegro5/allegro_primitives.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;Color.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Mouse.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_button.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_button.html">Button</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">int</span> x;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">int</span> y;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    std::string text;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    ALLEGRO_COLOR buttonColor;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    ALLEGRO_COLOR frameColor;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> FRAME_MARGIN = 10;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_button.html#a16c2de2db637fabc505fb5cb7fa3005c">   27</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_button.html#a16c2de2db637fabc505fb5cb7fa3005c">BUTTON_WIDTH</a> = 240;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_button.html#a23b66942581407b79e7747d7fad04799">   29</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_button.html#a23b66942581407b79e7747d7fad04799">BUTTON_HEIGHT</a> = 60;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_button.html#a9f2c80b737911ad8de25410fe120cbc4">   31</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_button.html#a9f2c80b737911ad8de25410fe120cbc4">hover</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_button.html#a720219954f725a02b757b06e0b7faecf">   33</a></span>    void (*<a class="code hl_variable" href="class_button.html#a720219954f725a02b757b06e0b7faecf">handler</a>)(void) = 0;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#a0380207dc9e4edcd0272207a39c7cdeb">draw</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#ad8e030c1c8846d43f3126047d4a3667f">update</a>();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_function" href="class_button.html#a6e5fe59a2412635f037cdacdec3ffbf4">Button</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#a32dd0770dfc7f03a81947e663904f9c3">registerEventListener</a>(<span class="keywordtype">void</span> (*<a class="code hl_variable" href="class_button.html#a720219954f725a02b757b06e0b7faecf">handler</a>)(<span class="keywordtype">void</span>));</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_button.html#aad8dccffb2940c1c44d2e515d124143c">setText</a>(std::string text);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::string <a class="code hl_function" href="class_button.html#afd57748d0bd0f5fa35d765052d281169">getText</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="ttc" id="aclass_button_html"><div class="ttname"><a href="class_button.html">Button</a></div><div class="ttdoc">Klasa reprezentujaca przycisk.</div><div class="ttdef"><b>Definition:</b> Button.h:11</div></div>
+<div class="ttc" id="aclass_button_html_a0380207dc9e4edcd0272207a39c7cdeb"><div class="ttname"><a href="class_button.html#a0380207dc9e4edcd0272207a39c7cdeb">Button::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdoc">Rysuje przycisk na ekranie.</div><div class="ttdef"><b>Definition:</b> Button.cpp:6</div></div>
+<div class="ttc" id="aclass_button_html_a16c2de2db637fabc505fb5cb7fa3005c"><div class="ttname"><a href="class_button.html#a16c2de2db637fabc505fb5cb7fa3005c">Button::BUTTON_WIDTH</a></div><div class="ttdeci">static const int BUTTON_WIDTH</div><div class="ttdoc">Szerokosc przycisku.</div><div class="ttdef"><b>Definition:</b> Button.h:27</div></div>
+<div class="ttc" id="aclass_button_html_a23b66942581407b79e7747d7fad04799"><div class="ttname"><a href="class_button.html#a23b66942581407b79e7747d7fad04799">Button::BUTTON_HEIGHT</a></div><div class="ttdeci">static const int BUTTON_HEIGHT</div><div class="ttdoc">Wysokosc przycisku.</div><div class="ttdef"><b>Definition:</b> Button.h:29</div></div>
+<div class="ttc" id="aclass_button_html_a32dd0770dfc7f03a81947e663904f9c3"><div class="ttname"><a href="class_button.html#a32dd0770dfc7f03a81947e663904f9c3">Button::registerEventListener</a></div><div class="ttdeci">void registerEventListener(void(*handler)(void))</div><div class="ttdoc">Ustawia metode wywolywana przez nacisniecie.</div><div class="ttdef"><b>Definition:</b> Button.cpp:57</div></div>
+<div class="ttc" id="aclass_button_html_a6e5fe59a2412635f037cdacdec3ffbf4"><div class="ttname"><a href="class_button.html#a6e5fe59a2412635f037cdacdec3ffbf4">Button::Button</a></div><div class="ttdeci">Button(int x, int y)</div><div class="ttdoc">Tworzy nowy przycisk.</div><div class="ttdef"><b>Definition:</b> Button.cpp:45</div></div>
+<div class="ttc" id="aclass_button_html_a720219954f725a02b757b06e0b7faecf"><div class="ttname"><a href="class_button.html#a720219954f725a02b757b06e0b7faecf">Button::handler</a></div><div class="ttdeci">void(* handler)(void)=0</div><div class="ttdoc">Metoda wykonywana przez nacisniecie.</div><div class="ttdef"><b>Definition:</b> Button.h:33</div></div>
+<div class="ttc" id="aclass_button_html_a9f2c80b737911ad8de25410fe120cbc4"><div class="ttname"><a href="class_button.html#a9f2c80b737911ad8de25410fe120cbc4">Button::hover</a></div><div class="ttdeci">bool hover</div><div class="ttdoc">Czy przycisk jest podswietlany przez mysz.</div><div class="ttdef"><b>Definition:</b> Button.h:31</div></div>
+<div class="ttc" id="aclass_button_html_aad8dccffb2940c1c44d2e515d124143c"><div class="ttname"><a href="class_button.html#aad8dccffb2940c1c44d2e515d124143c">Button::setText</a></div><div class="ttdeci">void setText(std::string text)</div><div class="ttdoc">Ustawia tekst wyswietlany na przycisku.</div><div class="ttdef"><b>Definition:</b> Button.cpp:52</div></div>
+<div class="ttc" id="aclass_button_html_ad8e030c1c8846d43f3126047d4a3667f"><div class="ttname"><a href="class_button.html#ad8e030c1c8846d43f3126047d4a3667f">Button::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Aktualizuje stan przycisku.</div><div class="ttdef"><b>Definition:</b> Button.cpp:33</div></div>
+<div class="ttc" id="aclass_button_html_afd57748d0bd0f5fa35d765052d281169"><div class="ttname"><a href="class_button.html#afd57748d0bd0f5fa35d765052d281169">Button::getText</a></div><div class="ttdeci">std::string getText()</div><div class="ttdoc">Zwraca obecny tekst przycisku.</div><div class="ttdef"><b>Definition:</b> Button.cpp:62</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Button.h</b></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+  </ul>
+</div>
+</body>
+</html>
